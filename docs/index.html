@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Options Trading Agent — Performance Dashboard</title>
+<meta name="description" content="An autonomous Claude-driven options trading agent's own trade data: diagnose, change, monitor.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="page">
+
+  <header class="site-header">
+    <h1>AI Options Trading Agent</h1>
+    <p class="tagline">
+      Every trade an autonomous Claude-driven agent has placed against a live
+      paper account — including the reasoning behind each entry and exit, and
+      how performance responded to changes made to the system while it ran.
+    </p>
+    <div class="badge-row">
+      <span class="badge info">Paper trading — $5,000 simulated capital</span>
+      <span class="badge warn">Not investment advice</span>
+      <span class="badge">Data as of <span id="last-updated">—</span></span>
+      <span class="badge">Refreshed manually, not real-time</span>
+    </div>
+  </header>
+
+  <main id="app">
+
+    <section class="section" id="overview">
+      <div class="section-heading">
+        <span class="section-index">01</span>
+        <h2>Overview</h2>
+      </div>
+      <p class="section-sub">Headline numbers and the equity curve across every closed trade, in exit order.</p>
+
+      <div class="kpi-grid" id="kpi-grid"></div>
+
+      <div class="chart-card" id="equity-card">
+        <h3>Equity curve</h3>
+        <p class="chart-caption">Simulated capital after each closed trade, starting from $5,000.</p>
+        <div class="chart-viewport" id="equity-viewport"></div>
+      </div>
+    </section>
+
+    <section class="section" id="exits">
+      <div class="section-heading">
+        <span class="section-index">02</span>
+        <h2>Loss &amp; exit breakdown</h2>
+      </div>
+      <p class="section-sub">
+        P&amp;L and trade count by how the position was closed. Hard stops have been the
+        single biggest loss category — the finding that drove the DTE-based stop
+        tightening below.
+      </p>
+      <div class="chart-card" id="exit-card">
+        <button class="table-toggle" data-target="exit-table-wrap">View as table</button>
+        <h3>P&amp;L by exit category</h3>
+        <p class="chart-caption">Sum of realized P&amp;L, grouped by exit reason.</p>
+        <div class="chart-viewport" id="exit-viewport"></div>
+        <div class="data-table-wrap" id="exit-table-wrap"></div>
+      </div>
+    </section>
+
+    <section class="section" id="dte">
+      <div class="section-heading">
+        <span class="section-index">03</span>
+        <h2>Performance by days-to-expiration</h2>
+      </div>
+      <p class="section-sub">
+        Win rate and average P&amp;L bucketed by DTE at entry. Shorter-dated positions
+        carry more theta/gamma risk — this is where that shows up in the data.
+      </p>
+      <div class="chart-card" id="dte-card">
+        <button class="table-toggle" data-target="dte-table-wrap">View as table</button>
+        <h3>Avg P&amp;L &amp; win rate by DTE bucket</h3>
+        <p class="chart-caption">Ordered 0–3 / 4–7 / 8–14 / 15+ days, not alphabetically.</p>
+        <div class="chart-viewport" id="dte-viewport"></div>
+        <div class="data-table-wrap" id="dte-table-wrap"></div>
+      </div>
+    </section>
+
+    <section class="section" id="scanner">
+      <div class="section-heading">
+        <span class="section-index">04</span>
+        <h2>Scanner case study</h2>
+      </div>
+      <p class="section-sub">
+        Daily P&amp;L across the scanner's <code>min_strength</code> threshold change: lowered
+        4&rarr;3 on 2026-07-20 to unlock weaker-but-real signal types, then reverted
+        3&rarr;4 on 2026-07-24 after a losing Friday. A real diagnose &rarr; change &rarr;
+        monitor &rarr; revert loop, not a clean win.
+      </p>
+      <div class="chart-card" id="scanner-card">
+        <button class="table-toggle" data-target="scanner-table-wrap">View as table</button>
+        <h3>Daily P&amp;L, with both threshold changes marked</h3>
+        <p class="chart-caption">Bars are daily total P&amp;L; dashed lines mark the two scanner changes.</p>
+        <div class="chart-viewport" id="scanner-viewport"></div>
+        <div class="data-table-wrap" id="scanner-table-wrap"></div>
+      </div>
+    </section>
+
+    <section class="section" id="tradelog">
+      <div class="section-heading">
+        <span class="section-index">05</span>
+        <h2>Trade log &amp; reasoning explorer</h2>
+      </div>
+      <p class="section-sub">
+        Every trade, with the agent's own entry/exit reasoning. Search by ticker or
+        reasoning text; click a row to expand its full reasoning.
+      </p>
+
+      <div class="filter-row">
+        <input type="search" id="trade-search" placeholder="Search ticker or reasoning…" aria-label="Search trades">
+        <select id="trade-category-filter" aria-label="Filter by exit category">
+          <option value="">All exit categories</option>
+        </select>
+        <select id="trade-sort" aria-label="Sort trades">
+          <option value="entry_time_desc">Newest first</option>
+          <option value="entry_time_asc">Oldest first</option>
+          <option value="pnl_desc">Highest P&amp;L</option>
+          <option value="pnl_asc">Lowest P&amp;L</option>
+        </select>
+        <span class="filter-count" id="trade-filter-count"></span>
+      </div>
+
+      <div class="chart-card" id="tradelog-card">
+        <div id="tradelog-table-wrap"></div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>
+      Data source: <a href="https://github.com/" target="_blank" rel="noopener">trading-agent</a> —
+      a Claude-powered agent that scans technical setups, places paper options trades,
+      and journals every decision with its reasoning to a SQLite database. This page is a
+      static export refreshed manually; see the repo README for the pipeline.
+      All figures are <strong>paper trading</strong> — simulated capital, not a real account.
+    </p>
+  </footer>
+
+</div>
+
+<div class="viz-tooltip" id="tooltip" role="status" aria-live="polite"></div>
+
+<script src="app.js"></script>
+</body>
+</html>
