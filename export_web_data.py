@@ -15,7 +15,7 @@ SOURCE_DB = r"C:\Users\Owner\Desktop\trading-agent\trades.db"
 OUT_PATH = r"C:\Users\Owner\Desktop\trading_agent_dashboard\docs\data.json"
 STARTING_CAPITAL = 5000.0
 
-DTE_ORDER = ["0-3 DTE", "4-7 DTE", "8-14 DTE", "15+ DTE", "Unknown"]
+DTE_ORDER = ["0-3 DTE", "4-7 DTE", "8-14 DTE", "15+ DTE", "Equity", "Unknown"]
 EXIT_CATEGORY_ORDER = [
     "Take Profit", "Hard Stop", "Striker Stop", "ATR Stop", "EOD Close",
     "Contra-Signal", "Theta Risk", "Preemptive Exit", "Liquidation", "Other", "Open",
@@ -23,7 +23,7 @@ EXIT_CATEGORY_ORDER = [
 
 
 def categorize_exit(reason: str) -> str:
-    if not reason:
+    if pd.isna(reason) or not reason:
         return "open"
     r = reason.lower()
     if r == "hard_stop" or "hard exit" in r or ("hard stop" in r and "near" not in r and "approaching" not in r):
@@ -47,9 +47,9 @@ def categorize_exit(reason: str) -> str:
     return "Other"
 
 
-def dte_bucket(dte) -> str:
+def dte_bucket(dte, trade_type=None) -> str:
     if pd.isna(dte):
-        return "Unknown"
+        return "Equity" if trade_type == "equity" else "Unknown"
     dte = float(dte)
     if dte <= 3:
         return "0-3 DTE"
@@ -90,7 +90,7 @@ def main():
     df["exit_category"] = df["exit_reason"].apply(categorize_exit)
     df.loc[~df["is_closed"], "exit_category"] = "Open"
 
-    df["dte_bucket"] = df["dte_at_entry"].apply(dte_bucket)
+    df["dte_bucket"] = df.apply(lambda row: dte_bucket(row["dte_at_entry"], row["trade_type"]), axis=1)
 
     df["hold_type"] = None
     closed = df["is_closed"]

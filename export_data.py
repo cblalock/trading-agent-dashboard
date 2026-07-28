@@ -12,7 +12,7 @@ STARTING_CAPITAL = 5000.0
 
 
 def categorize_exit(reason: str) -> str:
-    if not reason:
+    if pd.isna(reason) or not reason:
         return "open"
     r = reason.lower()
     if r == "hard_stop" or "hard exit" in r or ("hard stop" in r and "near" not in r and "approaching" not in r):
@@ -36,9 +36,9 @@ def categorize_exit(reason: str) -> str:
     return "Other"
 
 
-def dte_bucket(dte) -> str:
+def dte_bucket(dte, trade_type=None) -> str:
     if pd.isna(dte):
-        return "Unknown"
+        return "Equity" if trade_type == "equity" else "Unknown"
     dte = float(dte)
     if dte <= 3:
         return "0-3 DTE"
@@ -64,7 +64,7 @@ def main():
     df["exit_category"] = df["exit_reason"].apply(categorize_exit)
     df.loc[~df["is_closed"], "exit_category"] = "Open"
 
-    df["dte_bucket"] = df["dte_at_entry"].apply(dte_bucket)
+    df["dte_bucket"] = df.apply(lambda row: dte_bucket(row["dte_at_entry"], row["trade_type"]), axis=1)
 
     df["hold_type"] = pd.NA
     closed = df["is_closed"]

@@ -715,7 +715,7 @@ function drawTradeTable() {
 
 // ---------- init ----------
 
-fetch("data.json")
+fetch(`data.json?v=${Date.now()}`)
   .then((r) => r.json())
   .then((data) => {
     document.getElementById("last-updated").textContent = fmtDate(data.generated_at);
