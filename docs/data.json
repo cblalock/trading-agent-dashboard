@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-29T00:48:51.341711+00:00",
+  "generated_at": "2026-07-29T01:06:20.018468+00:00",
   "kpis": {
     "total_pnl": -1164.2650000000003,
     "win_rate": 0.42168674698795183,
@@ -678,9 +678,9 @@
   "exit_breakdown": [
     {
       "exit_category": "Take Profit",
-      "total_pnl": 6118.0,
-      "avg_pnl": 218.5,
-      "count": 28
+      "total_pnl": 6361.0,
+      "avg_pnl": 219.3448275862,
+      "count": 29
     },
     {
       "exit_category": "Hard Stop",
@@ -729,12 +729,6 @@
       "total_pnl": -17.765,
       "avg_pnl": -3.553,
       "count": 5
-    },
-    {
-      "exit_category": "Other",
-      "total_pnl": 243.0,
-      "avg_pnl": 243.0,
-      "count": 1
     }
   ],
   "dte_breakdown": [
@@ -1098,7 +1092,7 @@
       "pnl": 243.0,
       "win": true,
       "status": "closed",
-      "exit_category": "Other",
+      "exit_category": "Take Profit",
       "dte_at_entry": 4.0,
       "dte_bucket": "4-7 DTE",
       "hold_type": "Overnight",
