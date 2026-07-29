@@ -39,8 +39,20 @@ const EXIT_CATEGORY_COLOR = {
 const fmtCurrency0 = new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 });
 const fmtCurrency2 = new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 2 });
 const fmtPercent1 = new Intl.NumberFormat("en-US", { style: "percent", maximumFractionDigits: 1 });
-const fmtDate = (iso) => iso ? new Date(iso).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" }) : "—";
-const fmtDateShort = (iso) => iso ? new Date(iso).toLocaleDateString("en-US", { month: "short", day: "numeric" }) : "—";
+// Bare "YYYY-MM-DD" strings parse as UTC midnight in JS, which shifts a day
+// backward in any timezone west of UTC once toLocaleDateString renders it
+// locally. Full timestamps (with "T") don't have this problem. Parse
+// bare dates from local components to sidestep the UTC round-trip.
+function parseDateLocal(iso) {
+  const bareDateMatch = /^(\d{4})-(\d{2})-(\d{2})$/.exec(iso);
+  if (bareDateMatch) {
+    const [, y, m, d] = bareDateMatch;
+    return new Date(Number(y), Number(m) - 1, Number(d));
+  }
+  return new Date(iso);
+}
+const fmtDate = (iso) => iso ? parseDateLocal(iso).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" }) : "—";
+const fmtDateShort = (iso) => iso ? parseDateLocal(iso).toLocaleDateString("en-US", { month: "short", day: "numeric" }) : "—";
 
 function signClass(n) {
   return n > 0 ? "positive" : n < 0 ? "negative" : "";
