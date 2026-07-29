@@ -32,7 +32,7 @@ def categorize_exit(reason: str) -> str:
         return "Striker Stop"
     if "atr stop" in r:
         return "ATR Stop"
-    if r in ("hard_take_profit", "striker_take_profit") or "tp1" in r or "take profit" in r or "trim" in r or "lock" in r:
+    if r in ("hard_take_profit", "striker_take_profit") or r.startswith("tp") or "take profit" in r or "trim" in r or "lock" in r:
         return "Take Profit"
     if "eod" in r or "end of day" in r:
         return "EOD Close"
