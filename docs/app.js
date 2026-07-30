@@ -66,6 +66,15 @@ function svgEl(tag, attrs) {
   return el;
 }
 
+// Matches .category-label in style.css (12px, --font-sans) so bucket-label
+// columns size themselves to whatever text they actually contain, rather
+// than a fixed guess that only happens to fit short labels like "0-3 DTE".
+const _measureCanvas = document.createElement("canvas").getContext("2d");
+_measureCanvas.font = '12px system-ui, -apple-system, "Segoe UI", sans-serif';
+function measureTextWidth(text) {
+  return _measureCanvas.measureText(text).width;
+}
+
 function niceTicks(min, max, count) {
   if (min === max) { min -= 1; max += 1; }
   const span = max - min;
@@ -423,7 +432,8 @@ function buildBucketSubchart(rows, labelField, field, title, formatter, isSequen
 
   const W = 480;
   const rowH = 40;
-  const pad = { top: 6, right: 70, bottom: 6, left: 90 };
+  const longestLabel = Math.max(...rows.map((r) => measureTextWidth(String(r[labelField]))));
+  const pad = { top: 6, right: 70, bottom: 6, left: Math.max(90, longestLabel + 24) };
   const innerW = W - pad.left - pad.right;
   const H = pad.top + pad.bottom + rows.length * rowH;
 
