@@ -431,7 +431,11 @@ function buildBucketSubchart(rows, labelField, field, title, formatter, isSequen
   const maxAbs = fixedMax != null ? fixedMax : Math.max(...values.map(Math.abs), 1);
   const zeroBased = isSequential;
   const xZero = zeroBased ? pad.left : pad.left + innerW / 2;
-  const scale = zeroBased ? innerW / maxAbs : (innerW / 2) / maxAbs;
+  // Reserve room so the largest-magnitude bar's value label never reaches the
+  // row-label zone at pad.left (was colliding with the category label whenever
+  // a diverging chart's max value was large enough to fill the full half-width).
+  const valueLabelBuffer = 46;
+  const scale = zeroBased ? innerW / maxAbs : (innerW / 2 - valueLabelBuffer) / maxAbs;
 
   const svg = svgEl("svg", { viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": title + " by " + labelField });
   svg.appendChild(svgEl("line", { class: "axis-baseline", x1: xZero, x2: xZero, y1: pad.top, y2: H - pad.bottom }));
