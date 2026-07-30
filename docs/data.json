@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-07-29T01:06:20.018468+00:00",
+  "generated_at": "2026-07-30T01:05:35.972762+00:00",
   "kpis": {
-    "total_pnl": -1164.2650000000003,
-    "win_rate": 0.42168674698795183,
-    "total_trades": 83,
-    "current_capital": 3835.7349999999997,
+    "total_pnl": -1233.2650000000003,
+    "win_rate": 0.42045454545454547,
+    "total_trades": 88,
+    "current_capital": 3766.7349999999997,
     "starting_capital": 5000.0,
-    "wins": 35,
-    "losses": 48
+    "wins": 37,
+    "losses": 51
   },
   "equity_curve": [
     {
@@ -673,20 +673,60 @@
       "pnl": -126.5,
       "cumulative_pnl": -1164.265,
       "capital_after": 3835.735
+    },
+    {
+      "trade_number": 84,
+      "exit_time": "2026-07-29T13:32:01.705",
+      "ticker": "JPM",
+      "pnl": -44.0,
+      "cumulative_pnl": -1208.265,
+      "capital_after": 3791.735
+    },
+    {
+      "trade_number": 85,
+      "exit_time": "2026-07-29T14:22:39.536",
+      "ticker": "AAPL",
+      "pnl": 33.5,
+      "cumulative_pnl": -1174.765,
+      "capital_after": 3825.235
+    },
+    {
+      "trade_number": 86,
+      "exit_time": "2026-07-29T15:43:31.484",
+      "ticker": "NVDA",
+      "pnl": 75.5,
+      "cumulative_pnl": -1099.265,
+      "capital_after": 3900.735
+    },
+    {
+      "trade_number": 87,
+      "exit_time": "2026-07-29T18:41:44.562",
+      "ticker": "TSLA",
+      "pnl": -103.0,
+      "cumulative_pnl": -1202.265,
+      "capital_after": 3797.735
+    },
+    {
+      "trade_number": 88,
+      "exit_time": "2026-07-29T19:49:07.748",
+      "ticker": "XOM",
+      "pnl": -31.0,
+      "cumulative_pnl": -1233.265,
+      "capital_after": 3766.735
     }
   ],
   "exit_breakdown": [
     {
       "exit_category": "Take Profit",
-      "total_pnl": 6361.0,
-      "avg_pnl": 219.3448275862,
-      "count": 29
+      "total_pnl": 6436.5,
+      "avg_pnl": 214.55,
+      "count": 30
     },
     {
       "exit_category": "Hard Stop",
-      "total_pnl": -3849.0,
-      "avg_pnl": -240.5625,
-      "count": 16
+      "total_pnl": -3952.0,
+      "avg_pnl": -232.4705882353,
+      "count": 17
     },
     {
       "exit_category": "Striker Stop",
@@ -702,15 +742,15 @@
     },
     {
       "exit_category": "EOD Close",
-      "total_pnl": 103.5,
-      "avg_pnl": 25.875,
-      "count": 4
+      "total_pnl": 72.5,
+      "avg_pnl": 14.5,
+      "count": 5
     },
     {
       "exit_category": "Contra-Signal",
-      "total_pnl": -293.0,
-      "avg_pnl": -58.6,
-      "count": 5
+      "total_pnl": -259.5,
+      "avg_pnl": -43.25,
+      "count": 6
     },
     {
       "exit_category": "Theta Risk",
@@ -720,9 +760,9 @@
     },
     {
       "exit_category": "Preemptive Exit",
-      "total_pnl": -138.5,
-      "avg_pnl": -138.5,
-      "count": 1
+      "total_pnl": -182.5,
+      "avg_pnl": -91.25,
+      "count": 2
     },
     {
       "exit_category": "Liquidation",
@@ -734,24 +774,24 @@
   "dte_breakdown": [
     {
       "dte_bucket": "0-3 DTE",
-      "count": 47,
-      "avg_pnl": -22.8723404255,
-      "total_pnl": -1075.0,
-      "win_rate": 0.4468085106
+      "count": 48,
+      "avg_pnl": -24.5416666667,
+      "total_pnl": -1178.0,
+      "win_rate": 0.4375
     },
     {
       "dte_bucket": "4-7 DTE",
-      "count": 25,
-      "avg_pnl": -9.5,
-      "total_pnl": -237.5,
-      "win_rate": 0.36
+      "count": 27,
+      "avg_pnl": -4.7592592593,
+      "total_pnl": -128.5,
+      "win_rate": 0.4074074074
     },
     {
       "dte_bucket": "8-14 DTE",
-      "count": 6,
-      "avg_pnl": 27.6666666667,
-      "total_pnl": 166.0,
-      "win_rate": 0.3333333333
+      "count": 8,
+      "avg_pnl": 11.375,
+      "total_pnl": 91.0,
+      "win_rate": 0.25
     },
     {
       "dte_bucket": "Equity",
@@ -897,10 +937,17 @@
     },
     {
       "entry_date": "2026-07-28",
-      "count": 2,
-      "total_pnl": -229.5,
-      "avg_pnl": -114.75,
-      "win_rate": 0.0
+      "count": 4,
+      "total_pnl": -240.0,
+      "avg_pnl": -60.0,
+      "win_rate": 0.25
+    },
+    {
+      "entry_date": "2026-07-29",
+      "count": 3,
+      "total_pnl": -58.5,
+      "avg_pnl": -19.5,
+      "win_rate": 0.3333333333
     }
   ],
   "scanner_events": [
@@ -915,6 +962,87 @@
   ],
   "trades": [
     {
+      "id": 88,
+      "ticker": "TSLA",
+      "side": "put",
+      "trade_type": "option",
+      "option_type": "put",
+      "strike_price": 295.0,
+      "expiration_date": "2026-07-31",
+      "entry_time": "2026-07-29T16:00:23.164",
+      "exit_time": "2026-07-29T18:41:44.562",
+      "entry_price": 2.7,
+      "exit_price": 1.67,
+      "qty": 1.0,
+      "pnl": -103.0,
+      "win": false,
+      "status": "closed",
+      "exit_category": "Hard Stop",
+      "dte_at_entry": 2.0,
+      "dte_bucket": "0-3 DTE",
+      "hold_type": "Same Day",
+      "signal_strength": 4,
+      "signal_timeframe": "15-Minute (Day Trade)",
+      "indicators_triggered_readable": "15m: Full Bear EMA Stack \u274c; 1h: Full Bear EMA Stack \u274c; 1d: Full Bear EMA Stack \u274c; 15m: Support Breakdown \u2193 (confirmation); 1h: ADX Strong Bear Trend (55.4) (confirmation); 4h: ADX Strong Bear Trend (41.5) (confirmation)",
+      "entry_reason": "TSLA triple-TF Full Bear EMA Stack (15m + 1h + 1d, str 4) \u2014 cleanest bearish setup this cycle. Zero contradictions, zero opposing confirmations. Three strong aligned bearish confirmations: 15m Support Breakdown, 1h ADX Strong Bear Trend (55.4), 4h ADX Strong Bear Trend (41.5). TSLA at $301, TP1 $293.71 (1h target), TP2 $258 (1d). $295 strike (2% OTM) justified by triple-TF strength and strong momentum. Concentration guard: only 2nd bearish entry in 1.5h window (NVDA put = 1st, this = 2nd).",
+      "exit_reason": "hard_stop",
+      "claude_reasoning": "Automatic safety-net close (-38% [short-DTE tightened stop] on premium: entry $2.70 -> current $1.67). Triggered outside the Claude budget/decision loop."
+    },
+    {
+      "id": 87,
+      "ticker": "NVDA",
+      "side": "put",
+      "trade_type": "option",
+      "option_type": "put",
+      "strike_price": 192.5,
+      "expiration_date": "2026-08-03",
+      "entry_time": "2026-07-29T14:06:02.855",
+      "exit_time": "2026-07-29T15:43:31.484",
+      "entry_price": 3.495,
+      "exit_price": 4.25,
+      "qty": 1.0,
+      "pnl": 75.5,
+      "win": true,
+      "status": "closed",
+      "exit_category": "Take Profit",
+      "dte_at_entry": 5.0,
+      "dte_bucket": "4-7 DTE",
+      "hold_type": "Same Day",
+      "signal_strength": 4,
+      "signal_timeframe": "15-Minute (Day Trade)",
+      "indicators_triggered_readable": "15m: Full Bear EMA Stack \u274c; 1h: Full Bear EMA Stack \u274c; 1d: Full Bear EMA Stack \u274c; 1h: ADX Strong Bear Trend (36.8) (confirmation); 1d: EMA 200 Rejection \u2193 (confirmation)",
+      "entry_reason": "NVDA triple-TF Full Bear EMA Stack (15m + 1h + 1d, str 4) \u2014 cleanest bearish setup this cycle. Zero contradictions. Confirmations: 1h ADX Strong Bear Trend (36.8) + 1d EMA 200 Rejection, both aligned bearish. NVDA at $193.55, below EMA200. 1h TP1 $188.67, 1d TP1 $174.99. ATM $192.5 put, 5 DTE. Hard stop \u2264$1.75.",
+      "exit_reason": "TP1 hit \u2014 underlying at scanner target",
+      "claude_reasoning": "NVDA has moved from $193.55 to $191.87, essentially reaching the 1h scanner TP1 of $191.33. Current premium $4.225 vs entry $3.495 = +$73 gain (+20.9%). The 15m RSI Bullish Divergence (contradicting confirmation) signals potential near-term bounce risk. Taking full profit at scanner target \u2014 the move is done at this timeframe, and the divergence flag argues against holding for further downside."
+    },
+    {
+      "id": 86,
+      "ticker": "XOM",
+      "side": "call",
+      "trade_type": "option",
+      "option_type": "call",
+      "strike_price": 157.5,
+      "expiration_date": "2026-08-07",
+      "entry_time": "2026-07-29T13:49:26.094",
+      "exit_time": "2026-07-29T19:49:07.748",
+      "entry_price": 3.705,
+      "exit_price": 3.395,
+      "qty": 1.0,
+      "pnl": -31.0,
+      "win": false,
+      "status": "closed",
+      "exit_category": "EOD Close",
+      "dte_at_entry": 9.0,
+      "dte_bucket": "8-14 DTE",
+      "hold_type": "Same Day",
+      "signal_strength": 4,
+      "signal_timeframe": "Daily (Swing/Position)",
+      "indicators_triggered_readable": "1d: Full Bull EMA Stack \u2705; 1h: RSI Bullish Divergence \u2705 (confirmation); 4h: Bull EMA Stack (9>21>50) (confirmation); 4h: ADX Strong Bull Trend (36.0) (confirmation)",
+      "entry_reason": "XOM 1d Full Bull EMA Stack (str 4) \u2014 clean setup, zero contradictions. Confirmations: 1h RSI Bullish Divergence (aligned bullish), 4h Bull EMA Stack + 4h ADX Strong Bull Trend (36.0) all aligned bullish. XOM at $157.89, 1d TP1 $166.41, TP2 $171.63. ATM $157.5 call, 9 DTE. Non-watchlist energy name diversifies away from mega-cap tech concentration.",
+      "exit_reason": "Contra-signal exit + EOD risk management",
+      "claude_reasoning": "XOM call is -21% and showing clear contra-signals: RSI Bearish Divergence on 1h and 1d timeframes, plus RSI Overbought Rejection on 4h \u2014 all opposing the bullish thesis. Per rules, a strength \u22653 opposing signal triggers an immediate close. Additionally, this is end-of-day and XOM dropped below the entry price, with bearish divergence on multiple timeframes suggesting the bullish momentum has stalled. Not at the hard stop yet, but the contra-signals are a hard close trigger. Better to preserve ~$320 than risk hitting the hard stop overnight or tomorrow."
+    },
+    {
       "id": 85,
       "ticker": "AAPL",
       "side": "call",
@@ -923,23 +1051,23 @@
       "strike_price": 347.5,
       "expiration_date": "2026-08-03",
       "entry_time": "2026-07-28T16:31:25.703",
-      "exit_time": null,
+      "exit_time": "2026-07-29T14:22:39.536",
       "entry_price": 3.7,
-      "exit_price": null,
+      "exit_price": 4.035,
       "qty": 1.0,
-      "pnl": null,
-      "win": null,
-      "status": "open",
-      "exit_category": "Open",
+      "pnl": 33.5,
+      "win": true,
+      "status": "closed",
+      "exit_category": "Contra-Signal",
       "dte_at_entry": 6.0,
       "dte_bucket": "4-7 DTE",
-      "hold_type": null,
+      "hold_type": "Overnight",
       "signal_strength": 4,
       "signal_timeframe": "15-Minute (Day Trade)",
       "indicators_triggered_readable": "15m: Full Bull EMA Stack \u2705; 1h: Full Bull EMA Stack \u2705; 1d: Full Bull EMA Stack \u2705; 1h: ADX Strong Bull Trend (41.9) (confirmation); 4h: Bull EMA Stack (9>21>50) (confirmation)",
       "entry_reason": "AAPL triple-TF Full Bull EMA Stack (15m + 1h + 1d, str 4) \u2014 cleanest setup this cycle. Zero contradictions, zero opposing confirmations. 1h ADX 41.9 Strong Bull Trend + 4h Bull EMA Stack aligned. 1d target $359.90 well above $347.50 strike. OTM call at 6 DTE for leverage on confirmed swing move.",
-      "exit_reason": null,
-      "claude_reasoning": null
+      "exit_reason": "Contra-signals present \u2014 RSI Bearish Divergence on 15m and 1h + RSI Overbought Rejection on 1h, all opposing the bullish thesis",
+      "claude_reasoning": "AAPL call entered on triple-TF bull EMA stack. Current cycle shows contradicts_confirmation: true \u2014 specifically 15m RSI Bearish Divergence, 1h RSI Overbought Rejection, and 1h RSI Bearish Divergence all pointing bearish against the bullish call. Per exit rules, a strength \u22653 signal in opposite direction means close immediately. Position is marginally profitable (+2.6%, +$10) \u2014 better to take the small gain than risk a reversal back against us with multiple contra-signals now active."
     },
     {
       "id": 84,
@@ -950,23 +1078,23 @@
       "strike_price": 360.0,
       "expiration_date": "2026-08-07",
       "entry_time": "2026-07-28T16:09:41.527",
-      "exit_time": null,
+      "exit_time": "2026-07-29T13:32:01.705",
       "entry_price": 3.63,
-      "exit_price": null,
+      "exit_price": 3.19,
       "qty": 1.0,
-      "pnl": null,
-      "win": null,
-      "status": "open",
-      "exit_category": "Open",
+      "pnl": -44.0,
+      "win": false,
+      "status": "closed",
+      "exit_category": "Preemptive Exit",
       "dte_at_entry": 10.0,
       "dte_bucket": "8-14 DTE",
-      "hold_type": null,
+      "hold_type": "Overnight",
       "signal_strength": 4,
       "signal_timeframe": "1-Hour (Swing)",
       "indicators_triggered_readable": "1h: Full Bull EMA Stack \u2705; 1d: Full Bull EMA Stack \u2705; 15m: Bull EMA Stack (9>21>50) (confirmation); 4h: Bull EMA Stack (9>21>50) (confirmation)",
       "entry_reason": "JPM dual-TF Full Bull EMA Stack (1h + 1d, str 4) \u2014 zero contradictions, zero opposing confirmations. 15m + 4h Bull EMA Stack aligned. Non-correlated financials name outside the mega-cap tech bloc. 1d target $372.95 (+5%), OTM $360C at 10 DTE gives delta leverage on the move.",
-      "exit_reason": null,
-      "claude_reasoning": null
+      "exit_reason": "Near hard stop, contradicting signals, illiquid spread",
+      "claude_reasoning": "JPM position is showing -43.7% unrealized P&L, approaching the -50% hard stop. The bid/ask spread is 69.6% (extremely illiquid at $2.09/$4.32 mid $3.205), making this hard to manage. This cycle's JPM signals all carry contradicts_confirmation=true (4h and 1d RSI Overbought Rejection opposing the bullish signal). With JPM at $356.75 still well below the $360 strike, and the contradicting signals suggesting momentum may be fading, closing now to avoid hitting the hard stop in an illiquid market."
     },
     {
       "id": 83,
