@@ -80,9 +80,27 @@
       </div>
     </section>
 
-    <section class="section" id="scanner">
+    <section class="section" id="tod">
       <div class="section-heading">
         <span class="section-index">04</span>
+        <h2>Performance by entry time of day</h2>
+      </div>
+      <p class="section-sub">
+        Win rate and average P&amp;L bucketed by when in the session the trade was entered (ET).
+        The opening-bell window has consistently been the weakest.
+      </p>
+      <div class="chart-card" id="tod-card">
+        <button class="table-toggle" data-target="tod-table-wrap">View as table</button>
+        <h3>Avg P&amp;L &amp; win rate by entry time bucket</h3>
+        <p class="chart-caption">Ordered by session time, not alphabetically.</p>
+        <div class="chart-viewport" id="tod-viewport"></div>
+        <div class="data-table-wrap" id="tod-table-wrap"></div>
+      </div>
+    </section>
+
+    <section class="section" id="scanner">
+      <div class="section-heading">
+        <span class="section-index">05</span>
         <h2>Scanner case study</h2>
       </div>
       <p class="section-sub">
@@ -102,7 +120,7 @@
 
     <section class="section" id="tradelog">
       <div class="section-heading">
-        <span class="section-index">05</span>
+        <span class="section-index">06</span>
         <h2>Trade log &amp; reasoning explorer</h2>
       </div>
       <p class="section-sub">

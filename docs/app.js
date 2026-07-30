@@ -384,15 +384,36 @@ function renderDteBreakdown(rows) {
   const wrap = document.createElement("div");
   wrap.className = "dte-grid";
 
-  wrap.appendChild(buildDteSubchart(rows, "win_rate", "Win rate", (v) => fmtPercent1.format(v), true, 1));
-  wrap.appendChild(buildDteSubchart(rows, "avg_pnl", "Avg P&L", (v) => fmtCurrency0.format(v), false));
+  wrap.appendChild(buildBucketSubchart(rows, "dte_bucket", "win_rate", "Win rate", (v) => fmtPercent1.format(v), true, 1));
+  wrap.appendChild(buildBucketSubchart(rows, "dte_bucket", "avg_pnl", "Avg P&L", (v) => fmtCurrency0.format(v), false));
 
   viewport.appendChild(wrap);
   renderSimpleTable("dte-table-wrap", ["DTE bucket", "Trades", "Win rate", "Avg P&L", "Total P&L"],
     rows.map((r) => [r.dte_bucket, r.count, r.win_rate != null ? fmtPercent1.format(r.win_rate) : "—", fmtCurrency2.format(r.avg_pnl), fmtCurrency2.format(r.total_pnl)]));
 }
 
-function buildDteSubchart(rows, field, title, formatter, isSequential, fixedMax) {
+// ---------- Entry time-of-day performance (two small multiples) ----------
+
+function renderTodBreakdown(rows) {
+  const viewport = document.getElementById("tod-viewport");
+  viewport.innerHTML = "";
+  if (!rows.length) {
+    viewport.innerHTML = '<p class="empty-state">No closed trades yet.</p>';
+    return;
+  }
+
+  const wrap = document.createElement("div");
+  wrap.className = "dte-grid";
+
+  wrap.appendChild(buildBucketSubchart(rows, "tod_bucket", "win_rate", "Win rate", (v) => fmtPercent1.format(v), true, 1));
+  wrap.appendChild(buildBucketSubchart(rows, "tod_bucket", "avg_pnl", "Avg P&L", (v) => fmtCurrency0.format(v), false));
+
+  viewport.appendChild(wrap);
+  renderSimpleTable("tod-table-wrap", ["Entry window", "Trades", "Win rate", "Avg P&L", "Total P&L"],
+    rows.map((r) => [r.tod_bucket, r.count, r.win_rate != null ? fmtPercent1.format(r.win_rate) : "—", fmtCurrency2.format(r.avg_pnl), fmtCurrency2.format(r.total_pnl)]));
+}
+
+function buildBucketSubchart(rows, labelField, field, title, formatter, isSequential, fixedMax) {
   const container = document.createElement("div");
   const heading = document.createElement("div");
   heading.className = "chart-caption";
@@ -412,7 +433,7 @@ function buildDteSubchart(rows, field, title, formatter, isSequential, fixedMax)
   const xZero = zeroBased ? pad.left : pad.left + innerW / 2;
   const scale = zeroBased ? innerW / maxAbs : (innerW / 2) / maxAbs;
 
-  const svg = svgEl("svg", { viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": title + " by DTE bucket" });
+  const svg = svgEl("svg", { viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": title + " by " + labelField });
   svg.appendChild(svgEl("line", { class: "axis-baseline", x1: xZero, x2: xZero, y1: pad.top, y2: H - pad.bottom }));
 
   rows.forEach((r, i) => {
@@ -420,7 +441,7 @@ function buildDteSubchart(rows, field, title, formatter, isSequential, fixedMax)
     const barH = 18;
     const val = r[field];
     const label = svgEl("text", { class: "category-label", x: pad.left - 12, y: cy + 4, "text-anchor": "end" });
-    label.textContent = r.dte_bucket;
+    label.textContent = r[labelField];
     svg.appendChild(label);
 
     if (val == null) {
@@ -456,7 +477,7 @@ function buildDteSubchart(rows, field, title, formatter, isSequential, fixedMax)
       bar.classList.add("hovered");
       const pos = tooltipPos(evt, container);
       showTooltip(pos.x, pos.y, [
-        { label: r.dte_bucket, value: formatter(val) },
+        { label: r[labelField], value: formatter(val) },
         { label: "Trades", value: String(r.count) },
       ]);
     });
@@ -735,6 +756,7 @@ fetch(`data.json?v=${Date.now()}`)
     renderEquityCurve(data.equity_curve, data.kpis.starting_capital);
     renderExitBreakdown(data.exit_breakdown);
     renderDteBreakdown(data.dte_breakdown);
+    renderTodBreakdown(data.tod_breakdown);
     renderScannerCaseStudy(data.daily_performance, data.scanner_events);
     renderTradeLog(data.trades);
   })

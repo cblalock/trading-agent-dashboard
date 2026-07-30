@@ -8,14 +8,17 @@ columns, different output shape (JSON tailored for the web page's charts).
 import json
 import sqlite3
 from datetime import datetime, timezone
+from zoneinfo import ZoneInfo
 
 import pandas as pd
 
 SOURCE_DB = r"C:\Users\Owner\Desktop\trading-agent\trades.db"
 OUT_PATH = r"C:\Users\Owner\Desktop\trading_agent_dashboard\docs\data.json"
 STARTING_CAPITAL = 5000.0
+ET = ZoneInfo("America/New_York")
 
 DTE_ORDER = ["0-3 DTE", "4-7 DTE", "8-14 DTE", "15+ DTE", "Equity", "Unknown"]
+TOD_ORDER = ["Open (9:30-10ET)", "Morning (10-11ET)", "Midday (11-1ET)", "Afternoon (1-3ET)", "Close (3-4ET)", "Unknown"]
 EXIT_CATEGORY_ORDER = [
     "Take Profit", "Hard Stop", "Striker Stop", "ATR Stop", "EOD Close",
     "Contra-Signal", "Theta Risk", "Preemptive Exit", "Liquidation", "Other", "Open",
@@ -45,6 +48,23 @@ def categorize_exit(reason: str) -> str:
     if "near hard stop" in r or "approaching hard stop" in r or "pre-emptive" in r:
         return "Preemptive Exit"
     return "Other"
+
+
+def tod_bucket(entry_time_utc) -> str:
+    """entry_time_utc: naive UTC timestamp (trades.db stores entry_time in UTC, no offset)."""
+    if pd.isna(entry_time_utc):
+        return "Unknown"
+    et = entry_time_utc.tz_localize("UTC").tz_convert(ET)
+    minutes = et.hour * 60 + et.minute
+    if minutes < 10 * 60:
+        return "Open (9:30-10ET)"
+    if minutes < 11 * 60:
+        return "Morning (10-11ET)"
+    if minutes < 13 * 60:
+        return "Midday (11-1ET)"
+    if minutes < 15 * 60:
+        return "Afternoon (1-3ET)"
+    return "Close (3-4ET)"
 
 
 def dte_bucket(dte, trade_type=None) -> str:
@@ -91,6 +111,7 @@ def main():
     df.loc[~df["is_closed"], "exit_category"] = "Open"
 
     df["dte_bucket"] = df.apply(lambda row: dte_bucket(row["dte_at_entry"], row["trade_type"]), axis=1)
+    df["tod_bucket"] = df["entry_time"].apply(tod_bucket)
 
     df["hold_type"] = None
     closed = df["is_closed"]
@@ -158,6 +179,19 @@ def main():
     dte_group = dte_group.sort_values("order").drop(columns="order")
     dte_breakdown = clean_records(dte_group)
 
+    # --- Entry time-of-day breakdown ---
+    tod_group = closed_df.groupby("tod_bucket").agg(
+        count=("pnl", "count"),
+        avg_pnl=("pnl", "mean"),
+        total_pnl=("pnl", "sum"),
+        win_rate=("win", lambda s: float(s.mean()) if s.notna().any() else None),
+    ).reset_index()
+    tod_group["order"] = tod_group["tod_bucket"].apply(
+        lambda c: TOD_ORDER.index(c) if c in TOD_ORDER else len(TOD_ORDER)
+    )
+    tod_group = tod_group.sort_values("order").drop(columns="order")
+    tod_breakdown = clean_records(tod_group)
+
     # --- Scanner case study: daily aggregates around the min_strength changes ---
     daily = closed_df.groupby("entry_date").agg(
         count=("pnl", "count"),
@@ -178,7 +212,7 @@ def main():
         "id", "ticker", "side", "trade_type", "option_type", "strike_price",
         "expiration_date", "entry_time", "exit_time", "entry_price", "exit_price",
         "qty", "pnl", "win", "status", "exit_category", "dte_at_entry", "dte_bucket",
-        "hold_type", "signal_strength", "signal_timeframe",
+        "hold_type", "tod_bucket", "signal_strength", "signal_timeframe",
         "indicators_triggered_readable", "entry_reason", "exit_reason", "claude_reasoning",
     ]
     trades = clean_records(df[trade_log_cols].sort_values("entry_time", ascending=False))
@@ -189,6 +223,7 @@ def main():
         "equity_curve": equity_curve,
         "exit_breakdown": exit_breakdown,
         "dte_breakdown": dte_breakdown,
+        "tod_breakdown": tod_breakdown,
         "daily_performance": daily_performance,
         "scanner_events": scanner_events,
         "trades": trades,
