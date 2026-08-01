@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-07-31T01:54:44.511675+00:00",
+  "generated_at": "2026-08-01T01:18:01.393825+00:00",
   "kpis": {
-    "total_pnl": -1400.2650000000003,
-    "win_rate": 0.4111111111111111,
-    "total_trades": 90,
-    "current_capital": 3599.7349999999997,
+    "total_pnl": -1306.2650000000003,
+    "win_rate": 0.4105263157894737,
+    "total_trades": 95,
+    "current_capital": 3693.7349999999997,
     "starting_capital": 5000.0,
-    "wins": 37,
-    "losses": 53
+    "wins": 39,
+    "losses": 56
   },
   "equity_curve": [
     {
@@ -729,14 +729,54 @@
       "pnl": -41.0,
       "cumulative_pnl": -1400.265,
       "capital_after": 3599.735
+    },
+    {
+      "trade_number": 91,
+      "exit_time": "2026-07-31T14:05:10.425",
+      "ticker": "AMZN",
+      "pnl": 167.5,
+      "cumulative_pnl": -1232.765,
+      "capital_after": 3767.235
+    },
+    {
+      "trade_number": 92,
+      "exit_time": "2026-07-31T14:07:48.665",
+      "ticker": "AAPL",
+      "pnl": -32.5,
+      "cumulative_pnl": -1265.265,
+      "capital_after": 3734.735
+    },
+    {
+      "trade_number": 93,
+      "exit_time": "2026-07-31T14:23:34.327",
+      "ticker": "GOOGL",
+      "pnl": -42.0,
+      "cumulative_pnl": -1307.265,
+      "capital_after": 3692.735
+    },
+    {
+      "trade_number": 94,
+      "exit_time": "2026-07-31T14:40:35.725",
+      "ticker": "COIN",
+      "pnl": -36.0,
+      "cumulative_pnl": -1343.265,
+      "capital_after": 3656.735
+    },
+    {
+      "trade_number": 95,
+      "exit_time": "2026-07-31T15:13:06.388",
+      "ticker": "AMZN",
+      "pnl": 37.0,
+      "cumulative_pnl": -1306.265,
+      "capital_after": 3693.735
     }
   ],
   "exit_breakdown": [
     {
       "exit_category": "Take Profit",
-      "total_pnl": 6436.5,
-      "avg_pnl": 214.55,
-      "count": 30
+      "total_pnl": 6641.0,
+      "avg_pnl": 207.53125,
+      "count": 32
     },
     {
       "exit_category": "Hard Stop",
@@ -746,9 +786,9 @@
     },
     {
       "exit_category": "Striker Stop",
-      "total_pnl": -2254.0,
-      "avg_pnl": -161.0,
-      "count": 14
+      "total_pnl": -2364.5,
+      "avg_pnl": -139.0882352941,
+      "count": 17
     },
     {
       "exit_category": "ATR Stop",
@@ -790,10 +830,10 @@
   "dte_breakdown": [
     {
       "dte_bucket": "0-3 DTE",
-      "count": 50,
-      "avg_pnl": -26.9,
-      "total_pnl": -1345.0,
-      "win_rate": 0.42
+      "count": 55,
+      "avg_pnl": -22.7454545455,
+      "total_pnl": -1251.0,
+      "win_rate": 0.4181818182
     },
     {
       "dte_bucket": "4-7 DTE",
@@ -820,24 +860,24 @@
   "tod_breakdown": [
     {
       "tod_bucket": "Open (9:30-10ET)",
-      "count": 36,
-      "avg_pnl": -65.5629166667,
-      "total_pnl": -2360.265,
-      "win_rate": 0.2777777778
+      "count": 37,
+      "avg_pnl": -59.2639189189,
+      "total_pnl": -2192.765,
+      "win_rate": 0.2972972973
     },
     {
       "tod_bucket": "Morning (10-11ET)",
-      "count": 32,
-      "avg_pnl": 66.03125,
-      "total_pnl": 2113.0,
-      "win_rate": 0.625
+      "count": 35,
+      "avg_pnl": 57.2142857143,
+      "total_pnl": 2002.5,
+      "win_rate": 0.5714285714
     },
     {
       "tod_bucket": "Midday (11-1ET)",
-      "count": 17,
-      "avg_pnl": -45.1470588235,
-      "total_pnl": -767.5,
-      "win_rate": 0.3529411765
+      "count": 18,
+      "avg_pnl": -40.5833333333,
+      "total_pnl": -730.5,
+      "win_rate": 0.3888888889
     },
     {
       "tod_bucket": "Afternoon (1-3ET)",
@@ -1001,6 +1041,13 @@
       "total_pnl": -167.0,
       "avg_pnl": -83.5,
       "win_rate": 0.0
+    },
+    {
+      "entry_date": "2026-07-31",
+      "count": 5,
+      "total_pnl": 94.0,
+      "avg_pnl": 18.8,
+      "win_rate": 0.4
     }
   ],
   "scanner_events": [
@@ -1014,6 +1061,146 @@
     }
   ],
   "trades": [
+    {
+      "id": 95,
+      "ticker": "AMZN",
+      "side": "call",
+      "trade_type": "option",
+      "option_type": "call",
+      "strike_price": 270.0,
+      "expiration_date": "2026-07-31",
+      "entry_time": "2026-07-31T15:11:24.691",
+      "exit_time": "2026-07-31T15:13:06.388",
+      "entry_price": 1.91,
+      "exit_price": 2.28,
+      "qty": 1.0,
+      "pnl": 37.0,
+      "win": true,
+      "status": "closed",
+      "exit_category": "Take Profit",
+      "dte_at_entry": 0.0,
+      "dte_bucket": "0-3 DTE",
+      "hold_type": "Same Day",
+      "tod_bucket": "Midday (11-1ET)",
+      "signal_strength": 4,
+      "signal_timeframe": "15-Minute (Day Trade)",
+      "indicators_triggered_readable": "15m: Full Bull EMA Stack \u2705; 1h: Full Bull EMA Stack \u2705; 15m: ADX Strong Bull Trend (47.7) (confirmation); 4h: BB Breakout \u2191 + Volume Surge (confirmation); 4h: RSI Bullish Divergence \u2705 (confirmation); 4h: Resistance Breakout \u2191 (confirmation); 1d: EMA 200 Bounce \u2191 (confirmation); 1d: RSI Bullish Divergence \u2705 (confirmation); 1d: Resistance Breakout \u2191 (confirmation)",
+      "entry_reason": "AMZN dual-TF Full Bull EMA Stack (15m + 1h, str 4) \u2014 cleanest bullish setup this cycle. Zero contradictions, 7 fully aligned bullish confirmations: 15m ADX Strong Bull (47.7), 4h BB Breakout + Volume Surge, 4h RSI Bullish Divergence, 4h Resistance Breakout, 1d EMA200 Bounce, 1d RSI Bullish Divergence, 1d Resistance Breakout. Best ticker in history (75% win, +$60.75 avg). Concentration guard blocks all bearish entries. 0 DTE striker, scanner target $274.82 (15m) / $279.02 (1h). Previous AMZN close was a TP1 win (+$167.50), fresh thesis confirmed by additional 1h/1d multi-TF stack.",
+      "exit_reason": "striker_take_profit",
+      "claude_reasoning": "Automatic safety-net close (+19% on premium: entry $1.91 -> current $2.28). Triggered outside the Claude budget/decision loop."
+    },
+    {
+      "id": 94,
+      "ticker": "COIN",
+      "side": "put",
+      "trade_type": "option",
+      "option_type": "put",
+      "strike_price": 140.0,
+      "expiration_date": "2026-07-31",
+      "entry_time": "2026-07-31T14:39:24.260",
+      "exit_time": "2026-07-31T14:40:35.725",
+      "entry_price": 1.47,
+      "exit_price": 1.29,
+      "qty": 2.0,
+      "pnl": -36.0,
+      "win": false,
+      "status": "closed",
+      "exit_category": "Striker Stop",
+      "dte_at_entry": 0.0,
+      "dte_bucket": "0-3 DTE",
+      "hold_type": "Same Day",
+      "tod_bucket": "Morning (10-11ET)",
+      "signal_strength": 4,
+      "signal_timeframe": "15-Minute (Day Trade)",
+      "indicators_triggered_readable": "15m: Full Bear EMA Stack \u274c; 1h: Full Bear EMA Stack \u274c; 1d: Full Bear EMA Stack \u274c; 15m: ADX Strong Bear Trend (35.9) (confirmation); 1h: BB Breakdown \u2193 + Volume Surge (confirmation); 1h: Volume Climax \ud83d\ude80 (3.1x avg) (confirmation); 1h: Support Breakdown \u2193 (confirmation); 4h: BB Breakdown \u2193 + Volume Surge (confirmation); 4h: Support Breakdown \u2193 (confirmation)",
+      "entry_reason": "COIN triple-TF Full Bear EMA Stack (15m + 1h + 1d, str 4) \u2014 6 fully aligned bearish confirmations (ADX 35.9, BB Breakdown + Volume Surge on 1h/4h, Support Breakdown on 1h/4h), zero contradictions. Cleanest bearish setup this cycle. 0-DTE Friday striker: 2 contracts at $1.47, tight +10/-12 mechanical exit. COIN is currently below EMA200 across all timeframes with strong downtrend momentum.",
+      "exit_reason": "striker_stop",
+      "claude_reasoning": "Automatic safety-net close (-12% on premium: entry $1.47 -> current $1.29). Triggered outside the Claude budget/decision loop."
+    },
+    {
+      "id": 93,
+      "ticker": "GOOGL",
+      "side": "call",
+      "trade_type": "option",
+      "option_type": "call",
+      "strike_price": 347.5,
+      "expiration_date": "2026-07-31",
+      "entry_time": "2026-07-31T14:22:42.292",
+      "exit_time": "2026-07-31T14:23:34.327",
+      "entry_price": 1.83,
+      "exit_price": 1.62,
+      "qty": 2.0,
+      "pnl": -42.0,
+      "win": false,
+      "status": "closed",
+      "exit_category": "Striker Stop",
+      "dte_at_entry": 0.0,
+      "dte_bucket": "0-3 DTE",
+      "hold_type": "Same Day",
+      "tod_bucket": "Morning (10-11ET)",
+      "signal_strength": 4,
+      "signal_timeframe": "15-Minute (Day Trade)",
+      "indicators_triggered_readable": "15m: Full Bull EMA Stack \u2705; 1h: Full Bull EMA Stack \u2705; 1h: EMA 200 Bounce \u2191 (confirmation); 1d: RSI Bullish Divergence \u2705 (confirmation)",
+      "entry_reason": "GOOGL dual-TF Full Bull EMA Stack (15m + 1h, str 4) \u2014 zero contradictions, clean confirmations: 1h EMA 200 Bounce + 1d RSI Bullish Divergence (aligned bullish). Best liquid 0-DTE ATM contract available within budget. Friday barbell: 0 DTE with tight striker management. 2 contracts at $1.83 = $366 deployed.",
+      "exit_reason": "striker_stop",
+      "claude_reasoning": "Automatic safety-net close (-11% on premium: entry $1.83 -> current $1.62). Triggered outside the Claude budget/decision loop."
+    },
+    {
+      "id": 92,
+      "ticker": "AAPL",
+      "side": "put",
+      "trade_type": "option",
+      "option_type": "put",
+      "strike_price": 302.5,
+      "expiration_date": "2026-07-31",
+      "entry_time": "2026-07-31T14:06:05.756",
+      "exit_time": "2026-07-31T14:07:48.665",
+      "entry_price": 2.395,
+      "exit_price": 2.07,
+      "qty": 1.0,
+      "pnl": -32.5,
+      "win": false,
+      "status": "closed",
+      "exit_category": "Striker Stop",
+      "dte_at_entry": 0.0,
+      "dte_bucket": "0-3 DTE",
+      "hold_type": "Same Day",
+      "tod_bucket": "Morning (10-11ET)",
+      "signal_strength": 4,
+      "signal_timeframe": "15-Minute (Day Trade)",
+      "indicators_triggered_readable": "15m: Full Bear EMA Stack \u274c; 1h: Full Bear EMA Stack \u274c; 1d: Full Bull EMA Stack \u2705; 15m: ADX Strong Bear Trend (56.2) (confirmation); 1h: ADX Strong Bear Trend (40.9) (confirmation); 4h: BB Breakdown \u2193 + Volume Surge (confirmation); 4h: RSI Bearish Divergence \u26a0\ufe0f (confirmation); 4h: Support Breakdown \u2193 (confirmation); 1d: RSI Bearish Divergence \u26a0\ufe0f (confirmation)",
+      "entry_reason": "AAPL 0-DTE Friday bearish striker \u2014 triple-TF Bear EMA Stack (15m + 1h) with 6 fully aligned bearish confirmations: ADX 56.2 Strong Bear (15m), ADX 40.9 Strong Bear (1h), 4h BB Breakdown + Volume Surge, 4h RSI Bearish Divergence, 4h Support Breakdown, 1d RSI Bearish Divergence. Zero contradictions. Cleanest bearish setup in the cycle. ATM $302.5 put, 0 DTE, managing tight via striker mode for fast in/out. ATR target $297.64 (-$4 on underlying). OI=547, spread=5.4%.",
+      "exit_reason": "striker_stop",
+      "claude_reasoning": "Automatic safety-net close (-14% on premium: entry $2.40 -> current $2.07). Triggered outside the Claude budget/decision loop."
+    },
+    {
+      "id": 91,
+      "ticker": "AMZN",
+      "side": "call",
+      "trade_type": "option",
+      "option_type": "call",
+      "strike_price": 265.0,
+      "expiration_date": "2026-07-31",
+      "entry_time": "2026-07-31T13:32:31.722",
+      "exit_time": "2026-07-31T14:05:10.425",
+      "entry_price": 3.505,
+      "exit_price": 5.18,
+      "qty": 1.0,
+      "pnl": 167.5,
+      "win": true,
+      "status": "closed",
+      "exit_category": "Take Profit",
+      "dte_at_entry": 0.0,
+      "dte_bucket": "0-3 DTE",
+      "hold_type": "Same Day",
+      "tod_bucket": "Open (9:30-10ET)",
+      "signal_strength": 4,
+      "signal_timeframe": "15-Minute (Day Trade)",
+      "indicators_triggered_readable": "15m: Full Bull EMA Stack \u2705; 1h: Full Bull EMA Stack \u2705; 4h: RSI Bullish Divergence \u2705 (confirmation); 1d: EMA 200 Bounce \u2191 (confirmation); 1d: RSI Bullish Divergence \u2705 (confirmation)",
+      "entry_reason": "AMZN dual-TF Full Bull EMA Stack (15m + 1h, str 4) \u2014 best ticker in my history (67% win, +$25 avg). Zero contradictions. 3 aligned bullish confirmations: 4h RSI Bullish Divergence, 1d EMA 200 Bounce, 1d RSI Bullish Divergence. ATM $265 call, 0 DTE Friday play \u2014 will manage tight per barbell rule. OI=31,534, spread=3.7%.",
+      "exit_reason": "TP1 hit \u2014 underlying at ATR target, strong gain on 0 DTE",
+      "claude_reasoning": "AMZN is at $270.43, right at the ATR TP of $270.16. Premium went from $3.505 entry to $5.215 mid (+49% gain, ~$125 P&L). This is a 0-DTE Friday contract \u2014 theta will accelerate sharply from here and any pullback will crush the premium fast. With only 1 contract, there's no partial trim option that makes sense; closing the full position to bank the clean win is the right call. AMZN signals are still bullish but I can re-evaluate a new entry at next cycle if conditions remain favorable."
+    },
     {
       "id": 90,
       "ticker": "MSFT",
