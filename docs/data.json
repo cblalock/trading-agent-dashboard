@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-08-03T22:10:52.505095+00:00",
+  "generated_at": "2026-08-04T23:54:10.452859+00:00",
   "kpis": {
-    "total_pnl": -1093.2650000000003,
-    "win_rate": 0.42857142857142855,
-    "total_trades": 98,
-    "current_capital": 3906.7349999999997,
+    "total_pnl": -946.2650000000003,
+    "win_rate": 0.43434343434343436,
+    "total_trades": 99,
+    "current_capital": 4053.7349999999997,
     "starting_capital": 5000.0,
-    "wins": 42,
+    "wins": 43,
     "losses": 56
   },
   "equity_curve": [
@@ -793,14 +793,22 @@
       "pnl": 2.0,
       "cumulative_pnl": -1093.265,
       "capital_after": 3906.735
+    },
+    {
+      "trade_number": 99,
+      "exit_time": "2026-08-04T14:56:53.633",
+      "ticker": "SPY",
+      "pnl": 147.0,
+      "cumulative_pnl": -946.265,
+      "capital_after": 4053.735
     }
   ],
   "exit_breakdown": [
     {
       "exit_category": "Take Profit",
-      "total_pnl": 6852.0,
-      "avg_pnl": 201.5294117647,
-      "count": 34
+      "total_pnl": 6999.0,
+      "avg_pnl": 199.9714285714,
+      "count": 35
     },
     {
       "exit_category": "Hard Stop",
@@ -861,10 +869,10 @@
     },
     {
       "dte_bucket": "4-7 DTE",
-      "count": 29,
-      "avg_pnl": 0.6379310345,
-      "total_pnl": 18.5,
-      "win_rate": 0.4482758621
+      "count": 30,
+      "avg_pnl": 5.5166666667,
+      "total_pnl": 165.5,
+      "win_rate": 0.4666666667
     },
     {
       "dte_bucket": "8-14 DTE",
@@ -884,10 +892,10 @@
   "tod_breakdown": [
     {
       "tod_bucket": "Open (9:30-10ET)",
-      "count": 39,
-      "avg_pnl": -50.8144871795,
-      "total_pnl": -1981.765,
-      "win_rate": 0.3333333333
+      "count": 40,
+      "avg_pnl": -45.869125,
+      "total_pnl": -1834.765,
+      "win_rate": 0.35
     },
     {
       "tod_bucket": "Morning (10-11ET)",
@@ -1079,6 +1087,13 @@
       "total_pnl": 213.0,
       "avg_pnl": 71.0,
       "win_rate": 1.0
+    },
+    {
+      "entry_date": "2026-08-04",
+      "count": 1,
+      "total_pnl": 147.0,
+      "avg_pnl": 147.0,
+      "win_rate": 1.0
     }
   ],
   "scanner_events": [
@@ -1092,6 +1107,90 @@
     }
   ],
   "trades": [
+    {
+      "id": 101,
+      "ticker": "SPY",
+      "side": "call",
+      "trade_type": "option",
+      "option_type": "call",
+      "strike_price": 771.0,
+      "expiration_date": "2026-08-10",
+      "entry_time": "2026-08-04T17:09:28.883",
+      "exit_time": null,
+      "entry_price": 4.77,
+      "exit_price": null,
+      "qty": 1.0,
+      "pnl": null,
+      "win": null,
+      "status": "open",
+      "exit_category": "Open",
+      "dte_at_entry": 6.0,
+      "dte_bucket": "4-7 DTE",
+      "hold_type": null,
+      "tod_bucket": "Afternoon (1-3ET)",
+      "signal_strength": 4,
+      "signal_timeframe": "1-Hour (Swing)",
+      "indicators_triggered_readable": "1h: Full Bull EMA Stack \u2705; 1d: Full Bull EMA Stack \u2705; 15m: Bull EMA Stack (9>21>50) (confirmation); 15m: ADX Strong Bull Trend (78.9) (confirmation); 1h: ADX Strong Bull Trend (48.1) (confirmation); 4h: Bull EMA Stack (9>21>50) (confirmation); 1d: RSI Bullish Divergence \u2705 (confirmation)",
+      "entry_reason": "SPY 1h Full Bull EMA Stack (str 4) \u2014 zero contradictions, 5 fully aligned bullish confirmations: 15m Bull EMA Stack, 15m ADX Strong Bull (78.9), 1h ADX Strong Bull (48.1), 4h Bull EMA Stack, 1d RSI Bullish Divergence. Dual-timeframe (1h + 1d) confirmation. Best ticker history in portfolio (100% win, +$146 avg, n=2). ATR target $775.92. ATM strike $771, 6 DTE, tight spread 1.3%.",
+      "exit_reason": null,
+      "claude_reasoning": null
+    },
+    {
+      "id": 100,
+      "ticker": "NVDA",
+      "side": "call",
+      "trade_type": "option",
+      "option_type": "call",
+      "strike_price": 212.5,
+      "expiration_date": "2026-08-10",
+      "entry_time": "2026-08-04T13:53:43.697",
+      "exit_time": null,
+      "entry_price": 3.35,
+      "exit_price": null,
+      "qty": 1.0,
+      "pnl": null,
+      "win": null,
+      "status": "open",
+      "exit_category": "Open",
+      "dte_at_entry": 6.0,
+      "dte_bucket": "4-7 DTE",
+      "hold_type": null,
+      "tod_bucket": "Open (9:30-10ET)",
+      "signal_strength": 4,
+      "signal_timeframe": "1-Hour (Swing)",
+      "indicators_triggered_readable": "1h: Full Bull EMA Stack \u2705; 15m: Bull EMA Stack (9>21>50) (confirmation); 15m: ADX Strong Bull Trend (38.6) (confirmation); 4h: RSI Bullish Divergence \u2705 (confirmation); 1d: RSI Bullish Divergence \u2705 (confirmation)",
+      "entry_reason": "NVDA 1h Full Bull EMA Stack (str 4) \u2014 zero contradictions, 4 fully aligned bullish confirmations (15m Bull EMA Stack, 15m ADX 38.6, 4h RSI Bullish Div, 1d RSI Bullish Div). Strong ticker history (75% win, +$28.87 avg). Slight OTM $212.5 call with solid OI (917), 1.8% spread. ATR target ~$216.05.",
+      "exit_reason": null,
+      "claude_reasoning": null
+    },
+    {
+      "id": 99,
+      "ticker": "SPY",
+      "side": "call",
+      "trade_type": "option",
+      "option_type": "call",
+      "strike_price": 765.0,
+      "expiration_date": "2026-08-10",
+      "entry_time": "2026-08-04T13:53:39.342",
+      "exit_time": "2026-08-04T14:56:53.633",
+      "entry_price": 3.43,
+      "exit_price": 4.9,
+      "qty": 1.0,
+      "pnl": 147.0,
+      "win": true,
+      "status": "closed",
+      "exit_category": "Take Profit",
+      "dte_at_entry": 6.0,
+      "dte_bucket": "4-7 DTE",
+      "hold_type": "Same Day",
+      "tod_bucket": "Open (9:30-10ET)",
+      "signal_strength": 4,
+      "signal_timeframe": "1-Hour (Swing)",
+      "indicators_triggered_readable": "1h: Full Bull EMA Stack \u2705; 1d: Full Bull EMA Stack \u2705; 15m: Bull EMA Stack (9>21>50) (confirmation); 15m: ADX Strong Bull Trend (64.8) (confirmation); 1h: ADX Strong Bull Trend (39.1) (confirmation); 4h: Bull EMA Stack (9>21>50) (confirmation); 4h: RSI Bullish Divergence \u2705 (confirmation); 1d: RSI Bullish Divergence \u2705 (confirmation)",
+      "entry_reason": "SPY 1h Full Bull EMA Stack (str 4) \u2014 zero contradictions, 6 fully aligned bullish confirmations across 15m/1h/4h/1d (15m Bull EMA Stack, 15m ADX 64.8, 1h ADX 39.1, 4h Bull EMA, 4h RSI Bullish Div, 1d RSI Bullish Div). Best ticker history (100% win, +$145 avg). ATR target ~$767.72, OTM $765 call with tight spread 0.6%. Normal style for 1h swing.",
+      "exit_reason": "TP1 \u2014 SPY at ATR target, taking +41% premium gain",
+      "claude_reasoning": "SPY 1h Bull EMA Stack call entered at $3.43, now at $4.82 (+40.9%). The underlying has reached ~$765.85, essentially at the ATR target of $767.72. Signal was 1h timeframe with 6 aligned confirmations. With only 1 contract, I'm closing the full position to lock in the $140 gain rather than holding a single runner with weekend/overnight theta risk. This is a clean TP1 exit \u2014 the move played out as expected."
+    },
     {
       "id": 98,
       "ticker": "NVDA",
