@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-08-04T23:54:10.452859+00:00",
+  "generated_at": "2026-08-06T00:15:30.988499+00:00",
   "kpis": {
-    "total_pnl": -946.2650000000003,
-    "win_rate": 0.43434343434343436,
-    "total_trades": 99,
-    "current_capital": 4053.7349999999997,
+    "total_pnl": -390.7650000000001,
+    "win_rate": 0.4326923076923077,
+    "total_trades": 104,
+    "current_capital": 4609.235,
     "starting_capital": 5000.0,
-    "wins": 43,
-    "losses": 56
+    "wins": 45,
+    "losses": 59
   },
   "equity_curve": [
     {
@@ -801,14 +801,54 @@
       "pnl": 147.0,
       "cumulative_pnl": -946.265,
       "capital_after": 4053.735
+    },
+    {
+      "trade_number": 100,
+      "exit_time": "2026-08-05T13:30:29.814",
+      "ticker": "NVDA",
+      "pnl": 405.0,
+      "cumulative_pnl": -541.265,
+      "capital_after": 4458.735
+    },
+    {
+      "trade_number": 101,
+      "exit_time": "2026-08-05T13:32:14.469",
+      "ticker": "SPY",
+      "pnl": 339.5,
+      "cumulative_pnl": -201.765,
+      "capital_after": 4798.235
+    },
+    {
+      "trade_number": 102,
+      "exit_time": "2026-08-05T14:53:31.776",
+      "ticker": "NVDA",
+      "pnl": -108.5,
+      "cumulative_pnl": -310.265,
+      "capital_after": 4689.735
+    },
+    {
+      "trade_number": 103,
+      "exit_time": "2026-08-05T18:10:01.104",
+      "ticker": "NVDA",
+      "pnl": -46.0,
+      "cumulative_pnl": -356.265,
+      "capital_after": 4643.735
+    },
+    {
+      "trade_number": 104,
+      "exit_time": "2026-08-05T19:43:50.436",
+      "ticker": "JPM",
+      "pnl": -34.5,
+      "cumulative_pnl": -390.765,
+      "capital_after": 4609.235
     }
   ],
   "exit_breakdown": [
     {
       "exit_category": "Take Profit",
-      "total_pnl": 6999.0,
-      "avg_pnl": 199.9714285714,
-      "count": 35
+      "total_pnl": 7743.5,
+      "avg_pnl": 209.2837837838,
+      "count": 37
     },
     {
       "exit_category": "Hard Stop",
@@ -830,15 +870,15 @@
     },
     {
       "exit_category": "EOD Close",
-      "total_pnl": 74.5,
-      "avg_pnl": 12.4166666667,
-      "count": 6
+      "total_pnl": 40.0,
+      "avg_pnl": 5.7142857143,
+      "count": 7
     },
     {
       "exit_category": "Contra-Signal",
-      "total_pnl": -300.5,
-      "avg_pnl": -42.9285714286,
-      "count": 7
+      "total_pnl": -455.0,
+      "avg_pnl": -50.5555555556,
+      "count": 9
     },
     {
       "exit_category": "Theta Risk",
@@ -869,17 +909,17 @@
     },
     {
       "dte_bucket": "4-7 DTE",
-      "count": 30,
-      "avg_pnl": 5.5166666667,
-      "total_pnl": 165.5,
-      "win_rate": 0.4666666667
+      "count": 34,
+      "avg_pnl": 22.2205882353,
+      "total_pnl": 755.5,
+      "win_rate": 0.4705882353
     },
     {
       "dte_bucket": "8-14 DTE",
-      "count": 8,
-      "avg_pnl": 11.375,
-      "total_pnl": 91.0,
-      "win_rate": 0.25
+      "count": 9,
+      "avg_pnl": 6.2777777778,
+      "total_pnl": 56.5,
+      "win_rate": 0.2222222222
     },
     {
       "dte_bucket": "Equity",
@@ -892,31 +932,31 @@
   "tod_breakdown": [
     {
       "tod_bucket": "Open (9:30-10ET)",
-      "count": 40,
-      "avg_pnl": -45.869125,
-      "total_pnl": -1834.765,
-      "win_rate": 0.35
+      "count": 41,
+      "avg_pnl": -34.8723170732,
+      "total_pnl": -1429.765,
+      "win_rate": 0.3658536585
     },
     {
       "tod_bucket": "Morning (10-11ET)",
-      "count": 35,
-      "avg_pnl": 57.2142857143,
-      "total_pnl": 2002.5,
-      "win_rate": 0.5714285714
+      "count": 36,
+      "avg_pnl": 52.6111111111,
+      "total_pnl": 1894.0,
+      "win_rate": 0.5555555556
     },
     {
       "tod_bucket": "Midday (11-1ET)",
-      "count": 19,
-      "avg_pnl": -38.3421052632,
-      "total_pnl": -728.5,
-      "win_rate": 0.4210526316
+      "count": 20,
+      "avg_pnl": -38.725,
+      "total_pnl": -774.5,
+      "win_rate": 0.4
     },
     {
       "tod_bucket": "Afternoon (1-3ET)",
-      "count": 5,
-      "avg_pnl": -77.1,
-      "total_pnl": -385.5,
-      "win_rate": 0.2
+      "count": 7,
+      "avg_pnl": -11.5,
+      "total_pnl": -80.5,
+      "win_rate": 0.2857142857
     }
   ],
   "daily_performance": [
@@ -1090,10 +1130,17 @@
     },
     {
       "entry_date": "2026-08-04",
-      "count": 1,
-      "total_pnl": 147.0,
-      "avg_pnl": 147.0,
+      "count": 3,
+      "total_pnl": 891.5,
+      "avg_pnl": 297.1666666667,
       "win_rate": 1.0
+    },
+    {
+      "entry_date": "2026-08-05",
+      "count": 3,
+      "total_pnl": -189.0,
+      "avg_pnl": -63.0,
+      "win_rate": 0.0
     }
   ],
   "scanner_events": [
@@ -1108,6 +1155,90 @@
   ],
   "trades": [
     {
+      "id": 104,
+      "ticker": "JPM",
+      "side": "call",
+      "trade_type": "option",
+      "option_type": "call",
+      "strike_price": 365.0,
+      "expiration_date": "2026-08-14",
+      "entry_time": "2026-08-05T18:10:22.472",
+      "exit_time": "2026-08-05T19:43:50.436",
+      "entry_price": 3.175,
+      "exit_price": 2.83,
+      "qty": 1.0,
+      "pnl": -34.5,
+      "win": false,
+      "status": "closed",
+      "exit_category": "EOD Close",
+      "dte_at_entry": 9.0,
+      "dte_bucket": "8-14 DTE",
+      "hold_type": "Same Day",
+      "tod_bucket": "Afternoon (1-3ET)",
+      "signal_strength": 4,
+      "signal_timeframe": "15-Minute (Day Trade)",
+      "indicators_triggered_readable": "15m: Full Bull EMA Stack \u2705; 1h: Full Bull EMA Stack \u2705; 1d: Full Bull EMA Stack \u2705; 4h: Bull EMA Stack (9>21>50) (confirmation)",
+      "entry_reason": "JPM triple-TF Full Bull EMA Stack (15m + 1h + 1d, str 4) \u2014 the only clean signal this cycle with zero contradictions. Sole confirmation is 4h Bull EMA Stack (BULLISH, fully aligned). No opposing signals at any timeframe. 1h target $365.13 / TP2 $368.28; 1d target $378.48. 9 DTE in the sweet spot (6-14 DTE: 67% win, +$88 avg). Normal style for multi-day hold.",
+      "exit_reason": "EOD close \u2014 underlying reached TP1 ($366.20 > $364.33 target), but premium bleeding due to theta/IV compression despite favorable move. Avoiding weekend decay.",
+      "claude_reasoning": "JPM underlying has moved +$5.92 in our favor from entry $360.28 to $366.20, exceeding the 1h TP1 of $364.33 and the 1d target trajectory is intact. However, the option premium has dropped from $3.25 entry to $2.79 (-14%), indicating theta/IV compression is overcoming the delta gains. This is end-of-day and the last cycle before market close. Holding through the weekend means 2+ days of theta decay on a position that's already underperforming its underlying move. The underlying has reached TP1 territory, which is our signal to take action. Given EOD constraints and the premium not reflecting the underlying's favorable move, closing now to avoid further time decay erosion over the weekend is the prudent call."
+    },
+    {
+      "id": 103,
+      "ticker": "NVDA",
+      "side": "call",
+      "trade_type": "option",
+      "option_type": "call",
+      "strike_price": 222.5,
+      "expiration_date": "2026-08-10",
+      "entry_time": "2026-08-05T16:49:59.607",
+      "exit_time": "2026-08-05T18:10:01.104",
+      "entry_price": 3.175,
+      "exit_price": 2.715,
+      "qty": 1.0,
+      "pnl": -46.0,
+      "win": false,
+      "status": "closed",
+      "exit_category": "Contra-Signal",
+      "dte_at_entry": 5.0,
+      "dte_bucket": "4-7 DTE",
+      "hold_type": "Same Day",
+      "tod_bucket": "Midday (11-1ET)",
+      "signal_strength": 4,
+      "signal_timeframe": "15-Minute (Day Trade)",
+      "indicators_triggered_readable": "15m: Full Bull EMA Stack \u2705; 1h: Full Bull EMA Stack \u2705; 1d: Full Bull EMA Stack \u2705; 15m: ADX Strong Bull Trend (38.0) (confirmation); 1h: ADX Strong Bull Trend (46.4) (confirmation); 4h: Bull EMA Stack (9>21>50) (confirmation); 1d: RSI Bullish Divergence \u2705 (confirmation)",
+      "entry_reason": "NVDA triple-TF Full Bull EMA Stack (15m+1h+1d, str 4) \u2014 zero contradictions, 4 fully aligned bullish confirmations: 15m ADX Strong Bull (38.0), 1h ADX Strong Bull (46.4), 4h Bull EMA Stack, 1d RSI Bullish Divergence \u2705. Cleanest signal type in historical data; NVDA 67% win rate. Prior trade closed 116min ago (just past 2h window) with materially different thesis \u2014 prior had contra-signals, this cycle is clean across all TFs. Target TP1: $226.78, TP2: $230.74 (1h ATR targets).",
+      "exit_reason": "Contra-signal exit \u2014 15m RSI Bearish Divergence opposing the bullish thesis",
+      "claude_reasoning": "NVDA entered on a triple-TF bull thesis, currently -14.7%. This cycle, all NVDA signals carry contradicts_confirmation: true driven by a 15m RSI Bearish Divergence (BEARISH) directly opposing the bullish position. Per the contra-signal exit rule, a strength \u22653 signal in the opposite direction triggers an immediate close. The RSI Bearish Divergence on 15m is exactly that signal. Position is still well above the hard stop but the technical deterioration (momentum weakening) aligns with early exit before the stop triggers. Cutting now while we still have ~85% of premium remaining is better than riding it into the hard stop."
+    },
+    {
+      "id": 102,
+      "ticker": "NVDA",
+      "side": "call",
+      "trade_type": "option",
+      "option_type": "call",
+      "strike_price": 220.0,
+      "expiration_date": "2026-08-10",
+      "entry_time": "2026-08-05T14:05:15.346",
+      "exit_time": "2026-08-05T14:53:31.776",
+      "entry_price": 4.36,
+      "exit_price": 3.275,
+      "qty": 1.0,
+      "pnl": -108.5,
+      "win": false,
+      "status": "closed",
+      "exit_category": "Contra-Signal",
+      "dte_at_entry": 5.0,
+      "dte_bucket": "4-7 DTE",
+      "hold_type": "Same Day",
+      "tod_bucket": "Morning (10-11ET)",
+      "signal_strength": 4,
+      "signal_timeframe": "15-Minute (Day Trade)",
+      "indicators_triggered_readable": "15m: Full Bull EMA Stack \u2705; 1h: Full Bull EMA Stack \u2705; 1d: Full Bull EMA Stack \u2705; 15m: ADX Strong Bull Trend (36.6) (confirmation); 1h: ADX Strong Bull Trend (43.7) (confirmation); 4h: Bull EMA Stack (9>21>50) (confirmation); 1d: RSI Bullish Divergence \u2705 (confirmation)",
+      "entry_reason": "NVDA triple-TF Full Bull EMA Stack (15m + 1h + 1d, str 4) \u2014 zero contradictions, 4 fully aligned bullish confirmations (15m ADX Strong Bull 36.6, 1h ADX Strong Bull 43.7, 4h Bull EMA Stack, 1d RSI Bullish Divergence). ATM 6 DTE matches 1h swing timeframe. Materially different thesis from prior NVDA close: price now $221 vs $212.5 strike at exit, fresh daily signal adds new dimension. Historical: NVDA 80% win rate / +$104 avg; 6-14 DTE bucket 67% / +$88 avg; 1h Full Bull EMA Stack 71% / +$72 avg.",
+      "exit_reason": "Momentum fade / contra-signal risk",
+      "claude_reasoning": "NVDA call is -27.5% and the current price (~$219.30) is essentially at the ATR stop level ($219.29). All NVDA signals this cycle carry contradicts_confirmation: true \u2014 15m RSI Bearish Divergence, 1h RSI Bearish Divergence, and 15m RSI Overbought Rejection all oppose the bullish thesis. With the underlying right at the technical stop and opposing confirmations across multiple timeframes, the risk/reward of holding is poor. Closing now to prevent further deterioration toward the -50% hard stop."
+    },
+    {
       "id": 101,
       "ticker": "SPY",
       "side": "call",
@@ -1116,24 +1247,24 @@
       "strike_price": 771.0,
       "expiration_date": "2026-08-10",
       "entry_time": "2026-08-04T17:09:28.883",
-      "exit_time": null,
+      "exit_time": "2026-08-05T13:32:14.469",
       "entry_price": 4.77,
-      "exit_price": null,
+      "exit_price": 8.165,
       "qty": 1.0,
-      "pnl": null,
-      "win": null,
-      "status": "open",
-      "exit_category": "Open",
+      "pnl": 339.5,
+      "win": true,
+      "status": "closed",
+      "exit_category": "Take Profit",
       "dte_at_entry": 6.0,
       "dte_bucket": "4-7 DTE",
-      "hold_type": null,
+      "hold_type": "Overnight",
       "tod_bucket": "Afternoon (1-3ET)",
       "signal_strength": 4,
       "signal_timeframe": "1-Hour (Swing)",
       "indicators_triggered_readable": "1h: Full Bull EMA Stack \u2705; 1d: Full Bull EMA Stack \u2705; 15m: Bull EMA Stack (9>21>50) (confirmation); 15m: ADX Strong Bull Trend (78.9) (confirmation); 1h: ADX Strong Bull Trend (48.1) (confirmation); 4h: Bull EMA Stack (9>21>50) (confirmation); 1d: RSI Bullish Divergence \u2705 (confirmation)",
       "entry_reason": "SPY 1h Full Bull EMA Stack (str 4) \u2014 zero contradictions, 5 fully aligned bullish confirmations: 15m Bull EMA Stack, 15m ADX Strong Bull (78.9), 1h ADX Strong Bull (48.1), 4h Bull EMA Stack, 1d RSI Bullish Divergence. Dual-timeframe (1h + 1d) confirmation. Best ticker history in portfolio (100% win, +$146 avg, n=2). ATR target $775.92. ATM strike $771, 6 DTE, tight spread 1.3%.",
-      "exit_reason": null,
-      "claude_reasoning": null
+      "exit_reason": "TP1 \u2014 SPY at ATR target $775.92, taking +69% gain",
+      "claude_reasoning": "SPY hit $776.06, essentially exactly at the ATR TP1 target of $775.92. Premium went from $4.79 entry to $8.08 current (+69%). Per TP rules, at TP1 I should evaluate: momentum is still strong (current signals show 15m/1h/1d all bullish, clean, no contradictions), but this is a 1-contract position \u2014 I can't do a partial trim on a single contract. Since TP1 is hit and I only have 1 contract, closing the full position here to lock in $329 gain is the right call. I can look to re-enter if the setup remains strong, but the original thesis target has been achieved."
     },
     {
       "id": 100,
@@ -1144,24 +1275,24 @@
       "strike_price": 212.5,
       "expiration_date": "2026-08-10",
       "entry_time": "2026-08-04T13:53:43.697",
-      "exit_time": null,
+      "exit_time": "2026-08-05T13:30:29.814",
       "entry_price": 3.35,
-      "exit_price": null,
+      "exit_price": 7.4,
       "qty": 1.0,
-      "pnl": null,
-      "win": null,
-      "status": "open",
-      "exit_category": "Open",
+      "pnl": 405.0,
+      "win": true,
+      "status": "closed",
+      "exit_category": "Take Profit",
       "dte_at_entry": 6.0,
       "dte_bucket": "4-7 DTE",
-      "hold_type": null,
+      "hold_type": "Overnight",
       "tod_bucket": "Open (9:30-10ET)",
       "signal_strength": 4,
       "signal_timeframe": "1-Hour (Swing)",
       "indicators_triggered_readable": "1h: Full Bull EMA Stack \u2705; 15m: Bull EMA Stack (9>21>50) (confirmation); 15m: ADX Strong Bull Trend (38.6) (confirmation); 4h: RSI Bullish Divergence \u2705 (confirmation); 1d: RSI Bullish Divergence \u2705 (confirmation)",
       "entry_reason": "NVDA 1h Full Bull EMA Stack (str 4) \u2014 zero contradictions, 4 fully aligned bullish confirmations (15m Bull EMA Stack, 15m ADX 38.6, 4h RSI Bullish Div, 1d RSI Bullish Div). Strong ticker history (75% win, +$28.87 avg). Slight OTM $212.5 call with solid OI (917), 1.8% spread. ATR target ~$216.05.",
-      "exit_reason": null,
-      "claude_reasoning": null
+      "exit_reason": "hard_take_profit",
+      "claude_reasoning": "Automatic safety-net close (+121% on premium: entry $3.35 -> current $7.40). Triggered outside the Claude budget/decision loop."
     },
     {
       "id": 99,
