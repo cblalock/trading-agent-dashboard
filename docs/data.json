@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-08-07T01:22:08.459068+00:00",
+  "generated_at": "2026-08-08T01:45:38.970997+00:00",
   "kpis": {
-    "total_pnl": -600.2650000000001,
-    "win_rate": 0.42452830188679247,
-    "total_trades": 106,
-    "current_capital": 4399.735,
+    "total_pnl": -751.2650000000001,
+    "win_rate": 0.42727272727272725,
+    "total_trades": 110,
+    "current_capital": 4248.735,
     "starting_capital": 5000.0,
-    "wins": 45,
-    "losses": 61
+    "wins": 47,
+    "losses": 63
   },
   "equity_curve": [
     {
@@ -857,26 +857,58 @@
       "pnl": -42.0,
       "cumulative_pnl": -600.265,
       "capital_after": 4399.735
+    },
+    {
+      "trade_number": 107,
+      "exit_time": "2026-08-07T13:30:28.595",
+      "ticker": "COIN",
+      "pnl": -196.5,
+      "cumulative_pnl": -796.765,
+      "capital_after": 4203.235
+    },
+    {
+      "trade_number": 108,
+      "exit_time": "2026-08-07T13:51:09.122",
+      "ticker": "MSFT",
+      "pnl": -50.0,
+      "cumulative_pnl": -846.765,
+      "capital_after": 4153.235
+    },
+    {
+      "trade_number": 109,
+      "exit_time": "2026-08-07T15:59:21.360",
+      "ticker": "NVDA",
+      "pnl": 68.0,
+      "cumulative_pnl": -778.765,
+      "capital_after": 4221.235
+    },
+    {
+      "trade_number": 110,
+      "exit_time": "2026-08-07T19:22:18.707",
+      "ticker": "PLTR",
+      "pnl": 27.5,
+      "cumulative_pnl": -751.265,
+      "capital_after": 4248.735
     }
   ],
   "exit_breakdown": [
     {
       "exit_category": "Take Profit",
-      "total_pnl": 7743.5,
-      "avg_pnl": 209.2837837838,
-      "count": 37
+      "total_pnl": 7811.5,
+      "avg_pnl": 205.5657894737,
+      "count": 38
     },
     {
       "exit_category": "Hard Stop",
-      "total_pnl": -4078.0,
-      "avg_pnl": -226.5555555556,
-      "count": 18
+      "total_pnl": -4274.5,
+      "avg_pnl": -224.9736842105,
+      "count": 19
     },
     {
       "exit_category": "Striker Stop",
-      "total_pnl": -2406.5,
-      "avg_pnl": -133.6944444444,
-      "count": 18
+      "total_pnl": -2456.5,
+      "avg_pnl": -129.2894736842,
+      "count": 19
     },
     {
       "exit_category": "ATR Stop",
@@ -886,9 +918,9 @@
     },
     {
       "exit_category": "EOD Close",
-      "total_pnl": 40.0,
-      "avg_pnl": 5.7142857143,
-      "count": 7
+      "total_pnl": 67.5,
+      "avg_pnl": 8.4375,
+      "count": 8
     },
     {
       "exit_category": "Contra-Signal",
@@ -918,24 +950,24 @@
   "dte_breakdown": [
     {
       "dte_bucket": "0-3 DTE",
-      "count": 57,
-      "avg_pnl": -21.5263157895,
-      "total_pnl": -1227.0,
-      "win_rate": 0.4210526316
+      "count": 58,
+      "avg_pnl": -22.0172413793,
+      "total_pnl": -1277.0,
+      "win_rate": 0.4137931034
     },
     {
       "dte_bucket": "4-7 DTE",
-      "count": 34,
-      "avg_pnl": 22.2205882353,
-      "total_pnl": 755.5,
-      "win_rate": 0.4705882353
+      "count": 36,
+      "avg_pnl": 23.6388888889,
+      "total_pnl": 851.0,
+      "win_rate": 0.5
     },
     {
       "dte_bucket": "8-14 DTE",
-      "count": 10,
-      "avg_pnl": -11.1,
-      "total_pnl": -111.0,
-      "win_rate": 0.2
+      "count": 11,
+      "avg_pnl": -27.9545454545,
+      "total_pnl": -307.5,
+      "win_rate": 0.1818181818
     },
     {
       "dte_bucket": "Equity",
@@ -948,24 +980,24 @@
   "tod_breakdown": [
     {
       "tod_bucket": "Open (9:30-10ET)",
-      "count": 42,
-      "avg_pnl": -38.0301190476,
-      "total_pnl": -1597.265,
-      "win_rate": 0.3571428571
+      "count": 43,
+      "avg_pnl": -38.3084883721,
+      "total_pnl": -1647.265,
+      "win_rate": 0.3488372093
     },
     {
       "tod_bucket": "Morning (10-11ET)",
-      "count": 36,
-      "avg_pnl": 52.6111111111,
-      "total_pnl": 1894.0,
-      "win_rate": 0.5555555556
+      "count": 37,
+      "avg_pnl": 53.027027027,
+      "total_pnl": 1962.0,
+      "win_rate": 0.5675675676
     },
     {
       "tod_bucket": "Midday (11-1ET)",
-      "count": 21,
-      "avg_pnl": -38.880952381,
-      "total_pnl": -816.5,
-      "win_rate": 0.380952381
+      "count": 22,
+      "avg_pnl": -35.8636363636,
+      "total_pnl": -789.0,
+      "win_rate": 0.4090909091
     },
     {
       "tod_bucket": "Afternoon (1-3ET)",
@@ -973,6 +1005,13 @@
       "avg_pnl": -11.5,
       "total_pnl": -80.5,
       "win_rate": 0.2857142857
+    },
+    {
+      "tod_bucket": "Close (3-4ET)",
+      "count": 1,
+      "avg_pnl": -196.5,
+      "total_pnl": -196.5,
+      "win_rate": 0.0
     }
   ],
   "daily_performance": [
@@ -1160,10 +1199,17 @@
     },
     {
       "entry_date": "2026-08-06",
-      "count": 2,
-      "total_pnl": -209.5,
-      "avg_pnl": -104.75,
+      "count": 3,
+      "total_pnl": -406.0,
+      "avg_pnl": -135.3333333333,
       "win_rate": 0.0
+    },
+    {
+      "entry_date": "2026-08-07",
+      "count": 3,
+      "total_pnl": 45.5,
+      "avg_pnl": 15.1666666667,
+      "win_rate": 0.6666666667
     }
   ],
   "scanner_events": [
@@ -1178,6 +1224,118 @@
   ],
   "trades": [
     {
+      "id": 111,
+      "ticker": "PLTR",
+      "side": "call",
+      "trade_type": "option",
+      "option_type": "call",
+      "strike_price": 172.5,
+      "expiration_date": "2026-08-14",
+      "entry_time": "2026-08-07T16:49:14.092",
+      "exit_time": "2026-08-07T19:22:18.707",
+      "entry_price": 3.845,
+      "exit_price": 4.12,
+      "qty": 1.0,
+      "pnl": 27.5,
+      "win": true,
+      "status": "closed",
+      "exit_category": "EOD Close",
+      "dte_at_entry": 7.0,
+      "dte_bucket": "4-7 DTE",
+      "hold_type": "Same Day",
+      "tod_bucket": "Midday (11-1ET)",
+      "signal_strength": 4,
+      "signal_timeframe": "15-Minute (Day Trade)",
+      "indicators_triggered_readable": "15m: Full Bull EMA Stack \u2705; 1h: Full Bull EMA Stack \u2705; 1d: Full Bull EMA Stack \u2705; 15m: ADX Strong Bull Trend (51.8) (confirmation); 1h: ADX Strong Bull Trend (40.8) (confirmation); 4h: Bull EMA Stack (9>21>50) (confirmation); 1d: Resistance Breakout \u2191 (confirmation)",
+      "entry_reason": "PLTR triple-TF Full Bull EMA Stack (15m + 1h + 1d, str 4) \u2014 cleanest setup this cycle: zero contradictions, 4 fully aligned bullish confirmations: 15m ADX Strong Bull (51.8), 1h ADX Strong Bull (40.8), 4h Bull EMA Stack, 1d Resistance Breakout. 1h target $175.71 / 1d target $192.12. OTM $172.5 strike justified by multi-TF strength and target well above strike. 7 DTE (Aug 14 Thu) satisfies Friday barbell rule. Normal trade.",
+      "exit_reason": "EOD Friday close \u2014 contradicted signal, poor PLTR track record",
+      "claude_reasoning": "PLTR is flat (+$0 P&L). End-of-day Friday with this expiring Aug 14 (Thu). All three PLTR signals this cycle carry contradicts_confirmation: true (15m RSI Bearish Divergence + 4h Shooting Star opposing the bullish thesis). PLTR has 0% win rate / -$72 avg over n=2 in trade history. Holding over the weekend with an actively contradicted signal on a historically poor performer is poor risk management. Taking the flat exit rather than risking a Monday gap down with a weakening thesis."
+    },
+    {
+      "id": 110,
+      "ticker": "SPY",
+      "side": "call",
+      "trade_type": "option",
+      "option_type": "call",
+      "strike_price": 774.0,
+      "expiration_date": "2026-08-12",
+      "entry_time": "2026-08-07T15:26:48.732",
+      "exit_time": null,
+      "entry_price": 3.655,
+      "exit_price": null,
+      "qty": 1.0,
+      "pnl": null,
+      "win": null,
+      "status": "open",
+      "exit_category": "Open",
+      "dte_at_entry": 5.0,
+      "dte_bucket": "4-7 DTE",
+      "hold_type": null,
+      "tod_bucket": "Midday (11-1ET)",
+      "signal_strength": 4,
+      "signal_timeframe": "15-Minute (Day Trade)",
+      "indicators_triggered_readable": "15m: Full Bull EMA Stack \u2705; 1h: Full Bull EMA Stack \u2705; 1d: Full Bull EMA Stack \u2705; 1h: ADX Strong Bull Trend (35.9) (confirmation); 4h: Bull EMA Stack (9>21>50) (confirmation); 1d: RSI Bullish Divergence \u2705 (confirmation)",
+      "entry_reason": "SPY triple-TF Full Bull EMA Stack (15m + 1h + 1d, str 4) \u2014 zero contradictions, 3 fully aligned bullish confirmations: 1h ADX Strong Bull (35.9), 4h Bull EMA Stack, 1d RSI Bullish Divergence. SPY best historical performer: 100% win / +$210 avg (n=3). 1h target $777.87 / 1d target $795.81. 5 DTE (Aug 12 Wed) respects Friday barbell rule. Normal trade, hold for ATR target.",
+      "exit_reason": null,
+      "claude_reasoning": null
+    },
+    {
+      "id": 109,
+      "ticker": "NVDA",
+      "side": "call",
+      "trade_type": "option",
+      "option_type": "call",
+      "strike_price": 222.5,
+      "expiration_date": "2026-08-14",
+      "entry_time": "2026-08-07T14:05:51.592",
+      "exit_time": "2026-08-07T15:59:21.360",
+      "entry_price": 4.13,
+      "exit_price": 4.81,
+      "qty": 1.0,
+      "pnl": 68.0,
+      "win": true,
+      "status": "closed",
+      "exit_category": "Take Profit",
+      "dte_at_entry": 7.0,
+      "dte_bucket": "4-7 DTE",
+      "hold_type": "Same Day",
+      "tod_bucket": "Morning (10-11ET)",
+      "signal_strength": 4,
+      "signal_timeframe": "15-Minute (Day Trade)",
+      "indicators_triggered_readable": "15m: Full Bull EMA Stack \u2705; 1h: Full Bull EMA Stack \u2705; 1d: Full Bull EMA Stack \u2705; 1h: ADX Strong Bull Trend (45.9) (confirmation); 4h: Bull EMA Stack (9>21>50) (confirmation); 1d: RSI Bullish Divergence \u2705 (confirmation)",
+      "entry_reason": "NVDA triple-TF Full Bull EMA Stack (15m + 1h + 1d, str 4) \u2014 zero contradictions across all timeframes, cleanest setup this cycle. Confirmations: 1h ADX Strong Bull (45.9), 4h Bull EMA Stack, 1d RSI Bullish Divergence all aligned bullish. 1h signal targets $226.96 / $230.38. 7 DTE clears Friday barbell rule. History: NVDA 57% win, 1h TF 67% win / +$76 avg, 6-14 DTE 55% win / +$54 avg. Normal trade style \u2014 hold for ATR target ~$227.",
+      "exit_reason": "TP1 \u2014 NVDA near ATR target $224.14, taking +13% gain; contra-signals (15m RSI Bearish Div + 1h Shooting Star) appearing this cycle",
+      "claude_reasoning": "NVDA is at $223.69 vs ATR TP of $224.14 \u2014 essentially at target. Current premium $4.80 vs entry $4.13, up +13% (+$55). This cycle's NVDA signals all carry contradicts_confirmation=true (15m RSI Bearish Divergence + 1h Shooting Star opposing the bull thesis). With price near target and contra-signals forming, the risk/reward of holding further is poor. Take the gain now rather than risk giving it back. History also shows NVDA has had multiple recent contra-signal exits."
+    },
+    {
+      "id": 108,
+      "ticker": "MSFT",
+      "side": "call",
+      "trade_type": "option",
+      "option_type": "call",
+      "strike_price": 505.0,
+      "expiration_date": "2026-08-07",
+      "entry_time": "2026-08-07T13:49:23.830",
+      "exit_time": "2026-08-07T13:51:09.122",
+      "entry_price": 2.34,
+      "exit_price": 1.84,
+      "qty": 1.0,
+      "pnl": -50.0,
+      "win": false,
+      "status": "closed",
+      "exit_category": "Striker Stop",
+      "dte_at_entry": 0.0,
+      "dte_bucket": "0-3 DTE",
+      "hold_type": "Same Day",
+      "tod_bucket": "Open (9:30-10ET)",
+      "signal_strength": 4,
+      "signal_timeframe": "15-Minute (Day Trade)",
+      "indicators_triggered_readable": "15m: Full Bull EMA Stack \u2705; 1h: Full Bull EMA Stack \u2705; 1d: Full Bull EMA Stack \u2705; 1h: ADX Strong Bull Trend (36.4) (confirmation); 4h: Bull EMA Stack (9>21>50) (confirmation); 4h: ADX Strong Bull Trend (52.1) (confirmation)",
+      "entry_reason": "MSFT triple-TF Full Bull EMA Stack (15m + 1h + 1d, str 4) \u2014 cleanest setup this cycle: zero contradictions, all aligned bullish. 4h ADX Strong Bull (52.1) + 4h Bull EMA Stack = strong trend confirmation. 0 DTE Friday striker with tight 10/15 TP/stop. TP1 target $506.90, hard stop $502.06.",
+      "exit_reason": "striker_stop",
+      "claude_reasoning": "Automatic safety-net close (-21% on premium: entry $2.34 -> current $1.84). Triggered outside the Claude budget/decision loop."
+    },
+    {
       "id": 107,
       "ticker": "COIN",
       "side": "put",
@@ -1186,24 +1344,24 @@
       "strike_price": 143.0,
       "expiration_date": "2026-08-14",
       "entry_time": "2026-08-06T19:13:39.270",
-      "exit_time": null,
+      "exit_time": "2026-08-07T13:30:28.595",
       "entry_price": 3.765,
-      "exit_price": null,
+      "exit_price": 1.8,
       "qty": 1.0,
-      "pnl": null,
-      "win": null,
-      "status": "open",
-      "exit_category": "Open",
+      "pnl": -196.5,
+      "win": false,
+      "status": "closed",
+      "exit_category": "Hard Stop",
       "dte_at_entry": 8.0,
       "dte_bucket": "8-14 DTE",
-      "hold_type": null,
+      "hold_type": "Overnight",
       "tod_bucket": "Close (3-4ET)",
       "signal_strength": 4,
       "signal_timeframe": "15-Minute (Day Trade)",
       "indicators_triggered_readable": "15m: Full Bear EMA Stack \u274c; 1h: Full Bear EMA Stack \u274c; 1d: Full Bear EMA Stack \u274c",
       "entry_reason": "COIN triple-TF Full Bear EMA Stack (15m + 1h + 1d, str 4) \u2014 cleanest setup this cycle: zero contradictions across all three timeframes, no opposing confirmations. Underlying already confirmed bearish move from $146.94 \u2192 $144.13. Previous COIN trade was 1-DTE striker; this is 8 DTE normal with materially broader thesis (1h + 1d bear stack now confirmed). 1d target $123.04 gives strong directional runway; slightly OTM $143 strike offers leverage within budget (1 contract max).",
-      "exit_reason": null,
-      "claude_reasoning": null
+      "exit_reason": "hard_stop",
+      "claude_reasoning": "Automatic safety-net close (-52% on premium: entry $3.77 -> current $1.80). Triggered outside the Claude budget/decision loop."
     },
     {
       "id": 106,
