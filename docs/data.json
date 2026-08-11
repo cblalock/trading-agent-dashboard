@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-11T00:18:06.836572+00:00",
+  "generated_at": "2026-08-11T01:15:28.834946+00:00",
   "kpis": {
     "total_pnl": -824.2650000000001,
     "win_rate": 0.4247787610619469,
@@ -1251,6 +1251,10 @@
     {
       "date": "2026-07-24",
       "label": "reverted \u21924 (-$750.50 Fri)"
+    },
+    {
+      "date": "2026-08-10",
+      "label": "15m entries blocked (proven-negative timeframe)"
     }
   ],
   "trades": [

@@ -205,6 +205,7 @@ def main():
     scanner_events = [
         {"date": "2026-07-20", "label": "min_strength 4\u21923 (unlock indicators)"},
         {"date": "2026-07-24", "label": "reverted \u21924 (-$750.50 Fri)"},
+        {"date": "2026-08-10", "label": "15m entries blocked (proven-negative timeframe)"},
     ]
 
     # --- Full trade log ---
