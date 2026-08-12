@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-08-11T01:15:28.834946+00:00",
+  "generated_at": "2026-08-12T00:06:31.521635+00:00",
   "kpis": {
-    "total_pnl": -824.2650000000001,
-    "win_rate": 0.4247787610619469,
-    "total_trades": 113,
-    "current_capital": 4175.735,
+    "total_pnl": -1003.7650000000001,
+    "win_rate": 0.41025641025641024,
+    "total_trades": 117,
+    "current_capital": 3996.2349999999997,
     "starting_capital": 5000.0,
     "wins": 48,
-    "losses": 65
+    "losses": 69
   },
   "equity_curve": [
     {
@@ -913,6 +913,38 @@
       "pnl": 84.5,
       "cumulative_pnl": -824.265,
       "capital_after": 4175.735
+    },
+    {
+      "trade_number": 114,
+      "exit_time": "2026-08-11T13:49:22.551",
+      "ticker": "SPY",
+      "pnl": -42.5,
+      "cumulative_pnl": -866.765,
+      "capital_after": 4133.235
+    },
+    {
+      "trade_number": 115,
+      "exit_time": "2026-08-11T14:27:21.029",
+      "ticker": "JPM",
+      "pnl": -48.0,
+      "cumulative_pnl": -914.765,
+      "capital_after": 4085.235
+    },
+    {
+      "trade_number": 116,
+      "exit_time": "2026-08-11T15:32:10.311",
+      "ticker": "AAPL",
+      "pnl": -38.0,
+      "cumulative_pnl": -952.765,
+      "capital_after": 4047.235
+    },
+    {
+      "trade_number": 117,
+      "exit_time": "2026-08-11T16:20:54.831",
+      "ticker": "XOM",
+      "pnl": -51.0,
+      "cumulative_pnl": -1003.765,
+      "capital_after": 3996.235
     }
   ],
   "exit_breakdown": [
@@ -948,9 +980,9 @@
     },
     {
       "exit_category": "Contra-Signal",
-      "total_pnl": -780.0,
-      "avg_pnl": -65.0,
-      "count": 12
+      "total_pnl": -959.5,
+      "avg_pnl": -59.96875,
+      "count": 16
     },
     {
       "exit_category": "Theta Risk",
@@ -981,17 +1013,17 @@
     },
     {
       "dte_bucket": "4-7 DTE",
-      "count": 38,
-      "avg_pnl": 18.25,
-      "total_pnl": 693.5,
-      "win_rate": 0.4736842105
+      "count": 39,
+      "avg_pnl": 16.6923076923,
+      "total_pnl": 651.0,
+      "win_rate": 0.4615384615
     },
     {
       "dte_bucket": "8-14 DTE",
-      "count": 12,
-      "avg_pnl": -18.5833333333,
-      "total_pnl": -223.0,
-      "win_rate": 0.25
+      "count": 15,
+      "avg_pnl": -24.0,
+      "total_pnl": -360.0,
+      "win_rate": 0.2
     },
     {
       "dte_bucket": "Equity",
@@ -1004,24 +1036,24 @@
   "tod_breakdown": [
     {
       "tod_bucket": "Open (9:30-10ET)",
-      "count": 44,
-      "avg_pnl": -38.6082954545,
-      "total_pnl": -1698.765,
-      "win_rate": 0.3409090909
+      "count": 46,
+      "avg_pnl": -38.8970652174,
+      "total_pnl": -1789.265,
+      "win_rate": 0.3260869565
     },
     {
       "tod_bucket": "Morning (10-11ET)",
-      "count": 37,
-      "avg_pnl": 53.027027027,
-      "total_pnl": 1962.0,
-      "win_rate": 0.5675675676
+      "count": 38,
+      "avg_pnl": 50.6315789474,
+      "total_pnl": 1924.0,
+      "win_rate": 0.5526315789
     },
     {
       "tod_bucket": "Midday (11-1ET)",
-      "count": 24,
-      "avg_pnl": -33.7708333333,
-      "total_pnl": -810.5,
-      "win_rate": 0.4166666667
+      "count": 25,
+      "avg_pnl": -34.46,
+      "total_pnl": -861.5,
+      "win_rate": 0.4
     },
     {
       "tod_bucket": "Afternoon (1-3ET)",
@@ -1241,6 +1273,13 @@
       "total_pnl": 33.0,
       "avg_pnl": 16.5,
       "win_rate": 0.5
+    },
+    {
+      "entry_date": "2026-08-11",
+      "count": 4,
+      "total_pnl": -179.5,
+      "avg_pnl": -44.875,
+      "win_rate": 0.0
     }
   ],
   "scanner_events": [
@@ -1258,6 +1297,118 @@
     }
   ],
   "trades": [
+    {
+      "id": 117,
+      "ticker": "XOM",
+      "side": "call",
+      "trade_type": "option",
+      "option_type": "call",
+      "strike_price": 165.0,
+      "expiration_date": "2026-08-21",
+      "entry_time": "2026-08-11T15:16:07.902",
+      "exit_time": "2026-08-11T16:20:54.831",
+      "entry_price": 1.46,
+      "exit_price": 1.205,
+      "qty": 2.0,
+      "pnl": -51.0,
+      "win": false,
+      "status": "closed",
+      "exit_category": "Contra-Signal",
+      "dte_at_entry": 10.0,
+      "dte_bucket": "8-14 DTE",
+      "hold_type": "Same Day",
+      "tod_bucket": "Midday (11-1ET)",
+      "signal_strength": 4,
+      "signal_timeframe": "1-Hour (Swing)",
+      "indicators_triggered_readable": "1h: Full Bull EMA Stack \u2705; 1d: Full Bull EMA Stack \u2705; 15m: Bull EMA Stack (9>21>50) (confirmation); 15m: ADX Strong Bull Trend (52.6) (confirmation); 4h: Bull EMA Stack (9>21>50) (confirmation)",
+      "entry_reason": "XOM 1h Full Bull EMA Stack (str 4) \u2014 the ONLY clean signal this cycle: zero contradictions, 3 fully aligned bullish confirmations (15m Bull EMA Stack, 15m ADX Strong Bull 52.6, 4h Bull EMA Stack). Dual-TF confirmation (1h + 1d both bullish, no divergence warnings). ATR TP1 $163.41 (1h), TP2 $170.67 (1d). 10 DTE matches 1h swing. $165 OTM (near TP1 $163.41) \u2014 strong momentum gives room. OI 6,940, spread 2.7%. Previous XOM trade profitable (+$84.5). 2 contracts within budget at $292.",
+      "exit_reason": "Contra-signal exit \u2014 RSI Bearish Divergence on 15m and 1h opposing bullish thesis",
+      "claude_reasoning": "The XOM 1h and 1d signals this cycle show contradicts_confirmation: true, with both 15m RSI Bearish Divergence and 1h RSI Bearish Divergence present \u2014 these directly oppose the bullish call thesis. Per contra-signal exit rules, any strength \u22653 signal in the opposite direction for a held position triggers an immediate close. Position is at -22% ($66 loss), well above the hard stop, but the contra-signals indicate momentum has turned. Closing now to avoid further decay."
+    },
+    {
+      "id": 116,
+      "ticker": "AAPL",
+      "side": "put",
+      "trade_type": "option",
+      "option_type": "put",
+      "strike_price": 305.0,
+      "expiration_date": "2026-08-21",
+      "entry_time": "2026-08-11T14:27:56.563",
+      "exit_time": "2026-08-11T15:32:10.311",
+      "entry_price": 4.095,
+      "exit_price": 3.715,
+      "qty": 1.0,
+      "pnl": -38.0,
+      "win": false,
+      "status": "closed",
+      "exit_category": "Contra-Signal",
+      "dte_at_entry": 10.0,
+      "dte_bucket": "8-14 DTE",
+      "hold_type": "Same Day",
+      "tod_bucket": "Morning (10-11ET)",
+      "signal_strength": 4,
+      "signal_timeframe": "1-Hour (Swing)",
+      "indicators_triggered_readable": "1h: Full Bear EMA Stack \u274c; 15m: RSI Bearish Divergence \u26a0\ufe0f (confirmation); 1d: RSI Bearish Divergence \u26a0\ufe0f (confirmation)",
+      "entry_reason": "AAPL 1h Full Bear EMA Stack (str 4) \u2014 clean signal, zero contradictions, two fully aligned bearish confirmations (15m RSI Bearish Div + 1d RSI Bearish Div both pointing bearish, confirming bullish momentum exhaustion). Only clean bearish signal eligible this cycle. 10 DTE matches 1h swing timeframe. ATR TP1 $301.94. OI 4785, spread 7.1%. Recent AAPL put failure was contra-signal exit (condition now absent), not a structural thesis failure \u2014 current setup materially cleaner.",
+      "exit_reason": "Contra-signal exit \u2014 15m RSI Bullish Divergence opposing bearish thesis",
+      "claude_reasoning": "The AAPL 1h Full Bear EMA Stack bearish thesis is now contradicted: the current signals show a 15m RSI Bullish Divergence (BULLISH confirmation) opposing the bearish position. This is a hard contra-signal exit rule, same as the rule that exited previous AAPL put. Position is at -13.1% (-$55), not at hard stop, but the contra-signal mandates immediate close regardless. Cutting the loss here rather than letting it deepen against a contradicted thesis."
+    },
+    {
+      "id": 115,
+      "ticker": "JPM",
+      "side": "call",
+      "trade_type": "option",
+      "option_type": "call",
+      "strike_price": 362.5,
+      "expiration_date": "2026-08-21",
+      "entry_time": "2026-08-11T13:32:43.288",
+      "exit_time": "2026-08-11T14:27:21.029",
+      "entry_price": 3.97,
+      "exit_price": 3.49,
+      "qty": 1.0,
+      "pnl": -48.0,
+      "win": false,
+      "status": "closed",
+      "exit_category": "Contra-Signal",
+      "dte_at_entry": 10.0,
+      "dte_bucket": "8-14 DTE",
+      "hold_type": "Same Day",
+      "tod_bucket": "Open (9:30-10ET)",
+      "signal_strength": 4,
+      "signal_timeframe": "1-Hour (Swing)",
+      "indicators_triggered_readable": "1h: Full Bull EMA Stack \u2705; 1d: Full Bull EMA Stack \u2705; 15m: BB Breakout \u2191 + Volume Surge (confirmation); 15m: Bull EMA Stack (9>21>50) (confirmation); 15m: Volume Climax \ud83d\ude80 (4.4x avg) (confirmation); 1h: BB Breakout \u2191 + Volume Surge (confirmation); 4h: Bull EMA Stack (9>21>50) (confirmation)",
+      "entry_reason": "JPM 1h Full Bull EMA Stack (str 4), contradicts_confirmation: false \u2014 zero contradictions, richest confirmation stack this cycle (5 signals all bullish): 15m BB Breakout + Volume Surge, 15m Bull EMA Stack, 15m Volume Climax 4.4x, 1h BB Breakout + Volume Surge, 4h Bull EMA Stack. Volume Climax 4.4x + BB Breakout on 2 TFs is exceptional momentum. 10 DTE matches 1h signal. ATR TP1 $363.31. Poor JPM track record (0% WR, n=2) noted but exceptional signal quality justifies entry.",
+      "exit_reason": "Contra-signal exit \u2014 RSI Bearish Divergence on 15m and 1h timeframes opposing bullish thesis",
+      "claude_reasoning": "JPM call is down 23.8% and the new scan shows contradicts_confirmation: true \u2014 specifically 15m RSI Bearish Divergence and 1h RSI Bearish Divergence opposing the bullish thesis. Per our contra-signal exit rule, when a strength \u22653 signal appears in the opposite direction, we close immediately. The position hasn't approached TP ($363.31) and momentum is showing deterioration across timeframes. Taking the -$100 loss now vs risking the hard stop at -50% (-$210)."
+    },
+    {
+      "id": 114,
+      "ticker": "SPY",
+      "side": "call",
+      "trade_type": "option",
+      "option_type": "call",
+      "strike_price": 775.0,
+      "expiration_date": "2026-08-17",
+      "entry_time": "2026-08-11T13:32:37.535",
+      "exit_time": "2026-08-11T13:49:22.551",
+      "entry_price": 3.975,
+      "exit_price": 3.55,
+      "qty": 1.0,
+      "pnl": -42.5,
+      "win": false,
+      "status": "closed",
+      "exit_category": "Contra-Signal",
+      "dte_at_entry": 6.0,
+      "dte_bucket": "4-7 DTE",
+      "hold_type": "Same Day",
+      "tod_bucket": "Open (9:30-10ET)",
+      "signal_strength": 4,
+      "signal_timeframe": "1-Hour (Swing)",
+      "indicators_triggered_readable": "1h: Full Bull EMA Stack \u2705; 1d: Full Bull EMA Stack \u2705; 15m: Bull EMA Stack (9>21>50) (confirmation); 4h: Bull EMA Stack (9>21>50) (confirmation); 4h: ADX Strong Bull Trend (36.5) (confirmation); 1d: RSI Bullish Divergence \u2705 (confirmation)",
+      "entry_reason": "SPY 1h Full Bull EMA Stack (str 4), contradicts_confirmation: false \u2014 cleanest possible setup. 4 fully aligned bullish confirmations: 15m Bull EMA Stack, 4h Bull EMA Stack + ADX Strong Bull 36.5, 1d RSI Bullish Divergence. SPY is best-in-book ticker (75% WR, +$131.38 avg, n=4). Slight OTM ($775 vs $773.29) for budget fit; spread 0.8% excellent, OI 677, 6 DTE matches 1h signal. ATR TP1 target $776.90.",
+      "exit_reason": "Contra-signal exit \u2014 RSI Bearish Divergence on both 15m and 1h timeframes opposing the bullish thesis",
+      "claude_reasoning": "SPY is at $772.68, below the $775 strike and now showing RSI Bearish Divergence on 15m and 1h simultaneously per the current cycle's signal data. Per rules, a strength \u22653 opposing confirmation triggers immediate exit. Premium is down -11.5% but well above the -50% hard stop \u2014 taking the loss here before it deteriorates further. The bearish divergence across two timeframes is a meaningful reversal warning."
+    },
     {
       "id": 113,
       "ticker": "XOM",
