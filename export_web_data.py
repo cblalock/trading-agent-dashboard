@@ -20,34 +20,71 @@ ET = ZoneInfo("America/New_York")
 DTE_ORDER = ["0-3 DTE", "4-7 DTE", "8-14 DTE", "15+ DTE", "Equity", "Unknown"]
 TOD_ORDER = ["Open (9:30-10ET)", "Morning (10-11ET)", "Midday (11-1ET)", "Afternoon (1-3ET)", "Close (3-4ET)", "Unknown"]
 EXIT_CATEGORY_ORDER = [
-    "Take Profit", "Hard Stop", "Striker Stop", "ATR Stop", "EOD Close",
-    "Contra-Signal", "Theta Risk", "Preemptive Exit", "Liquidation", "Other", "Open",
+    "Take Profit", "Hard Stop", "Striker Stop", "EOD Close", "Friday Close",
+    "Contra-Signal (15m RSI)", "Contra-Signal (Other)", "Momentum Fade",
+    "Theta Risk", "Preemptive Exit", "Liquidation", "Other", "Open",
 ]
 
+# Maps the structured exit_category written by journal.py (agent.py tags it at
+# close time via a required tool-call enum; main.py's mechanical closers pass
+# their own code directly — see journal.MECHANICAL_EXIT_CATEGORIES /
+# CLAUDE_EXIT_CATEGORIES) to the display label used on the chart. Added
+# 2026-08-12 to replace the old regex-guess-from-exit_reason-text approach,
+# which couldn't reliably tell a 15m RSI contra-signal from any other kind.
+EXIT_CATEGORY_LABELS = {
+    "hard_stop": "Hard Stop",
+    "hard_take_profit": "Take Profit",
+    "striker_stop": "Striker Stop",
+    "striker_take_profit": "Take Profit",
+    "friday_short_fuse_close": "Friday Close",
+    "liquidation": "Liquidation",
+    "eod_close": "EOD Close",
+    "take_profit": "Take Profit",
+    "contra_signal_15m_rsi": "Contra-Signal (15m RSI)",
+    "contra_signal_other": "Contra-Signal (Other)",
+    "momentum_fade": "Momentum Fade",
+    "theta_decay": "Theta Risk",
+    "near_stop_preemptive": "Preemptive Exit",
+    "other": "Other",
+}
 
-def categorize_exit(reason: str) -> str:
+
+def categorize_exit_legacy(reason: str) -> str:
+    """Regex-guess fallback for any row that somehow has no structured
+    exit_category (shouldn't happen post-2026-08-12 backfill, but kept as a
+    safety net rather than dropping rows from the chart)."""
     if pd.isna(reason) or not reason:
-        return "open"
+        return "Other"
     r = reason.lower()
     if r == "hard_stop" or "hard exit" in r or ("hard stop" in r and "near" not in r and "approaching" not in r):
         return "Hard Stop"
     if r == "striker_stop" or "striker stop" in r:
         return "Striker Stop"
     if "atr stop" in r:
-        return "ATR Stop"
+        return "Preemptive Exit"
     if r in ("hard_take_profit", "striker_take_profit") or r.startswith("tp") or "take profit" in r or "trim" in r or "lock" in r:
         return "Take Profit"
     if "eod" in r or "end of day" in r:
         return "EOD Close"
-    if r == "contra_signal" or "contra-signal" in r or "contra signal" in r:
-        return "Contra-Signal"
+    if "15m" in r and "rsi" in r and ("contra" in r or "opposin" in r or "oppose" in r):
+        return "Contra-Signal (15m RSI)"
+    if r == "contra_signal" or "contra-signal" in r or "contra signal" in r or "contradic" in r:
+        return "Contra-Signal (Other)"
     if r == "liquidation":
         return "Liquidation"
     if "theta" in r:
         return "Theta Risk"
     if "near hard stop" in r or "approaching hard stop" in r or "pre-emptive" in r:
         return "Preemptive Exit"
+    if "momentum" in r:
+        return "Momentum Fade"
     return "Other"
+
+
+def categorize_exit(exit_category: str, reason: str) -> str:
+    if pd.notna(exit_category) and exit_category in EXIT_CATEGORY_LABELS:
+        return EXIT_CATEGORY_LABELS[exit_category]
+    return categorize_exit_legacy(reason)
 
 
 def tod_bucket(entry_time_utc) -> str:
@@ -107,8 +144,10 @@ def main():
     df["win"] = (df["pnl"] > 0).astype(object)
     df.loc[~df["is_closed"], "win"] = None
 
-    df["exit_category"] = df["exit_reason"].apply(categorize_exit)
-    df.loc[~df["is_closed"], "exit_category"] = "Open"
+    df["exit_category_label"] = df.apply(
+        lambda row: categorize_exit(row.get("exit_category"), row["exit_reason"]), axis=1
+    )
+    df.loc[~df["is_closed"], "exit_category_label"] = "Open"
 
     df["dte_bucket"] = df.apply(lambda row: dte_bucket(row["dte_at_entry"], row["trade_type"]), axis=1)
     df["tod_bucket"] = df["entry_time"].apply(tod_bucket)
@@ -158,8 +197,9 @@ def main():
     }
 
     # --- Exit category breakdown ---
-    exit_group = closed_df.groupby("exit_category")["pnl"].agg(["sum", "mean", "count"]).reset_index()
+    exit_group = closed_df.groupby("exit_category_label")["pnl"].agg(["sum", "mean", "count"]).reset_index()
     exit_group.columns = ["exit_category", "total_pnl", "avg_pnl", "count"]
+    exit_group["pct_of_exits"] = (exit_group["count"] / len(closed_df) * 100).round(1)
     exit_group["order"] = exit_group["exit_category"].apply(
         lambda c: EXIT_CATEGORY_ORDER.index(c) if c in EXIT_CATEGORY_ORDER else len(EXIT_CATEGORY_ORDER)
     )
@@ -209,14 +249,23 @@ def main():
     ]
 
     # --- Full trade log ---
+    # exit_category here is the display label (exit_category_label renamed on
+    # output) — app.js keys its color map / filter dropdown off this field, not
+    # the raw machine code from the DB (which is also present, unrenamed, as
+    # the source column would collide, so it's dropped from this view; the raw
+    # code is available in trades.db directly if ever needed).
     trade_log_cols = [
         "id", "ticker", "side", "trade_type", "option_type", "strike_price",
         "expiration_date", "entry_time", "exit_time", "entry_price", "exit_price",
-        "qty", "pnl", "win", "status", "exit_category", "dte_at_entry", "dte_bucket",
+        "qty", "pnl", "win", "status", "exit_category_label", "dte_at_entry", "dte_bucket",
         "hold_type", "tod_bucket", "signal_strength", "signal_timeframe",
         "indicators_triggered_readable", "entry_reason", "exit_reason", "claude_reasoning",
     ]
-    trades = clean_records(df[trade_log_cols].sort_values("entry_time", ascending=False))
+    trades = clean_records(
+        df[trade_log_cols]
+        .rename(columns={"exit_category_label": "exit_category"})
+        .sort_values("entry_time", ascending=False)
+    )
 
     out = {
         "generated_at": datetime.now(timezone.utc).isoformat(),

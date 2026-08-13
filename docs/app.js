@@ -24,11 +24,13 @@ const EXIT_CATEGORY_COLOR = {
   "Take Profit": PALETTE.green,
   "Hard Stop": PALETTE.red,
   "Striker Stop": PALETTE.orange,
-  "ATR Stop": PALETTE.yellow,
   "EOD Close": PALETTE.aqua,
-  "Contra-Signal": PALETTE.violet,
+  "Friday Close": PALETTE.blue,
+  "Contra-Signal (15m RSI)": PALETTE.violet,
+  "Contra-Signal (Other)": PALETTE.magenta,
+  "Momentum Fade": PALETTE.yellow,
   "Theta Risk": PALETTE.magenta,
-  "Liquidation": PALETTE.blue,
+  "Liquidation": PALETTE.muted,
   "Preemptive Exit": PALETTE.blue,
   "Other": PALETTE.muted,
   "Open": PALETTE.muted,
@@ -349,7 +351,7 @@ function renderExitBreakdown(rows) {
     svg.appendChild(bar);
 
     const catLabel = svgEl("text", { class: "category-label", x: pad.left - 12, y: cy + 4, "text-anchor": "end" });
-    catLabel.textContent = r.exit_category;
+    catLabel.textContent = `${r.exit_category} (${r.pct_of_exits}%)`;
     svg.appendChild(catLabel);
 
     const valLabel = svgEl("text", {
@@ -366,6 +368,7 @@ function renderExitBreakdown(rows) {
       const pos = tooltipPos(evt, viewport);
       showTooltip(pos.x, pos.y, [
         { key: color, label: r.exit_category, value: "" , valueClass: "" },
+        { label: "Share of exits", value: `${r.pct_of_exits}%` },
         { label: "Total P&L", value: fmtCurrency2.format(r.total_pnl), valueClass: signClass(r.total_pnl) },
         { label: "Avg P&L", value: fmtCurrency2.format(r.avg_pnl), valueClass: signClass(r.avg_pnl) },
         { label: "Trades", value: String(r.count) },
@@ -376,8 +379,8 @@ function renderExitBreakdown(rows) {
   });
 
   viewport.appendChild(svg);
-  renderSimpleTable("exit-table-wrap", ["Exit category", "Total P&L", "Avg P&L", "Trades"],
-    rows.map((r) => [r.exit_category, fmtCurrency2.format(r.total_pnl), fmtCurrency2.format(r.avg_pnl), r.count]));
+  renderSimpleTable("exit-table-wrap", ["Exit category", "Share of exits", "Total P&L", "Avg P&L", "Trades"],
+    rows.map((r) => [r.exit_category, `${r.pct_of_exits}%`, fmtCurrency2.format(r.total_pnl), fmtCurrency2.format(r.avg_pnl), r.count]));
 }
 
 // ---------- DTE bucket performance (two small multiples) ----------
