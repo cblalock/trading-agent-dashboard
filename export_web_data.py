@@ -368,11 +368,10 @@ def main():
     daily = daily.sort_values("entry_date")
     daily_performance = clean_records(daily)
 
-    scanner_events = [
-        {"date": "2026-07-20", "label": "min_strength 4\u21923 (unlock indicators)"},
-        {"date": "2026-07-24", "label": "reverted \u21924 (-$750.50 Fri)"},
-        {"date": "2026-08-10", "label": "15m entries blocked (proven-negative timeframe)"},
-    ]
+    # scanner_events (the old 3-item min_strength-only annotation list) was
+    # replaced 2026-08-13 \u2014 the scanner chart now draws a tick per CHANGELOG
+    # entry instead, color-coded by status, so every dated intervention shows
+    # up consistently rather than a hand-picked subset. See CHANGELOG above.
 
     # --- Budget / cost trend: daily API spend + when the non-EOD cap was hit ---
     usage_conn = sqlite3.connect(SOURCE_DB)
@@ -440,7 +439,6 @@ def main():
         "dte_breakdown": dte_breakdown,
         "tod_breakdown": tod_breakdown,
         "daily_performance": daily_performance,
-        "scanner_events": scanner_events,
         "budget_trend": budget_trend,
         "daily_budget_usd": DAILY_BUDGET_USD,
         "blocked_breakdown": blocked_breakdown,

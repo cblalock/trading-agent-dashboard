@@ -513,7 +513,17 @@ function buildBucketSubchart(rows, labelField, field, title, formatter, isSequen
 
 // ---------- Scanner case study ----------
 
-function renderScannerCaseStudy(daily, events) {
+// Matches the changelog card left-border colors in style.css (.status-*) so a
+// tick's color on this chart points straight at the matching card below —
+// that's the only cross-reference, deliberately no on-chart text label.
+const STATUS_COLOR = {
+  confirmed: "#0ca30c",
+  watching: "#fab219",
+  needs_revisit: "#ec835a",
+  shipped: "#3987e5",
+};
+
+function renderScannerCaseStudy(daily, changelog) {
   const viewport = document.getElementById("scanner-viewport");
   viewport.innerHTML = "";
   if (!daily.length) {
@@ -576,20 +586,40 @@ function renderScannerCaseStudy(daily, events) {
     }
   });
 
-  // annotation lines (staggered vertically so adjacent dates don't collide)
-  events.forEach((ev, i) => {
-    const idx = daily.findIndex((d) => d.entry_date >= ev.date);
-    const xPos = idx === -1 ? pad.left + innerW : pad.left + bandW * idx;
-    svg.appendChild(svgEl("line", { class: "annotation-line", x1: xPos, x2: xPos, y1: pad.top, y2: H - pad.bottom }));
-    const flip = xPos > pad.left + innerW * 0.6;
-    const lbl = svgEl("text", {
-      class: "annotation-label",
-      x: flip ? xPos - 6 : xPos + 6,
-      y: pad.top + 10 + i * 13,
-      "text-anchor": flip ? "end" : "start",
+  // Annotation lines: one per changelog entry, color-coded by status, no
+  // label — the color itself is the cross-reference to the matching card in
+  // the System Changelog section below. Same-day entries (e.g. 2026-07-24 has
+  // three) get spread a few px apart instead of drawing exactly on top of
+  // each other, so each status color stays visible.
+  const byDate = {};
+  changelog.forEach((ev) => { (byDate[ev.date] = byDate[ev.date] || []).push(ev); });
+
+  Object.entries(byDate).forEach(([date, evs]) => {
+    const idx = daily.findIndex((d) => d.entry_date >= date);
+    const xBase = idx === -1 ? pad.left + innerW : pad.left + bandW * idx;
+    const spread = 4;
+    evs.forEach((ev, j) => {
+      const xPos = xBase + (j - (evs.length - 1) / 2) * spread;
+      const color = STATUS_COLOR[ev.status] || PALETTE.muted;
+      const line = svgEl("line", {
+        class: "annotation-line", x1: xPos, x2: xPos, y1: pad.top, y2: H - pad.bottom,
+        stroke: color,
+      });
+      svg.appendChild(line);
+
+      const hit = svgEl("rect", { x: xPos - 4, y: pad.top, width: 8, height: innerH, fill: "transparent", style: "cursor:pointer" });
+      hit.addEventListener("pointermove", (evt) => {
+        line.setAttribute("stroke-width", "2.5px");
+        const pos = tooltipPos(evt, viewport);
+        showTooltip(pos.x, pos.y, [
+          { key: color, label: ev.title, value: "" },
+          { label: "Date", value: ev.date },
+          { label: "Status", value: STATUS_LABEL[ev.status] || ev.status },
+        ]);
+      });
+      hit.addEventListener("pointerleave", () => { line.setAttribute("stroke-width", "1.5px"); hideTooltip(); });
+      svg.appendChild(hit);
     });
-    lbl.textContent = ev.label;
-    svg.appendChild(lbl);
   });
 
   viewport.appendChild(svg);
@@ -964,7 +994,7 @@ fetch(`data.json?v=${Date.now()}`)
     renderTodBreakdown(data.tod_breakdown);
     renderBudgetTrend(data.budget_trend, data.daily_budget_usd);
     renderBlockedCandidates(data.blocked_breakdown || []);
-    renderScannerCaseStudy(data.daily_performance, data.scanner_events);
+    renderScannerCaseStudy(data.daily_performance, data.changelog || []);
     renderChangelog(data.changelog || []);
     renderTradeLog(data.trades);
   })

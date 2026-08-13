@@ -346,7 +346,9 @@ a { color: var(--series-1-blue); }
 }
 
 .annotation-line {
-  stroke: var(--status-warning);
+  /* stroke color is set per-element in JS (one color per changelog status) —
+     deliberately not set here, since a class rule always beats an inline SVG
+     presentation attribute and would silently override every line to one color. */
   stroke-width: 1.5px;
   stroke-dasharray: 4 3;
 }

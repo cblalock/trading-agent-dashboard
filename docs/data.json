@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-13T02:30:27.476116+00:00",
+  "generated_at": "2026-08-13T02:52:09.828951+00:00",
   "kpis": {
     "total_pnl": -1026.765,
     "win_rate": 0.4065040650406504,
@@ -1344,20 +1344,6 @@
       "total_pnl": -23.0,
       "avg_pnl": -3.8333333333,
       "win_rate": 0.3333333333
-    }
-  ],
-  "scanner_events": [
-    {
-      "date": "2026-07-20",
-      "label": "min_strength 4\u21923 (unlock indicators)"
-    },
-    {
-      "date": "2026-07-24",
-      "label": "reverted \u21924 (-$750.50 Fri)"
-    },
-    {
-      "date": "2026-08-10",
-      "label": "15m entries blocked (proven-negative timeframe)"
     }
   ],
   "budget_trend": [
