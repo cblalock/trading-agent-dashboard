@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-08-12T00:06:31.521635+00:00",
+  "generated_at": "2026-08-13T00:36:23.516237+00:00",
   "kpis": {
-    "total_pnl": -1003.7650000000001,
-    "win_rate": 0.41025641025641024,
-    "total_trades": 117,
-    "current_capital": 3996.2349999999997,
+    "total_pnl": -1026.765,
+    "win_rate": 0.4065040650406504,
+    "total_trades": 123,
+    "current_capital": 3973.2349999999997,
     "starting_capital": 5000.0,
-    "wins": 48,
-    "losses": 69
+    "wins": 50,
+    "losses": 73
   },
   "equity_curve": [
     {
@@ -945,6 +945,54 @@
       "pnl": -51.0,
       "cumulative_pnl": -1003.765,
       "capital_after": 3996.235
+    },
+    {
+      "trade_number": 118,
+      "exit_time": "2026-08-12T15:06:12.395",
+      "ticker": "JPM",
+      "pnl": 20.5,
+      "cumulative_pnl": -983.265,
+      "capital_after": 4016.735
+    },
+    {
+      "trade_number": 119,
+      "exit_time": "2026-08-12T15:06:12.554",
+      "ticker": "NVDA",
+      "pnl": -3.5,
+      "cumulative_pnl": -986.765,
+      "capital_after": 4013.235
+    },
+    {
+      "trade_number": 120,
+      "exit_time": "2026-08-12T15:22:33.165",
+      "ticker": "GOOGL",
+      "pnl": 44.5,
+      "cumulative_pnl": -942.265,
+      "capital_after": 4057.735
+    },
+    {
+      "trade_number": 121,
+      "exit_time": "2026-08-12T16:11:18.630",
+      "ticker": "AAPL",
+      "pnl": -16.0,
+      "cumulative_pnl": -958.265,
+      "capital_after": 4041.735
+    },
+    {
+      "trade_number": 122,
+      "exit_time": "2026-08-12T16:28:53.250",
+      "ticker": "GOOGL",
+      "pnl": -48.5,
+      "cumulative_pnl": -1006.765,
+      "capital_after": 3993.235
+    },
+    {
+      "trade_number": 123,
+      "exit_time": "2026-08-12T17:06:34.241",
+      "ticker": "JPM",
+      "pnl": -20.0,
+      "cumulative_pnl": -1026.765,
+      "capital_after": 3973.235
     }
   ],
   "exit_breakdown": [
@@ -980,9 +1028,9 @@
     },
     {
       "exit_category": "Contra-Signal",
-      "total_pnl": -959.5,
-      "avg_pnl": -59.96875,
-      "count": 16
+      "total_pnl": -982.5,
+      "avg_pnl": -44.6590909091,
+      "count": 22
     },
     {
       "exit_category": "Theta Risk",
@@ -1013,17 +1061,17 @@
     },
     {
       "dte_bucket": "4-7 DTE",
-      "count": 39,
-      "avg_pnl": 16.6923076923,
-      "total_pnl": 651.0,
-      "win_rate": 0.4615384615
+      "count": 42,
+      "avg_pnl": 15.3214285714,
+      "total_pnl": 643.5,
+      "win_rate": 0.4523809524
     },
     {
       "dte_bucket": "8-14 DTE",
-      "count": 15,
-      "avg_pnl": -24.0,
-      "total_pnl": -360.0,
-      "win_rate": 0.2
+      "count": 18,
+      "avg_pnl": -20.8611111111,
+      "total_pnl": -375.5,
+      "win_rate": 0.2222222222
     },
     {
       "dte_bucket": "Equity",
@@ -1043,17 +1091,17 @@
     },
     {
       "tod_bucket": "Morning (10-11ET)",
-      "count": 38,
-      "avg_pnl": 50.6315789474,
-      "total_pnl": 1924.0,
-      "win_rate": 0.5526315789
+      "count": 41,
+      "avg_pnl": 48.4268292683,
+      "total_pnl": 1985.5,
+      "win_rate": 0.5609756098
     },
     {
       "tod_bucket": "Midday (11-1ET)",
-      "count": 25,
-      "avg_pnl": -34.46,
-      "total_pnl": -861.5,
-      "win_rate": 0.4
+      "count": 28,
+      "avg_pnl": -33.7857142857,
+      "total_pnl": -946.0,
+      "win_rate": 0.3571428571
     },
     {
       "tod_bucket": "Afternoon (1-3ET)",
@@ -1280,6 +1328,13 @@
       "total_pnl": -179.5,
       "avg_pnl": -44.875,
       "win_rate": 0.0
+    },
+    {
+      "entry_date": "2026-08-12",
+      "count": 6,
+      "total_pnl": -23.0,
+      "avg_pnl": -3.8333333333,
+      "win_rate": 0.3333333333
     }
   ],
   "scanner_events": [
@@ -1297,6 +1352,174 @@
     }
   ],
   "trades": [
+    {
+      "id": 123,
+      "ticker": "JPM",
+      "side": "call",
+      "trade_type": "option",
+      "option_type": "call",
+      "strike_price": 367.5,
+      "expiration_date": "2026-08-21",
+      "entry_time": "2026-08-12T16:50:05.026",
+      "exit_time": "2026-08-12T17:06:34.241",
+      "entry_price": 3.725,
+      "exit_price": 3.525,
+      "qty": 1.0,
+      "pnl": -20.0,
+      "win": false,
+      "status": "closed",
+      "exit_category": "Contra-Signal",
+      "dte_at_entry": 9.0,
+      "dte_bucket": "8-14 DTE",
+      "hold_type": "Same Day",
+      "tod_bucket": "Midday (11-1ET)",
+      "signal_strength": 4,
+      "signal_timeframe": "1-Hour (Swing)",
+      "indicators_triggered_readable": "1h: Full Bull EMA Stack \u2705; 1d: Full Bull EMA Stack \u2705; 15m: Bull EMA Stack (9>21>50) (confirmation); 15m: ADX Strong Bull Trend (35.2) (confirmation); 4h: Bull EMA Stack (9>21>50) (confirmation)",
+      "entry_reason": "JPM 1h + 1d Full Bull EMA Stack (str 4) \u2014 the ONLY clean signal this cycle: zero contradictions, 3 fully aligned bullish confirmations across 15m and 4h (Bull EMA Stack, ADX Strong Bull Trend 35.2, 4h Bull EMA Stack). Multi-timeframe confirmation on both 1h and 1d. ATM $365 strike over budget; $367.50 OTM still within range with 9 DTE. TP1 at $368.73 underlying, TP2 at $371.23.",
+      "exit_reason": "Contra-signal exit \u2014 RSI Bearish Divergence (15m) contradicts bullish thesis",
+      "claude_reasoning": "JPM 1h signal this cycle shows contradicts_confirmation: true with 15m RSI Bearish Divergence opposing the bullish EMA stack. Position is down -10.5% (-$40), premium is $3.40 vs entry $3.80. The bearish divergence is an active contra-signal per the exit rules. Closing to protect capital and avoid further decay against a contradicted thesis. Hard stop not yet triggered but the directional signal is now opposed."
+    },
+    {
+      "id": 122,
+      "ticker": "GOOGL",
+      "side": "put",
+      "trade_type": "option",
+      "option_type": "put",
+      "strike_price": 340.0,
+      "expiration_date": "2026-08-17",
+      "entry_time": "2026-08-12T16:12:06.058",
+      "exit_time": "2026-08-12T16:28:53.250",
+      "entry_price": 3.63,
+      "exit_price": 3.145,
+      "qty": 1.0,
+      "pnl": -48.5,
+      "win": false,
+      "status": "closed",
+      "exit_category": "Contra-Signal",
+      "dte_at_entry": 5.0,
+      "dte_bucket": "4-7 DTE",
+      "hold_type": "Same Day",
+      "tod_bucket": "Midday (11-1ET)",
+      "signal_strength": 4,
+      "signal_timeframe": "1-Hour (Swing)",
+      "indicators_triggered_readable": "1h: Full Bear EMA Stack \u274c; 15m: Full Bear EMA Stack \u274c (confirmation); 15m: ADX Strong Bear Trend (55.0) (confirmation); 1h: ADX Strong Bear Trend (48.9) (confirmation); 1d: RSI Bearish Divergence \u26a0\ufe0f (confirmation)",
+      "entry_reason": "GOOGL 1h Full Bear EMA Stack (str 4) \u2014 the ONLY clean signal this cycle: zero contradictions, 4 fully aligned bearish confirmations: 15m Full Bear EMA Stack, 15m ADX Strong Bear Trend (55.0), 1h ADX Strong Bear Trend (48.9), 1d RSI Bearish Divergence. Re-entry after prior exit (RSI Oversold Bounce bullish contra now gone \u2014 fresh bear momentum with stronger ADX readings = materially different thesis). ATR TP1 $336.37. Aug 17 $340 ATM put (3 DTE), 1 contract within budget.",
+      "exit_reason": "Contra-signal exit \u2014 GOOGL now shows 15m RSI Oversold Bounce + RSI Bullish Divergence contradicting the bearish thesis",
+      "claude_reasoning": "The GOOGL 1h Full Bear EMA Stack signal is still present, but the current cycle's GOOGL signal now carries contradicts_confirmation: true \u2014 specifically 15m RSI Oversold Bounce and RSI Bullish Divergence (bullish) opposing the bearish thesis. This is the same pattern that triggered the prior GOOGL put exit. At -22% premium loss, we're well within tradeable range, but the contra-signal rule is clear: close immediately when an opposing strength \u22653 signal appears. The 15m Bullish Divergence is particularly concerning given its historical reliability as a reversal indicator. Taking the -$85 loss rather than riding into a potential bounce that could hit the hard stop."
+    },
+    {
+      "id": 121,
+      "ticker": "AAPL",
+      "side": "put",
+      "trade_type": "option",
+      "option_type": "put",
+      "strike_price": 300.0,
+      "expiration_date": "2026-08-21",
+      "entry_time": "2026-08-12T15:23:06.922",
+      "exit_time": "2026-08-12T16:11:18.630",
+      "entry_price": 3.63,
+      "exit_price": 3.47,
+      "qty": 1.0,
+      "pnl": -16.0,
+      "win": false,
+      "status": "closed",
+      "exit_category": "Contra-Signal",
+      "dte_at_entry": 9.0,
+      "dte_bucket": "8-14 DTE",
+      "hold_type": "Same Day",
+      "tod_bucket": "Midday (11-1ET)",
+      "signal_strength": 4,
+      "signal_timeframe": "1-Hour (Swing)",
+      "indicators_triggered_readable": "1h: Full Bear EMA Stack \u274c; 15m: Full Bear EMA Stack \u274c (confirmation); 15m: ADX Strong Bear Trend (38.2) (confirmation); 1d: RSI Bearish Divergence \u26a0\ufe0f (confirmation)",
+      "entry_reason": "AAPL 1h Full Bear EMA Stack (str 4) \u2014 zero contradictions, 3 fully aligned bearish confirmations: 15m Full Bear EMA Stack, 15m ADX Bear Trend (38.2), 1d RSI Bearish Divergence. Clean triple-TF bear confirmation (15m/1h/1d). ATR TP1 at $297.44. 9 DTE ATM (6-14 DTE bucket historically best: 50% WR, +$33.67 avg). Massive OI at this strike (30,382). Despite poor AAPL track record, this is the only clean bearish setup available with zero contradictions.",
+      "exit_reason": "Contra-signal exit \u2014 AAPL now showing 15m RSI Oversold Bounce + RSI Bullish Divergence opposing bearish thesis",
+      "claude_reasoning": "AAPL put was entered on a clean 1h Full Bear EMA Stack. This cycle the confirmations now include 15m RSI Oversold Bounce (BULLISH) and 15m RSI Bullish Divergence (BULLISH) plus 1h RSI Oversold Bounce (BULLISH) \u2014 three bullish counter-signals contradicting the bearish thesis. The contradicts_confirmation flag is now true. Per rules, close immediately on contra-signal. Loss is modest (-$25, -6.8%), well above hard stop, so better to exit now than risk further deterioration."
+    },
+    {
+      "id": 120,
+      "ticker": "NVDA",
+      "side": "call",
+      "trade_type": "option",
+      "option_type": "call",
+      "strike_price": 225.0,
+      "expiration_date": "2026-08-19",
+      "entry_time": "2026-08-12T14:33:44.111",
+      "exit_time": "2026-08-12T15:06:12.554",
+      "entry_price": 3.73,
+      "exit_price": 3.695,
+      "qty": 1.0,
+      "pnl": -3.5,
+      "win": false,
+      "status": "closed",
+      "exit_category": "Contra-Signal",
+      "dte_at_entry": 7.0,
+      "dte_bucket": "4-7 DTE",
+      "hold_type": "Same Day",
+      "tod_bucket": "Morning (10-11ET)",
+      "signal_strength": 4,
+      "signal_timeframe": "1-Hour (Swing)",
+      "indicators_triggered_readable": "1h: Full Bull EMA Stack \u2705; 1d: Full Bull EMA Stack \u2705; 15m: Full Bull EMA Stack \u2705 (confirmation); 4h: Bull EMA Stack (9>21>50) (confirmation); 4h: ADX Strong Bull Trend (35.4) (confirmation)",
+      "entry_reason": "NVDA 1h Full Bull EMA Stack (str 4) \u2014 zero contradictions, 3 fully aligned bullish confirmations: 15m Full Bull EMA Stack, 4h Bull EMA Stack, 4h ADX Strong Bull Trend (35.4). Triple-TF confirmation (15m/1h/4h). Target $228.19 (ATR TP1). 7 DTE (Aug 19) stays within 1h signal DTE range while avoiding the Friday barbell problem. 1h timeframe is the strongest performer historically (+$79.83 avg, 58% WR). ATM strike, tight 2.7% spread, solid OI (7,112).",
+      "exit_reason": "Contra-signal exit \u2014 contradicts_confirmation now true with 15m RSI Bearish Divergence opposing bullish thesis",
+      "claude_reasoning": "NVDA 1h Bull EMA Stack signal now has contradicts_confirmation: true due to 15m RSI Bearish Divergence. Same mandatory contra-signal exit rule applies. -5.2% loss, well within hard stop, but the thesis has been invalidated. Additionally the concentration guard is active for bullish, so this position fits a deteriorating picture. Exit cleanly."
+    },
+    {
+      "id": 119,
+      "ticker": "JPM",
+      "side": "call",
+      "trade_type": "option",
+      "option_type": "call",
+      "strike_price": 367.5,
+      "expiration_date": "2026-08-21",
+      "entry_time": "2026-08-12T14:17:12.443",
+      "exit_time": "2026-08-12T15:06:12.395",
+      "entry_price": 3.275,
+      "exit_price": 3.48,
+      "qty": 1.0,
+      "pnl": 20.5,
+      "win": true,
+      "status": "closed",
+      "exit_category": "Contra-Signal",
+      "dte_at_entry": 9.0,
+      "dte_bucket": "8-14 DTE",
+      "hold_type": "Same Day",
+      "tod_bucket": "Morning (10-11ET)",
+      "signal_strength": 4,
+      "signal_timeframe": "1-Hour (Swing)",
+      "indicators_triggered_readable": "1h: Full Bull EMA Stack \u2705; 1d: Full Bull EMA Stack \u2705; 15m: BB Breakout \u2191 + Volume Surge (confirmation); 15m: Bull EMA Stack (9>21>50) (confirmation); 15m: Resistance Breakout \u2191 (confirmation); 4h: Bull EMA Stack (9>21>50) (confirmation)",
+      "entry_reason": "JPM 1h Full Bull EMA Stack (str 4) \u2014 zero contradictions, 4 fully aligned bullish confirmations (15m BB Breakout+Volume Surge, 15m Bull EMA Stack, 15m Resistance Breakout, 4h Bull EMA Stack). Strong multi-TF confirmation. Slightly OTM 367.5 strike to stay within budget; ATR TP1 target $367.80 (nearly ATM so quick upside test). 9 DTE gives runway. 1h timeframe best performer historically.",
+      "exit_reason": "Contra-signal exit \u2014 contradicts_confirmation now true with 15m RSI Bearish Divergence opposing bullish thesis",
+      "claude_reasoning": "JPM 1h Bull EMA Stack signal now has contradicts_confirmation: true due to 15m RSI Bearish Divergence. Per hard rules, this is a mandatory contra-signal exit. Position is only -4.3% so the loss is manageable. The signal that drove entry has been invalidated by an opposing confirmation at the same tier as a hard stop."
+    },
+    {
+      "id": 118,
+      "ticker": "GOOGL",
+      "side": "put",
+      "trade_type": "option",
+      "option_type": "put",
+      "strike_price": 342.5,
+      "expiration_date": "2026-08-17",
+      "entry_time": "2026-08-12T14:17:06.896",
+      "exit_time": "2026-08-12T15:22:33.165",
+      "entry_price": 3.89,
+      "exit_price": 4.335,
+      "qty": 1.0,
+      "pnl": 44.5,
+      "win": true,
+      "status": "closed",
+      "exit_category": "Contra-Signal",
+      "dte_at_entry": 5.0,
+      "dte_bucket": "4-7 DTE",
+      "hold_type": "Same Day",
+      "tod_bucket": "Morning (10-11ET)",
+      "signal_strength": 4,
+      "signal_timeframe": "1-Hour (Swing)",
+      "indicators_triggered_readable": "1h: Full Bear EMA Stack \u274c; 15m: Full Bear EMA Stack \u274c (confirmation); 15m: ADX Strong Bear Trend (52.2) (confirmation); 1h: ADX Strong Bear Trend (46.8) (confirmation); 1d: RSI Bearish Divergence \u26a0\ufe0f (confirmation)",
+      "entry_reason": "GOOGL 1h Full Bear EMA Stack (str 4) \u2014 cleanest signal this cycle: zero contradictions, 4 fully aligned bearish confirmations (15m Full Bear EMA Stack, 15m ADX Bear 52.2, 1h ADX Bear 46.8, 1d RSI Bearish Divergence). Triple-TF bear confirmation across 15m/1h/1d. Target $338.26 (ATR TP1). 1h timeframe historically best performer (+$79.83 avg, 58% WR). 9 DTE ATM was $5.90 over budget; taking 5 DTE for $3.89 to stay within per-trade limit.",
+      "exit_reason": "Contra-signal exit \u2014 15m RSI Oversold Bounce (bullish) now contradicts bearish thesis",
+      "claude_reasoning": "The GOOGL put was entered on a clean 1h Full Bear EMA Stack. This cycle's scan shows the same 1h signal but now with contradicts_confirmation: true due to a 15m RSI Oversold Bounce (BULLISH) opposing the bearish thesis. Per the contra-signal exit rule, a strength \u22653 signal in the opposite direction requires immediate close. The position is only down ~2.4% so this is a clean exit before it deteriorates further if price bounces."
+    },
     {
       "id": 117,
       "ticker": "XOM",
