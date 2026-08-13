@@ -513,16 +513,6 @@ function buildBucketSubchart(rows, labelField, field, title, formatter, isSequen
 
 // ---------- Scanner case study ----------
 
-// Matches the changelog card left-border colors in style.css (.status-*) so a
-// tick's color on this chart points straight at the matching card below —
-// that's the only cross-reference, deliberately no on-chart text label.
-const STATUS_COLOR = {
-  confirmed: "#0ca30c",
-  watching: "#fab219",
-  needs_revisit: "#ec835a",
-  shipped: "#3987e5",
-};
-
 function renderScannerCaseStudy(daily, changelog) {
   const viewport = document.getElementById("scanner-viewport");
   viewport.innerHTML = "";
@@ -586,11 +576,16 @@ function renderScannerCaseStudy(daily, changelog) {
     }
   });
 
-  // Annotation lines: one per changelog entry, color-coded by status, no
-  // label — the color itself is the cross-reference to the matching card in
-  // the System Changelog section below. Same-day entries (e.g. 2026-07-24 has
+  // Annotation lines: one per changelog entry, each its own unique color
+  // (not per-status) — the color is the primary cross-reference to the
+  // matching card's left border in the System Changelog section below, no
+  // on-chart label. A couple of the 12 colors are close enough to be hard to
+  // tell apart for some viewers (checked with the dataviz skill's validator,
+  // not eyeballed — structurally hard to avoid past ~3 all-pairs-distinct
+  // colors), so the hover tooltip's number is the unambiguous fallback, same
+  // number shown on the matching card. Same-day entries (e.g. 2026-07-24 has
   // three) get spread a few px apart instead of drawing exactly on top of
-  // each other, so each status color stays visible.
+  // each other, so each color stays visible.
   const byDate = {};
   changelog.forEach((ev) => { (byDate[ev.date] = byDate[ev.date] || []).push(ev); });
 
@@ -600,7 +595,7 @@ function renderScannerCaseStudy(daily, changelog) {
     const spread = 4;
     evs.forEach((ev, j) => {
       const xPos = xBase + (j - (evs.length - 1) / 2) * spread;
-      const color = STATUS_COLOR[ev.status] || PALETTE.muted;
+      const color = ev.color || PALETTE.muted;
       const line = svgEl("line", {
         class: "annotation-line", x1: xPos, x2: xPos, y1: pad.top, y2: H - pad.bottom,
         stroke: color,
@@ -612,7 +607,7 @@ function renderScannerCaseStudy(daily, changelog) {
         line.setAttribute("stroke-width", "2.5px");
         const pos = tooltipPos(evt, viewport);
         showTooltip(pos.x, pos.y, [
-          { key: color, label: ev.title, value: "" },
+          { key: color, label: `#${ev.number} ${ev.title}`, value: "" },
           { label: "Date", value: ev.date },
           { label: "Status", value: STATUS_LABEL[ev.status] || ev.status },
         ]);
@@ -780,9 +775,14 @@ function renderChangelog(entries) {
   [...entries].sort((a, b) => (a.date < b.date ? 1 : -1)).forEach((e) => {
     const entry = document.createElement("div");
     entry.className = `changelog-entry status-${e.status}`;
+    entry.style.borderLeftColor = e.color || PALETTE.muted;
 
     const head = document.createElement("div");
     head.className = "changelog-head";
+    const number = document.createElement("span");
+    number.className = "changelog-number";
+    number.style.color = e.color || PALETTE.muted;
+    number.textContent = `#${e.number}`;
     const date = document.createElement("span");
     date.className = "changelog-date";
     date.textContent = e.date;
@@ -792,7 +792,7 @@ function renderChangelog(entries) {
     const status = document.createElement("span");
     status.className = "changelog-status";
     status.textContent = STATUS_LABEL[e.status] || e.status;
-    head.append(date, title, status);
+    head.append(number, date, title, status);
     entry.appendChild(head);
 
     [["Problem", e.problem], ["Change", e.change], ["Result", e.result]].forEach(([label, text]) => {

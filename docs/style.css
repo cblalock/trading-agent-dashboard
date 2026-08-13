@@ -601,11 +601,9 @@ table.data-table tr:hover td {
   padding: 14px 18px;
   background: rgba(255, 255, 255, 0.02);
 }
-
-.changelog-entry.status-confirmed { border-left-color: var(--status-good); }
-.changelog-entry.status-watching { border-left-color: var(--status-warning); }
-.changelog-entry.status-needs_revisit { border-left-color: var(--status-serious); }
-.changelog-entry.status-shipped { border-left-color: var(--series-1-blue); }
+/* border-left-color is set inline per entry (one unique color each, matching
+   its tick on the Scanner case study chart above) — not a CSS class, since
+   each of the 12 entries needs its own value, not a shared per-status one. */
 
 .changelog-head {
   display: flex;
@@ -613,6 +611,20 @@ table.data-table tr:hover td {
   gap: 10px;
   flex-wrap: wrap;
   margin-bottom: 6px;
+}
+
+.changelog-number {
+  font-family: "SFMono-Regular", Consolas, monospace;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 4px;
+  padding: 1px 6px;
+  /* Fallback identifier alongside color — a couple of the 12 hues sit close
+     enough together (checked with the dataviz skill's validator) that color
+     alone won't reliably match every entry to its chart tick for every
+     viewer, so the number is the guaranteed-unambiguous backup. */
 }
 
 .changelog-date {

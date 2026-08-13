@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-13T02:52:09.828951+00:00",
+  "generated_at": "2026-08-13T03:06:28.960338+00:00",
   "kpis": {
     "total_pnl": -1026.765,
     "win_rate": 0.4065040650406504,
@@ -1574,7 +1574,9 @@
       "title": "Re-entry cooldown / awareness fix",
       "problem": "Two same-ticker chase-and-lose incidents (QQQ 7/8, TSLA 7/9) \u2014 re-entering a name right after it stopped out, on a thesis that wasn't materially different.",
       "change": "Every cycle now surfaces recently-closed trades (last 2h) in the prompt with an explicit \u201cdo NOT re-enter without a materially different thesis\u201d rule.",
-      "result": "Advisory, not a hard block. No third recurrence observed since, but small n \u2014 still watching."
+      "result": "Advisory, not a hard block. No third recurrence observed since, but small n \u2014 still watching.",
+      "color": "#3987e5",
+      "number": 1
     },
     {
       "date": "2026-07-13",
@@ -1582,7 +1584,9 @@
       "title": "Friday DTE barbell",
       "problem": "QQQ \u00d72 + TSLA opened Friday 7/10 at ~3 DTE, gapped over the weekend, hard-stopped at Monday's open \u2014 \u2212$955.50 combined.",
       "change": "A budget-independent safety net force-closes any position with 1\u20134 calendar days to expiry in the last 40 minutes of a Friday session. 0 DTE and 5+ DTE are both left alone \u2014 the danger zone is specifically the middle.",
-      "result": "Confirmed 7/17: all 8 Friday entries that day were 0 DTE, zero landed in the 1\u20134 DTE middle zone."
+      "result": "Confirmed 7/17: all 8 Friday entries that day were 0 DTE, zero landed in the 1\u20134 DTE middle zone.",
+      "color": "#d95926",
+      "number": 2
     },
     {
       "date": "2026-07-14",
@@ -1590,7 +1594,9 @@
       "title": "DTE-aware hard-stop tightening",
       "problem": "Hard stops were the single largest realized-loss category to date \u2014 12 trades, \u2212$3,074.50 total, avg \u2212$256/trade.",
       "change": "The mandatory stop tightens from \u221250% to \u221235% once a normal trade has \u22643 calendar days left to expiry.",
-      "result": "First live firing 7/29 (TSLA put, \u221238% vs. \u221235% target), repeated 7/30 (MSFT call, \u221237%) \u2014 small, consistent overshoot, looks stable."
+      "result": "First live firing 7/29 (TSLA put, \u221238% vs. \u221235% target), repeated 7/30 (MSFT call, \u221237%) \u2014 small, consistent overshoot, looks stable.",
+      "color": "#199e70",
+      "number": 3
     },
     {
       "date": "2026-07-14",
@@ -1598,7 +1604,9 @@
       "title": "Striker mode (fast in/out scalps)",
       "problem": "Paying for a tighter Claude cycle cadence wouldn't actually buy \u201cstrike fast\u201d \u2014 a free mechanical poller already reacts faster than any affordable LLM cadence.",
       "change": "A new trade style with mechanically-enforced quick take-profit/stop percentages, polled every 30s independent of the API budget.",
-      "result": "Thresholds drifted to 30%/40% by late July (\u2212$774 over 24 trades) before getting hard-capped at 12%/15% on 7/28. Cumulative performance still lags normal trades \u2014 the founding \u201cspeed edge\u201d thesis hasn't shown up in the data yet."
+      "result": "Thresholds drifted to 30%/40% by late July (\u2212$774 over 24 trades) before getting hard-capped at 12%/15% on 7/28. Cumulative performance still lags normal trades \u2014 the founding \u201cspeed edge\u201d thesis hasn't shown up in the data yet.",
+      "color": "#c98500",
+      "number": 4
     },
     {
       "date": "2026-07-16",
@@ -1606,7 +1614,9 @@
       "title": "Put-bias fix",
       "problem": "The agent was citing a thin put sample (n=2) as a blanket reason to skip bearish setups, even on strong strength-4/5 confirmations.",
       "change": "Updated the entry rules so a low-n stat is a mild tiebreaker, not a veto, over a genuinely strong live setup.",
-      "result": "Confirmed 7/17: 8 of 9 trades that day were puts off strength 4\u20135 bearish confirmations, no put-veto language observed."
+      "result": "Confirmed 7/17: 8 of 9 trades that day were puts off strength 4\u20135 bearish confirmations, no put-veto language observed.",
+      "color": "#d55181",
+      "number": 5
     },
     {
       "date": "2026-07-24",
@@ -1614,7 +1624,9 @@
       "title": "Confirmation-signal gate",
       "problem": "A \u2212$750.50 Friday came from entries with individually clean-looking signals that were quietly contradicted by another timeframe.",
       "change": "Reverted the scanner's min_strength 3\u21924, and hard-coded a block \u2014 not just prompt guidance \u2014 on any entry with an opposing lower-tier signal.",
-      "result": "Confirmed live 7/27: fired constantly, 10\u201324 candidates blocked per cycle, cited explicitly in the agent's own cycle summaries all day."
+      "result": "Confirmed live 7/27: fired constantly, 10\u201324 candidates blocked per cycle, cited explicitly in the agent's own cycle summaries all day.",
+      "color": "#008300",
+      "number": 6
     },
     {
       "date": "2026-07-24",
@@ -1622,7 +1634,9 @@
       "title": "Concentration guard",
       "problem": "Same incident as above \u2014 several individually-clean entries turned out to be one correlated directional bet stacked three deep.",
       "change": "Hard-blocks a 3rd+ same-direction entry across the watchlist within a 1.5h window.",
-      "result": "Confirmed live 7/27: blocked SPY/QQQ 3rd-bearish attempts after NVDA+TSLA and NVDA+AMZN bearish pairs were already on, no false positives on the bullish side."
+      "result": "Confirmed live 7/27: blocked SPY/QQQ 3rd-bearish attempts after NVDA+TSLA and NVDA+AMZN bearish pairs were already on, no false positives on the bullish side.",
+      "color": "#9085e9",
+      "number": 7
     },
     {
       "date": "2026-07-24",
@@ -1630,7 +1644,9 @@
       "title": "Watchlist diversification",
       "problem": "AMD (1 trade ever, unused) and IWM (\u2212$875.10/5 trades, 20% WR, redundant with SPY/QQQ) were dead weight on the watchlist.",
       "change": "Dropped AMD and IWM, added XOM (energy) and JPM (financials).",
-      "result": "Gives the new concentration guard genuinely uncorrelated names to route to instead of just a cap on one correlated bloc."
+      "result": "Gives the new concentration guard genuinely uncorrelated names to route to instead of just a cap on one correlated bloc.",
+      "color": "#e66767",
+      "number": 8
     },
     {
       "date": "2026-07-29",
@@ -1638,7 +1654,9 @@
       "title": "Opening-bell entry caution",
       "problem": "First-30-minutes-after-open entries averaged \u2212$71.68 (n=32, the largest single bucket) vs. +$25.89 an hour later (n=23).",
       "change": "Soft prompt guidance to raise the bar \u2014 prefer waiting until 10am ET \u2014 for strength-4 entries specifically.",
-      "result": "Not yet cleanly isolated in the data since shipping. Still watching."
+      "result": "Not yet cleanly isolated in the data since shipping. Still watching.",
+      "color": "#2a9dc9",
+      "number": 9
     },
     {
       "date": "2026-08-10",
@@ -1646,7 +1664,9 @@
       "title": "15-minute timeframe entry block",
       "problem": "The 15-Minute (Day Trade) signal timeframe was a clear, large-sample loser: \u221226.13 avg/58 trades, 36% WR all-time.",
       "change": "15m signals scoring strength\u22654 get demoted out of tradeable candidates into confirmation-only context before Claude ever sees them as an entry option, with a hard-block backstop.",
-      "result": "Live since 8/10. Still useful as contra-signal context on open positions \u2014 which is exactly what fed the 8/12 finding below."
+      "result": "Live since 8/10. Still useful as contra-signal context on open positions \u2014 which is exactly what fed the 8/12 finding below.",
+      "color": "#ad7830",
+      "number": 10
     },
     {
       "date": "2026-08-12",
@@ -1654,7 +1674,9 @@
       "title": "Structured exit-category tagging",
       "problem": "No reliable data existed on *why* positions closed. 8/11 and 8/12 both saw 100% of that day's exits triggered by a 15m RSI contra-signal, but the dashboard could only regex-guess a category from freeform reasoning text.",
       "change": "close_option_trade now requires an explicit exit_category tag at the moment of the decision, not guessed after the fact. Backfilled all 123 historical trades.",
-      "result": "Immediately surfaced something counterintuitive: a 15m-RSI contra-signal exit is the *cheapest* way to lose (\u221219.60 avg) \u2014 far better than riding to a full hard stop (\u2212224.97 avg). Whether 8/11\u20138/12's 100% rate is a real market regime or a fluke is still open."
+      "result": "Immediately surfaced something counterintuitive: a 15m-RSI contra-signal exit is the *cheapest* way to lose (\u221219.60 avg) \u2014 far better than riding to a full hard stop (\u2212224.97 avg). Whether 8/11\u20138/12's 100% rate is a real market regime or a fluke is still open.",
+      "color": "#4a80bd",
+      "number": 11
     },
     {
       "date": "2026-08-13",
@@ -1662,7 +1684,9 @@
       "title": "Guardrail block-tracking + budget visibility",
       "problem": "The dashboard only ever showed what got traded, never what the guardrails actually stopped, and the $1\u20132/day API budget \u2014 a real, active design constraint \u2014 was invisible.",
       "change": "New structured logging every time a hard rule blocks an attempted trade, plus a daily spend-vs-cap chart built from existing usage records and parsed cap-out timestamps.",
-      "result": "Just shipped. Budget trend has full history back to 6/30; blocked-candidate tracking starts fresh from here \u2014 no reliable data exists before this build."
+      "result": "Just shipped. Budget trend has full history back to 6/30; blocked-candidate tracking starts fresh from here \u2014 no reliable data exists before this build.",
+      "color": "#6f9330",
+      "number": 12
     }
   ],
   "trades": [

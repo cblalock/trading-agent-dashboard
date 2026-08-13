@@ -126,6 +126,21 @@ CHANGELOG = [
     },
 ]
 
+# One unique color per entry (not per-status) so a tick on the scanner chart
+# and its changelog card visually match 1:1. Chosen with the dataviz skill's
+# validate_palette.js — best achievable at n=12: lightness/chroma/contrast all
+# clear, but a couple of pairs still land under the CVD/normal-vision floors
+# (structurally unavoidable much past ~3 colors for an all-pairs-matching use
+# case — see references/color-formula.md). The "number" field is the
+# guaranteed-unambiguous fallback for exactly those pairs.
+CHANGELOG_COLORS = [
+    "#3987e5", "#d95926", "#199e70", "#c98500", "#d55181", "#008300",
+    "#9085e9", "#e66767", "#2a9dc9", "#ad7830", "#4a80bd", "#6f9330",
+]
+for _i, _entry in enumerate(CHANGELOG):
+    _entry["color"] = CHANGELOG_COLORS[_i % len(CHANGELOG_COLORS)]
+    _entry["number"] = _i + 1
+
 # Maps the structured exit_category written by journal.py (agent.py tags it at
 # close time via a required tool-call enum; main.py's mechanical closers pass
 # their own code directly — see journal.MECHANICAL_EXIT_CATEGORIES /
