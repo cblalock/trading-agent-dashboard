@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-08-13T03:06:28.960338+00:00",
+  "generated_at": "2026-08-13T22:13:30.531883+00:00",
   "kpis": {
-    "total_pnl": -1026.765,
-    "win_rate": 0.4065040650406504,
-    "total_trades": 123,
-    "current_capital": 3973.2349999999997,
+    "total_pnl": -932.7650000000001,
+    "win_rate": 0.4015748031496063,
+    "total_trades": 127,
+    "current_capital": 4067.2349999999997,
     "starting_capital": 5000.0,
-    "wins": 50,
-    "losses": 73
+    "wins": 51,
+    "losses": 76
   },
   "equity_curve": [
     {
@@ -993,14 +993,46 @@
       "pnl": -20.0,
       "cumulative_pnl": -1026.765,
       "capital_after": 3973.235
+    },
+    {
+      "trade_number": 124,
+      "exit_time": "2026-08-13T14:06:19.552",
+      "ticker": "SPY",
+      "pnl": 221.0,
+      "cumulative_pnl": -805.765,
+      "capital_after": 4194.235
+    },
+    {
+      "trade_number": 125,
+      "exit_time": "2026-08-13T15:11:11.911",
+      "ticker": "NVDA",
+      "pnl": -49.5,
+      "cumulative_pnl": -855.265,
+      "capital_after": 4144.735
+    },
+    {
+      "trade_number": 126,
+      "exit_time": "2026-08-13T17:12:15.476",
+      "ticker": "COIN",
+      "pnl": -21.0,
+      "cumulative_pnl": -876.265,
+      "capital_after": 4123.735
+    },
+    {
+      "trade_number": 127,
+      "exit_time": "2026-08-13T18:19:24.303",
+      "ticker": "QQQ",
+      "pnl": -56.5,
+      "cumulative_pnl": -932.765,
+      "capital_after": 4067.235
     }
   ],
   "exit_breakdown": [
     {
       "exit_category": "Take Profit",
-      "total_pnl": 7549.5,
-      "avg_pnl": 222.0441176471,
-      "count": 34,
+      "total_pnl": 7770.5,
+      "avg_pnl": 222.0142857143,
+      "count": 35,
       "pct_of_exits": 27.6
     },
     {
@@ -1008,35 +1040,35 @@
       "total_pnl": -4274.5,
       "avg_pnl": -224.9736842105,
       "count": 19,
-      "pct_of_exits": 15.4
+      "pct_of_exits": 15.0
     },
     {
       "exit_category": "Striker Stop",
       "total_pnl": -2364.5,
       "avg_pnl": -131.3611111111,
       "count": 18,
-      "pct_of_exits": 14.6
+      "pct_of_exits": 14.2
     },
     {
       "exit_category": "EOD Close",
       "total_pnl": 265.0,
       "avg_pnl": 29.4444444444,
       "count": 9,
-      "pct_of_exits": 7.3
+      "pct_of_exits": 7.1
     },
     {
       "exit_category": "Contra-Signal (15m RSI)",
-      "total_pnl": -294.0,
-      "avg_pnl": -19.6,
-      "count": 15,
-      "pct_of_exits": 12.2
+      "total_pnl": -421.0,
+      "avg_pnl": -23.3888888889,
+      "count": 18,
+      "pct_of_exits": 14.2
     },
     {
       "exit_category": "Contra-Signal (Other)",
       "total_pnl": -583.5,
       "avg_pnl": -48.625,
       "count": 12,
-      "pct_of_exits": 9.8
+      "pct_of_exits": 9.4
     },
     {
       "exit_category": "Theta Risk",
@@ -1050,14 +1082,14 @@
       "total_pnl": -1051.0,
       "avg_pnl": -116.7777777778,
       "count": 9,
-      "pct_of_exits": 7.3
+      "pct_of_exits": 7.1
     },
     {
       "exit_category": "Liquidation",
       "total_pnl": -17.765,
       "avg_pnl": -3.553,
       "count": 5,
-      "pct_of_exits": 4.1
+      "pct_of_exits": 3.9
     }
   ],
   "dte_breakdown": [
@@ -1070,17 +1102,17 @@
     },
     {
       "dte_bucket": "4-7 DTE",
-      "count": 42,
-      "avg_pnl": 15.3214285714,
-      "total_pnl": 643.5,
-      "win_rate": 0.4523809524
+      "count": 44,
+      "avg_pnl": 18.3636363636,
+      "total_pnl": 808.0,
+      "win_rate": 0.4545454545
     },
     {
       "dte_bucket": "8-14 DTE",
-      "count": 18,
-      "avg_pnl": -20.8611111111,
-      "total_pnl": -375.5,
-      "win_rate": 0.2222222222
+      "count": 20,
+      "avg_pnl": -22.3,
+      "total_pnl": -446.0,
+      "win_rate": 0.2
     },
     {
       "dte_bucket": "Equity",
@@ -1093,10 +1125,10 @@
   "tod_breakdown": [
     {
       "tod_bucket": "Open (9:30-10ET)",
-      "count": 46,
-      "avg_pnl": -38.8970652174,
-      "total_pnl": -1789.265,
-      "win_rate": 0.3260869565
+      "count": 48,
+      "avg_pnl": -33.7034375,
+      "total_pnl": -1617.765,
+      "win_rate": 0.3333333333
     },
     {
       "tod_bucket": "Morning (10-11ET)",
@@ -1107,17 +1139,17 @@
     },
     {
       "tod_bucket": "Midday (11-1ET)",
-      "count": 28,
-      "avg_pnl": -33.7857142857,
-      "total_pnl": -946.0,
-      "win_rate": 0.3571428571
+      "count": 29,
+      "avg_pnl": -33.3448275862,
+      "total_pnl": -967.0,
+      "win_rate": 0.3448275862
     },
     {
       "tod_bucket": "Afternoon (1-3ET)",
-      "count": 7,
-      "avg_pnl": -11.5,
-      "total_pnl": -80.5,
-      "win_rate": 0.2857142857
+      "count": 8,
+      "avg_pnl": -17.125,
+      "total_pnl": -137.0,
+      "win_rate": 0.25
     },
     {
       "tod_bucket": "Close (3-4ET)",
@@ -1344,6 +1376,13 @@
       "total_pnl": -23.0,
       "avg_pnl": -3.8333333333,
       "win_rate": 0.3333333333
+    },
+    {
+      "entry_date": "2026-08-13",
+      "count": 4,
+      "total_pnl": 94.0,
+      "avg_pnl": 23.5,
+      "win_rate": 0.25
     }
   ],
   "budget_trend": [
@@ -1563,6 +1602,13 @@
       "api_calls": 75,
       "cap_time": "12:07",
       "cap_minutes_after_open": 157.0
+    },
+    {
+      "date": "2026-08-13",
+      "cost_usd": 1.95501915,
+      "api_calls": 67,
+      "cap_time": null,
+      "cap_minutes_after_open": null
     }
   ],
   "daily_budget_usd": 2.0,
@@ -1690,6 +1736,146 @@
     }
   ],
   "trades": [
+    {
+      "id": 128,
+      "ticker": "QQQ",
+      "side": "call",
+      "trade_type": "option",
+      "option_type": "call",
+      "strike_price": 735.0,
+      "expiration_date": "2026-08-18",
+      "entry_time": "2026-08-13T17:29:23.881",
+      "exit_time": "2026-08-13T18:19:24.303",
+      "entry_price": 4.11,
+      "exit_price": 3.545,
+      "qty": 1.0,
+      "pnl": -56.5,
+      "win": false,
+      "status": "closed",
+      "exit_category": "Contra-Signal (15m RSI)",
+      "dte_at_entry": 5.0,
+      "dte_bucket": "4-7 DTE",
+      "hold_type": "Same Day",
+      "tod_bucket": "Afternoon (1-3ET)",
+      "signal_strength": 4,
+      "signal_timeframe": "1-Hour (Swing)",
+      "indicators_triggered_readable": "1h: Full Bull EMA Stack \u2705; 1d: Full Bull EMA Stack \u2705; 15m: Full Bull EMA Stack \u2705 (confirmation); 4h: Bull EMA Stack (9>21>50) (confirmation)",
+      "entry_reason": "QQQ 1h + 1d Full Bull EMA Stack (str 4) \u2014 cleanest signal this cycle: zero contradictions, 15m Full Bull EMA Stack + 4h Bull EMA Stack confirming. $735 OTM strike targets 1h TP at $738.19 (just above strike) and 1d TP at $765.77. 5 DTE, spread 1.9%, OI 257. Budget: 1 contract at $411.",
+      "exit_reason": "Contra-signal exit \u2014 QQQ now shows 15m RSI Bearish Divergence contradicting bullish call thesis",
+      "claude_reasoning": "QQQ's signal this cycle shows contradicts_confirmation: true with a 15m RSI Bearish Divergence opposing the bullish thesis. Per hard rules, any strength \u22653 signal in the opposite direction triggers an immediate close. The position is down -13.4% which is painful but nowhere near the hard stop, but the contra-signal rule is mandatory regardless."
+    },
+    {
+      "id": 127,
+      "ticker": "NVDA",
+      "side": "call",
+      "trade_type": "option",
+      "option_type": "call",
+      "strike_price": 227.5,
+      "expiration_date": "2026-08-21",
+      "entry_time": "2026-08-13T17:13:06.983",
+      "exit_time": null,
+      "entry_price": 3.595,
+      "exit_price": null,
+      "qty": 1.0,
+      "pnl": null,
+      "win": null,
+      "status": "open",
+      "exit_category": "Open",
+      "dte_at_entry": 8.0,
+      "dte_bucket": "8-14 DTE",
+      "hold_type": null,
+      "tod_bucket": "Afternoon (1-3ET)",
+      "signal_strength": 4,
+      "signal_timeframe": "1-Hour (Swing)",
+      "indicators_triggered_readable": "1h: Full Bull EMA Stack \u2705; 1d: Full Bull EMA Stack \u2705; 15m: Full Bull EMA Stack \u2705 (confirmation); 4h: Bull EMA Stack (9>21>50) (confirmation); 4h: ADX Strong Bull Trend (37.6) (confirmation)",
+      "entry_reason": "NVDA 1h + 1d Full Bull EMA Stack (str 4) \u2014 zero contradictions, clean multi-TF confirmation: 15m Full Bull EMA Stack, 4h Bull EMA Stack, 4h ADX Strong Bull Trend (37.6). Prior bearish divergence that triggered the 120min-ago exit has fully cleared. OTM $227.5 strike targets 1h TP at 229.05 and 1d TP at 243.42 with 8 DTE runway. Tight 1.4% spread, excellent OI (7,315).",
+      "exit_reason": null,
+      "claude_reasoning": null
+    },
+    {
+      "id": 126,
+      "ticker": "COIN",
+      "side": "put",
+      "trade_type": "option",
+      "option_type": "put",
+      "strike_price": 145.0,
+      "expiration_date": "2026-08-21",
+      "entry_time": "2026-08-13T15:53:36.025",
+      "exit_time": "2026-08-13T17:12:15.476",
+      "entry_price": 3.755,
+      "exit_price": 3.545,
+      "qty": 1.0,
+      "pnl": -21.0,
+      "win": false,
+      "status": "closed",
+      "exit_category": "Contra-Signal (15m RSI)",
+      "dte_at_entry": 8.0,
+      "dte_bucket": "8-14 DTE",
+      "hold_type": "Same Day",
+      "tod_bucket": "Midday (11-1ET)",
+      "signal_strength": 4,
+      "signal_timeframe": "1-Hour (Swing)",
+      "indicators_triggered_readable": "1h: Full Bear EMA Stack \u274c; 1d: Full Bear EMA Stack \u274c; 15m: EMA 200 Rejection \u2193 (confirmation); 15m: RSI Bearish Divergence \u26a0\ufe0f (confirmation)",
+      "entry_reason": "COIN 1h + 1d Full Bear EMA Stack (str 4) \u2014 dual timeframe bear confirmation, zero contradictions. 15m EMA 200 Rejection and 15m RSI Bearish Divergence both aligned bearish. Signal targets 143.63 (TP1) and 140.39 (TP2). COIN is below EMA200 in strong downtrend across both 1h and daily timeframes. Tight bid/ask spread (1.9%), 8-day DTE fits the 1h swing thesis with daily support.",
+      "exit_reason": "Contra-signal exit \u2014 15m RSI Bullish Divergence contradicts bearish put thesis on COIN",
+      "claude_reasoning": "The current cycle signals show COIN 1h and 1d Bear EMA Stacks both flagged contradicts_confirmation: true, with 15m RSI Bullish Divergence (bullish) opposing the bearish thesis. This matches the contra-signal exit rule: strength \u22653 opposing signal on the held ticker. The put is already -11.7% on premium (unrealized -$45), still well above the hard stop, but the contra-signal is the trigger here. Better to exit cleanly than let a counter-move develop. Mid is $3.58 vs entry $3.755."
+    },
+    {
+      "id": 125,
+      "ticker": "NVDA",
+      "side": "call",
+      "trade_type": "option",
+      "option_type": "call",
+      "strike_price": 227.5,
+      "expiration_date": "2026-08-21",
+      "entry_time": "2026-08-13T13:49:29.252",
+      "exit_time": "2026-08-13T15:11:11.911",
+      "entry_price": 3.55,
+      "exit_price": 3.055,
+      "qty": 1.0,
+      "pnl": -49.5,
+      "win": false,
+      "status": "closed",
+      "exit_category": "Contra-Signal (15m RSI)",
+      "dte_at_entry": 8.0,
+      "dte_bucket": "8-14 DTE",
+      "hold_type": "Same Day",
+      "tod_bucket": "Open (9:30-10ET)",
+      "signal_strength": 4,
+      "signal_timeframe": "1-Hour (Swing)",
+      "indicators_triggered_readable": "1h: Full Bull EMA Stack \u2705; 1d: Full Bull EMA Stack \u2705; 15m: Full Bull EMA Stack \u2705 (confirmation); 1h: Resistance Breakout \u2191 (confirmation); 4h: Bull EMA Stack (9>21>50) (confirmation); 4h: ADX Strong Bull Trend (36.8) (confirmation)",
+      "entry_reason": "NVDA 1h Full Bull EMA Stack (str 4) \u2014 cleanest signal this cycle: zero contradictions, 4 fully aligned bullish confirmations (15m Full Bull EMA Stack, 1h Resistance Breakout, 4h Bull EMA Stack, 4h ADX Strong Bull Trend 36.8). 1h Resistance Breakout historically positive confirmation. Slight OTM at 227.5 (1.1% away) \u2014 ATM $4.705 exceeds budget so $227.5C fits at $355/contract. 8 DTE in optimal 6-14 bucket. NVDA +$21.36 avg across 7 trades, 43% WR. QQQ was also clean but NVDA offers better diversification vs SPY position already held.",
+      "exit_reason": "Contra-signal exit \u2014 NVDA now shows RSI Bearish Divergence on both 15m and 1h timeframes contradicting bullish thesis",
+      "claude_reasoning": "NVDA position is -13.9% on premium ($3.10 vs $3.60 entry). More critically, the current scanner signals show NVDA 1h and 1d Bull EMA Stack both flagged contradicts_confirmation: true, with RSI Bearish Divergence on 15m AND 1h timeframes opposing the bullish thesis. Per the contra-signal exit rule, a strength \u22653 signal in the opposite direction requires immediate close. The 15m RSI Bearish Divergence specifically triggers the contra_signal_15m_rsi category."
+    },
+    {
+      "id": 124,
+      "ticker": "SPY",
+      "side": "call",
+      "trade_type": "option",
+      "option_type": "call",
+      "strike_price": 775.0,
+      "expiration_date": "2026-08-18",
+      "entry_time": "2026-08-13T13:32:50.663",
+      "exit_time": "2026-08-13T14:06:19.552",
+      "entry_price": 3.155,
+      "exit_price": 5.365,
+      "qty": 1.0,
+      "pnl": 221.0,
+      "win": true,
+      "status": "closed",
+      "exit_category": "Take Profit",
+      "dte_at_entry": 5.0,
+      "dte_bucket": "4-7 DTE",
+      "hold_type": "Same Day",
+      "tod_bucket": "Open (9:30-10ET)",
+      "signal_strength": 4,
+      "signal_timeframe": "1-Hour (Swing)",
+      "indicators_triggered_readable": "1h: Full Bull EMA Stack \u2705; 1d: Full Bull EMA Stack \u2705; 15m: Full Bull EMA Stack \u2705 (confirmation); 4h: Bull EMA Stack (9>21>50) (confirmation); 4h: ADX Strong Bull Trend (39.4) (confirmation)",
+      "entry_reason": "SPY 1h Full Bull EMA Stack (str 4) \u2014 zero contradictions, 3 fully aligned bullish confirmations: 15m Full Bull EMA Stack, 4h Bull EMA Stack, 4h ADX Strong Bull Trend (39.4). SPY has best track record in history (60% WR, +$96.6 avg, n=5). ATM strike, 5 DTE in optimal 6-14 DTE bucket. NVDA also clean but options too expensive for budget at ATM.",
+      "exit_reason": "SPY up +73% on premium \u2014 TP1 target of 777.02 already exceeded (SPY now ~778). Taking profit on full position since it's a single contract; momentum still looks good but locking in this strong gain given recent pattern of contra-signals reversing positions quickly.",
+      "claude_reasoning": "SPY 775C entered at $3.155, now trading at $5.49 \u2014 +73.7% gain. The 1h ATR TP1 was 777.02 and SPY is trading above that at ~778.23. With only 1 contract, I can't trim, so it's full close or hold. The 1d signal shows TP1 at 797.6 which would be a bigger move, but: (1) this is already a strong win, (2) recent trade history shows gains getting taken back by quick contra-signal reversals, (3) SPY's own signals show no contradictions currently, but the pattern of 15m RSI divergences appearing and triggering exits is frequent. With +$232 locked, this is one of the best trades in recent history \u2014 capturing it is the right call."
+    },
     {
       "id": 123,
       "ticker": "JPM",
