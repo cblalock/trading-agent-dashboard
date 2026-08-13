@@ -324,7 +324,11 @@ function renderExitBreakdown(rows) {
 
   const W = 1000;
   const rowH = 34;
-  const pad = { top: 10, right: 90, bottom: 10, left: 130 };
+  // left padding sized to the longest "Category (NN.N%)" label actually in
+  // this data, not a fixed guess — a fixed 130px fit "Contra-Signal" but
+  // overflowed the chart once it split into "Contra-Signal (15m RSI) (12.2%)".
+  const longestLabel = Math.max(...rows.map((r) => measureTextWidth(`${r.exit_category} (${r.pct_of_exits}%)`)));
+  const pad = { top: 10, right: 90, bottom: 10, left: Math.max(130, longestLabel + 24) };
   const innerW = W - pad.left - pad.right;
   const H = pad.top + pad.bottom + rows.length * rowH;
 
