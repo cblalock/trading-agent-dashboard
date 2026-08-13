@@ -5,7 +5,10 @@ Sibling to export_data.py (which feeds the Tableau version) — same derived
 columns, different output shape (JSON tailored for the web page's charts).
 """
 
+import glob
 import json
+import os
+import re
 import sqlite3
 from datetime import datetime, timezone
 from zoneinfo import ZoneInfo
@@ -13,9 +16,13 @@ from zoneinfo import ZoneInfo
 import pandas as pd
 
 SOURCE_DB = r"C:\Users\Owner\Desktop\trading-agent\trades.db"
+LOGS_DIR = r"C:\Users\Owner\Desktop\trading-agent\logs"
 OUT_PATH = r"C:\Users\Owner\Desktop\trading_agent_dashboard\docs\data.json"
 STARTING_CAPITAL = 5000.0
 ET = ZoneInfo("America/New_York")
+DAILY_BUDGET_USD = 2.00  # mirrors agent.DAILY_BUDGET_USD — kept in sync manually, not imported
+CAP_LINE_RE = re.compile(r"^(\d{4}-\d{2}-\d{2}) (\d{2}:\d{2}:\d{2}),\d+ \[\w+\].*budget cap.*reached", re.IGNORECASE)
+LOG_FILENAME_RE = re.compile(r"trading_agent_(\d{4}-\d{2}-\d{2})\.log$")
 
 DTE_ORDER = ["0-3 DTE", "4-7 DTE", "8-14 DTE", "15+ DTE", "Equity", "Unknown"]
 TOD_ORDER = ["Open (9:30-10ET)", "Morning (10-11ET)", "Midday (11-1ET)", "Afternoon (1-3ET)", "Close (3-4ET)", "Unknown"]
@@ -23,6 +30,100 @@ EXIT_CATEGORY_ORDER = [
     "Take Profit", "Hard Stop", "Striker Stop", "EOD Close", "Friday Close",
     "Contra-Signal (15m RSI)", "Contra-Signal (Other)", "Momentum Fade",
     "Theta Risk", "Preemptive Exit", "Liquidation", "Other", "Open",
+]
+
+# Curated, hand-maintained — each entry is a real dated intervention pulled
+# from project history. Not derived from trades.db (some of these, like the
+# re-entry cooldown, don't have a clean isolated before/after metric), so this
+# has to be updated by hand when something new ships. Status values: confirmed
+# (verified against live data after shipping), watching (live, not enough
+# data yet), needs_revisit (shipped but not clearly working), shipped (too
+# structural/one-off to have a "did it work" test).
+CHANGELOG = [
+    {
+        "date": "2026-07-09", "status": "watching",
+        "title": "Re-entry cooldown / awareness fix",
+        "problem": "Two same-ticker chase-and-lose incidents (QQQ 7/8, TSLA 7/9) — re-entering a name right after it stopped out, on a thesis that wasn't materially different.",
+        "change": "Every cycle now surfaces recently-closed trades (last 2h) in the prompt with an explicit “do NOT re-enter without a materially different thesis” rule.",
+        "result": "Advisory, not a hard block. No third recurrence observed since, but small n — still watching.",
+    },
+    {
+        "date": "2026-07-13", "status": "confirmed",
+        "title": "Friday DTE barbell",
+        "problem": "QQQ ×2 + TSLA opened Friday 7/10 at ~3 DTE, gapped over the weekend, hard-stopped at Monday's open — −$955.50 combined.",
+        "change": "A budget-independent safety net force-closes any position with 1–4 calendar days to expiry in the last 40 minutes of a Friday session. 0 DTE and 5+ DTE are both left alone — the danger zone is specifically the middle.",
+        "result": "Confirmed 7/17: all 8 Friday entries that day were 0 DTE, zero landed in the 1–4 DTE middle zone.",
+    },
+    {
+        "date": "2026-07-14", "status": "confirmed",
+        "title": "DTE-aware hard-stop tightening",
+        "problem": "Hard stops were the single largest realized-loss category to date — 12 trades, −$3,074.50 total, avg −$256/trade.",
+        "change": "The mandatory stop tightens from −50% to −35% once a normal trade has ≤3 calendar days left to expiry.",
+        "result": "First live firing 7/29 (TSLA put, −38% vs. −35% target), repeated 7/30 (MSFT call, −37%) — small, consistent overshoot, looks stable.",
+    },
+    {
+        "date": "2026-07-14", "status": "needs_revisit",
+        "title": "Striker mode (fast in/out scalps)",
+        "problem": "Paying for a tighter Claude cycle cadence wouldn't actually buy “strike fast” — a free mechanical poller already reacts faster than any affordable LLM cadence.",
+        "change": "A new trade style with mechanically-enforced quick take-profit/stop percentages, polled every 30s independent of the API budget.",
+        "result": "Thresholds drifted to 30%/40% by late July (−$774 over 24 trades) before getting hard-capped at 12%/15% on 7/28. Cumulative performance still lags normal trades — the founding “speed edge” thesis hasn't shown up in the data yet.",
+    },
+    {
+        "date": "2026-07-16", "status": "confirmed",
+        "title": "Put-bias fix",
+        "problem": "The agent was citing a thin put sample (n=2) as a blanket reason to skip bearish setups, even on strong strength-4/5 confirmations.",
+        "change": "Updated the entry rules so a low-n stat is a mild tiebreaker, not a veto, over a genuinely strong live setup.",
+        "result": "Confirmed 7/17: 8 of 9 trades that day were puts off strength 4–5 bearish confirmations, no put-veto language observed.",
+    },
+    {
+        "date": "2026-07-24", "status": "confirmed",
+        "title": "Confirmation-signal gate",
+        "problem": "A −$750.50 Friday came from entries with individually clean-looking signals that were quietly contradicted by another timeframe.",
+        "change": "Reverted the scanner's min_strength 3→4, and hard-coded a block — not just prompt guidance — on any entry with an opposing lower-tier signal.",
+        "result": "Confirmed live 7/27: fired constantly, 10–24 candidates blocked per cycle, cited explicitly in the agent's own cycle summaries all day.",
+    },
+    {
+        "date": "2026-07-24", "status": "confirmed",
+        "title": "Concentration guard",
+        "problem": "Same incident as above — several individually-clean entries turned out to be one correlated directional bet stacked three deep.",
+        "change": "Hard-blocks a 3rd+ same-direction entry across the watchlist within a 1.5h window.",
+        "result": "Confirmed live 7/27: blocked SPY/QQQ 3rd-bearish attempts after NVDA+TSLA and NVDA+AMZN bearish pairs were already on, no false positives on the bullish side.",
+    },
+    {
+        "date": "2026-07-24", "status": "shipped",
+        "title": "Watchlist diversification",
+        "problem": "AMD (1 trade ever, unused) and IWM (−$875.10/5 trades, 20% WR, redundant with SPY/QQQ) were dead weight on the watchlist.",
+        "change": "Dropped AMD and IWM, added XOM (energy) and JPM (financials).",
+        "result": "Gives the new concentration guard genuinely uncorrelated names to route to instead of just a cap on one correlated bloc.",
+    },
+    {
+        "date": "2026-07-29", "status": "watching",
+        "title": "Opening-bell entry caution",
+        "problem": "First-30-minutes-after-open entries averaged −$71.68 (n=32, the largest single bucket) vs. +$25.89 an hour later (n=23).",
+        "change": "Soft prompt guidance to raise the bar — prefer waiting until 10am ET — for strength-4 entries specifically.",
+        "result": "Not yet cleanly isolated in the data since shipping. Still watching.",
+    },
+    {
+        "date": "2026-08-10", "status": "confirmed",
+        "title": "15-minute timeframe entry block",
+        "problem": "The 15-Minute (Day Trade) signal timeframe was a clear, large-sample loser: −26.13 avg/58 trades, 36% WR all-time.",
+        "change": "15m signals scoring strength≥4 get demoted out of tradeable candidates into confirmation-only context before Claude ever sees them as an entry option, with a hard-block backstop.",
+        "result": "Live since 8/10. Still useful as contra-signal context on open positions — which is exactly what fed the 8/12 finding below.",
+    },
+    {
+        "date": "2026-08-12", "status": "confirmed",
+        "title": "Structured exit-category tagging",
+        "problem": "No reliable data existed on *why* positions closed. 8/11 and 8/12 both saw 100% of that day's exits triggered by a 15m RSI contra-signal, but the dashboard could only regex-guess a category from freeform reasoning text.",
+        "change": "close_option_trade now requires an explicit exit_category tag at the moment of the decision, not guessed after the fact. Backfilled all 123 historical trades.",
+        "result": "Immediately surfaced something counterintuitive: a 15m-RSI contra-signal exit is the *cheapest* way to lose (−19.60 avg) — far better than riding to a full hard stop (−224.97 avg). Whether 8/11–8/12's 100% rate is a real market regime or a fluke is still open.",
+    },
+    {
+        "date": "2026-08-13", "status": "shipped",
+        "title": "Guardrail block-tracking + budget visibility",
+        "problem": "The dashboard only ever showed what got traded, never what the guardrails actually stopped, and the $1–2/day API budget — a real, active design constraint — was invisible.",
+        "change": "New structured logging every time a hard rule blocks an attempted trade, plus a daily spend-vs-cap chart built from existing usage records and parsed cap-out timestamps.",
+        "result": "Just shipped. Budget trend has full history back to 6/30; blocked-candidate tracking starts fresh from here — no reliable data exists before this build.",
+    },
 ]
 
 # Maps the structured exit_category written by journal.py (agent.py tags it at
@@ -125,6 +226,31 @@ def join_indicators(val):
         return "; ".join(items)
     except Exception:
         return str(val)
+
+
+def find_cap_out_times() -> dict:
+    """Best-effort extraction of the first 'budget cap ... reached' timestamp
+    per day from the daily log files (main.py doesn't persist this anywhere
+    queryable — only logs it as text). Returns {date: 'HH:MM ET'} for days
+    the non-EOD cap was actually hit; days without a match either never
+    exhausted the budget or the log rotated before a match landed, and are
+    left out rather than guessed."""
+    cap_times = {}
+    for path in glob.glob(os.path.join(LOGS_DIR, "trading_agent_*.log")):
+        m = LOG_FILENAME_RE.search(os.path.basename(path))
+        if not m:
+            continue
+        day = m.group(1)
+        try:
+            with open(path, encoding="utf-8", errors="replace") as f:
+                for line in f:
+                    lm = CAP_LINE_RE.match(line)
+                    if lm:
+                        cap_times[day] = lm.group(2)[:5]
+                        break
+        except OSError:
+            continue
+    return cap_times
 
 
 def clean_records(df: pd.DataFrame) -> list:
@@ -248,6 +374,45 @@ def main():
         {"date": "2026-08-10", "label": "15m entries blocked (proven-negative timeframe)"},
     ]
 
+    # --- Budget / cost trend: daily API spend + when the non-EOD cap was hit ---
+    usage_conn = sqlite3.connect(SOURCE_DB)
+    usage_df = pd.read_sql_query(
+        "SELECT date, SUM(cost_usd) AS cost_usd, COUNT(*) AS api_calls FROM api_usage GROUP BY date ORDER BY date",
+        usage_conn,
+    )
+    usage_conn.close()
+
+    cap_times = find_cap_out_times()
+
+    # --- Blocked candidates: what the guardrails actually stopped ---
+    BLOCK_RULE_LABELS = {
+        "blocked_timeframe": "15m timeframe block",
+        "contradicting_confirmation": "Confirmation gate",
+        "concentration_guard": "Concentration guard",
+    }
+    blocked_conn = sqlite3.connect(SOURCE_DB)
+    try:
+        blocked_df = pd.read_sql_query(
+            "SELECT rule, COUNT(*) AS count FROM blocked_candidates GROUP BY rule ORDER BY count DESC",
+            blocked_conn,
+        )
+    except pd.io.sql.DatabaseError:
+        blocked_df = pd.DataFrame(columns=["rule", "count"])
+    blocked_conn.close()
+    blocked_df["rule_label"] = blocked_df["rule"].map(lambda r: BLOCK_RULE_LABELS.get(r, r))
+    blocked_breakdown = clean_records(blocked_df[["rule_label", "count"]].rename(columns={"rule_label": "rule"}))
+
+    def cap_minutes_after_open(day: str):
+        t = cap_times.get(day)
+        if not t:
+            return None
+        hh, mm = t.split(":")
+        return int(hh) * 60 + int(mm) - (9 * 60 + 30)  # minutes after 9:30 ET
+
+    usage_df["cap_time"] = usage_df["date"].map(cap_times.get)
+    usage_df["cap_minutes_after_open"] = usage_df["date"].apply(cap_minutes_after_open)
+    budget_trend = clean_records(usage_df)
+
     # --- Full trade log ---
     # exit_category here is the display label (exit_category_label renamed on
     # output) — app.js keys its color map / filter dropdown off this field, not
@@ -276,6 +441,10 @@ def main():
         "tod_breakdown": tod_breakdown,
         "daily_performance": daily_performance,
         "scanner_events": scanner_events,
+        "budget_trend": budget_trend,
+        "daily_budget_usd": DAILY_BUDGET_USD,
+        "blocked_breakdown": blocked_breakdown,
+        "changelog": CHANGELOG,
         "trades": trades,
     }
 

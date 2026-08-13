@@ -51,7 +51,12 @@
       <p class="section-sub">
         P&amp;L and trade count by how the position was closed. Hard stops have been the
         single biggest loss category — the finding that drove the DTE-based stop
-        tightening below.
+        tightening below. A finer-grained split of the "contra-signal" bucket also
+        turned up something counterintuitive: exits triggered by a 15-minute RSI
+        reading flipping against the held thesis average just <strong>&minus;$19.60</strong>
+        — the cheapest way to lose, well ahead of a full hard stop at &minus;$224.97 avg.
+        Cutting a thesis early on short-timeframe noise, even when it's wrong, still
+        beats riding a position all the way down.
       </p>
       <div class="chart-card" id="exit-card">
         <button class="table-toggle" data-target="exit-table-wrap">View as table</button>
@@ -98,9 +103,51 @@
       </div>
     </section>
 
-    <section class="section" id="scanner">
+    <section class="section" id="budget">
       <div class="section-heading">
         <span class="section-index">05</span>
+        <h2>Running on a budget</h2>
+      </div>
+      <p class="section-sub">
+        The agent operates under a hard daily Claude API budget — $2.00/day, with $0.15
+        held in reserve for a guaranteed end-of-day position review, so a normal trading
+        cycle stops itself at $1.85. Every cycle after that point is skipped entirely
+        until the reserve kicks in near the close. The bars below are actual daily spend;
+        the dot marks when (if at all) the day hit that wall.
+      </p>
+      <div class="chart-card" id="budget-card">
+        <button class="table-toggle" data-target="budget-table-wrap">View as table</button>
+        <h3>Daily API spend vs. the budget cap</h3>
+        <p class="chart-caption">Dashed line at $1.85 (non-EOD cap). Hover a bar for the cap-out time, when the day hit it.</p>
+        <div class="chart-viewport" id="budget-viewport"></div>
+        <div class="data-table-wrap" id="budget-table-wrap"></div>
+      </div>
+    </section>
+
+    <section class="section" id="blocked">
+      <div class="section-heading">
+        <span class="section-index">06</span>
+        <h2>Guardrails at work</h2>
+      </div>
+      <p class="section-sub">
+        The trade log above only shows what got traded. Just as much of the system is the
+        candidates that <em>didn't</em> — every cycle, signals get screened against a hard
+        confirmation-gate rule, a same-direction concentration cap, and a proven-negative
+        timeframe block before Claude ever gets to place an order. This tracks how often
+        each rule actually fires.
+      </p>
+      <div class="chart-card" id="blocked-card">
+        <button class="table-toggle" data-target="blocked-table-wrap">View as table</button>
+        <h3>Candidates blocked, by rule</h3>
+        <p class="chart-caption" id="blocked-caption">Tracking started 2026-08-13 — no reliable structured data before this rebuild.</p>
+        <div class="chart-viewport" id="blocked-viewport"></div>
+        <div class="data-table-wrap" id="blocked-table-wrap"></div>
+      </div>
+    </section>
+
+    <section class="section" id="scanner">
+      <div class="section-heading">
+        <span class="section-index">07</span>
         <h2>Scanner case study</h2>
       </div>
       <p class="section-sub">
@@ -118,9 +165,26 @@
       </div>
     </section>
 
+    <section class="section" id="changelog">
+      <div class="section-heading">
+        <span class="section-index">08</span>
+        <h2>System changelog</h2>
+      </div>
+      <p class="section-sub">
+        The scanner case study above is one example of a general loop this project runs on
+        repeat: find a bad pattern in the data, ship a guardrail or prompt change against
+        it, then check whether the next batch of live trades actually confirms it worked.
+        Every entry below is a real, dated intervention — including the ones that needed a
+        second pass, and the one still sitting unresolved.
+      </p>
+      <div class="chart-card" id="changelog-card">
+        <div id="changelog-viewport"></div>
+      </div>
+    </section>
+
     <section class="section" id="tradelog">
       <div class="section-heading">
-        <span class="section-index">06</span>
+        <span class="section-index">09</span>
         <h2>Trade log &amp; reasoning explorer</h2>
       </div>
       <p class="section-sub">

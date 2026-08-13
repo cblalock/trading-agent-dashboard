@@ -583,3 +583,75 @@ table.data-table tr:hover td {
   .page { padding: 20px 16px 60px; }
   .filter-count { margin-left: 0; }
 }
+
+/* ---------- changelog timeline ---------- */
+
+.changelog-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.changelog-entry {
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--text-muted);
+  border-radius: 10px;
+  padding: 14px 18px;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.changelog-entry.status-confirmed { border-left-color: var(--status-good); }
+.changelog-entry.status-watching { border-left-color: var(--status-warning); }
+.changelog-entry.status-needs_revisit { border-left-color: var(--status-serious); }
+.changelog-entry.status-shipped { border-left-color: var(--series-1-blue); }
+
+.changelog-head {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 6px;
+}
+
+.changelog-date {
+  font-family: "SFMono-Regular", Consolas, monospace;
+  color: var(--text-muted);
+  font-size: 0.78rem;
+}
+
+.changelog-title {
+  font-weight: 600;
+  font-size: 0.98rem;
+  color: var(--text-primary);
+}
+
+.changelog-status {
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  margin-left: auto;
+}
+
+.status-confirmed .changelog-status { color: var(--status-good); }
+.status-watching .changelog-status { color: var(--status-warning); }
+.status-needs_revisit .changelog-status { color: var(--status-serious); }
+.status-shipped .changelog-status { color: var(--series-1-blue); }
+
+.changelog-row {
+  font-size: 0.86rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin: 4px 0;
+}
+
+.changelog-row strong {
+  color: var(--text-muted);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  letter-spacing: 0.03em;
+  margin-right: 6px;
+}

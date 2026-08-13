@@ -597,6 +597,190 @@ function renderScannerCaseStudy(daily, events) {
     daily.map((d) => [fmtDate(d.entry_date), d.count, fmtCurrency2.format(d.total_pnl), fmtCurrency2.format(d.avg_pnl), d.win_rate != null ? fmtPercent1.format(d.win_rate) : "—"]));
 }
 
+// ---------- Budget trend (daily API spend vs. the cap) ----------
+
+function renderBudgetTrend(rows, dailyBudget) {
+  const viewport = document.getElementById("budget-viewport");
+  viewport.innerHTML = "";
+  if (!rows.length) {
+    viewport.innerHTML = '<p class="empty-state">No usage data yet.</p>';
+    return;
+  }
+
+  const NON_EOD_CAP = dailyBudget - 0.15;
+
+  const W = 1000, H = 300;
+  const pad = { top: 20, right: 24, bottom: 40, left: 64 };
+  const innerW = W - pad.left - pad.right;
+  const innerH = H - pad.top - pad.bottom;
+
+  const yMax = Math.max(dailyBudget, ...rows.map((d) => d.cost_usd)) * 1.08;
+  const y = (v) => pad.top + innerH - (v / yMax) * innerH;
+  const y0 = pad.top + innerH;
+
+  const bandW = innerW / rows.length;
+  const barW = Math.min(28, bandW * 0.6);
+  const xCenter = (i) => pad.left + bandW * i + bandW / 2;
+
+  const svg = svgEl("svg", { viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": "Daily API spend vs. budget cap" });
+
+  [0, NON_EOD_CAP, dailyBudget].forEach((v) => {
+    svg.appendChild(svgEl("line", { class: "gridline", x1: pad.left, x2: W - pad.right, y1: y(v), y2: y(v) }));
+    const lbl = svgEl("text", { class: "axis-label", x: pad.left - 10, y: y(v) + 4, "text-anchor": "end" });
+    lbl.textContent = fmtCurrency2.format(v);
+    svg.appendChild(lbl);
+  });
+  const capLine = svgEl("line", { x1: pad.left, x2: W - pad.right, y1: y(NON_EOD_CAP), y2: y(NON_EOD_CAP), stroke: PALETTE.red, "stroke-width": 1, "stroke-dasharray": "4 3" });
+  svg.appendChild(capLine);
+
+  svg.appendChild(svgEl("line", { class: "axis-baseline", x1: pad.left, x2: W - pad.right, y1: y0, y2: y0 }));
+
+  rows.forEach((d, i) => {
+    const hitCap = d.cost_usd >= NON_EOD_CAP - 0.01;
+    const color = hitCap ? PALETTE.red : PALETTE.blue;
+    const barH = Math.max(y0 - y(d.cost_usd), 1);
+    const bar = svgEl("rect", { class: "mark-bar", x: xCenter(i) - barW / 2, y: y(d.cost_usd), width: barW, height: barH, rx: 3, fill: color });
+    svg.appendChild(bar);
+
+    if (d.cap_time) {
+      svg.appendChild(svgEl("circle", { cx: xCenter(i), cy: y(d.cost_usd) - 8, r: 3, fill: PALETTE.yellow }));
+    }
+
+    const hitCol = svgEl("rect", { x: pad.left + bandW * i, y: pad.top, width: bandW, height: innerH, fill: "transparent", style: "cursor:pointer" });
+    hitCol.addEventListener("pointermove", (evt) => {
+      bar.classList.add("hovered");
+      const pos = tooltipPos(evt, viewport);
+      showTooltip(pos.x, pos.y, [
+        { label: fmtDate(d.date), value: fmtCurrency2.format(d.cost_usd) },
+        { label: "API calls", value: String(d.api_calls) },
+        { label: "Capped out at", value: d.cap_time ? `${d.cap_time} ET` : "never hit the wall" },
+      ]);
+    });
+    hitCol.addEventListener("pointerleave", () => { bar.classList.remove("hovered"); hideTooltip(); });
+    svg.appendChild(hitCol);
+
+    if (i === 0 || i === rows.length - 1 || i % Math.ceil(rows.length / 8) === 0) {
+      const lbl = svgEl("text", { class: "axis-label", x: xCenter(i), y: H - pad.bottom + 16, "text-anchor": "middle" });
+      lbl.textContent = fmtDateShort(d.date);
+      svg.appendChild(lbl);
+    }
+  });
+
+  viewport.appendChild(svg);
+  renderSimpleTable("budget-table-wrap", ["Date", "Spent", "API calls", "Capped out at"],
+    rows.map((d) => [fmtDate(d.date), fmtCurrency2.format(d.cost_usd), d.api_calls, d.cap_time ? `${d.cap_time} ET` : "—"]));
+}
+
+// ---------- Blocked candidates (guardrails at work) ----------
+
+function renderBlockedCandidates(rows) {
+  const viewport = document.getElementById("blocked-viewport");
+  const caption = document.getElementById("blocked-caption");
+  viewport.innerHTML = "";
+  if (!rows.length) {
+    viewport.innerHTML = '<p class="empty-state">No blocked attempts logged yet — tracking started 2026-08-13.</p>';
+    return;
+  }
+  if (caption) caption.textContent = "Count of place_option_trade attempts a hard rule actually stopped, by rule.";
+
+  const W = 1000;
+  const rowH = 40;
+  const longestLabel = Math.max(...rows.map((r) => measureTextWidth(r.rule)));
+  const pad = { top: 10, right: 70, bottom: 10, left: Math.max(140, longestLabel + 24) };
+  const innerW = W - pad.left - pad.right;
+  const H = pad.top + pad.bottom + rows.length * rowH;
+  const maxCount = Math.max(...rows.map((r) => r.count), 1);
+
+  const svg = svgEl("svg", { viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": "Blocked candidates by rule" });
+  svg.appendChild(svgEl("line", { class: "axis-baseline", x1: pad.left, x2: pad.left, y1: pad.top, y2: H - pad.bottom }));
+
+  rows.forEach((r, i) => {
+    const cy = pad.top + i * rowH + rowH / 2;
+    const barH = 20;
+    const barW = (r.count / maxCount) * innerW;
+    const bar = svgEl("rect", { class: "mark-bar", x: pad.left, y: cy - barH / 2, width: Math.max(barW, 1), height: barH, rx: 4, fill: PALETTE.violet });
+    svg.appendChild(bar);
+
+    const label = svgEl("text", { class: "category-label", x: pad.left - 12, y: cy + 4, "text-anchor": "end" });
+    label.textContent = r.rule;
+    svg.appendChild(label);
+
+    const valLabel = svgEl("text", { class: "direct-label", x: pad.left + barW + 8, y: cy + 4 });
+    valLabel.textContent = String(r.count);
+    svg.appendChild(valLabel);
+
+    const hitRow = svgEl("rect", { x: pad.left, y: cy - rowH / 2, width: innerW, height: rowH, fill: "transparent", style: "cursor:pointer" });
+    hitRow.addEventListener("pointermove", (evt) => {
+      bar.classList.add("hovered");
+      const pos = tooltipPos(evt, viewport);
+      showTooltip(pos.x, pos.y, [
+        { key: PALETTE.violet, label: r.rule, value: "" },
+        { label: "Blocked attempts", value: String(r.count) },
+      ]);
+    });
+    hitRow.addEventListener("pointerleave", () => { bar.classList.remove("hovered"); hideTooltip(); });
+    svg.appendChild(hitRow);
+  });
+
+  viewport.appendChild(svg);
+  renderSimpleTable("blocked-table-wrap", ["Rule", "Blocked attempts"], rows.map((r) => [r.rule, r.count]));
+}
+
+// ---------- System changelog ----------
+
+const STATUS_LABEL = {
+  confirmed: "Confirmed",
+  watching: "Watching",
+  needs_revisit: "Needs revisit",
+  shipped: "Shipped",
+};
+
+function renderChangelog(entries) {
+  const viewport = document.getElementById("changelog-viewport");
+  viewport.innerHTML = "";
+  if (!entries.length) {
+    viewport.innerHTML = '<p class="empty-state">Nothing logged yet.</p>';
+    return;
+  }
+
+  const list = document.createElement("div");
+  list.className = "changelog-list";
+
+  // newest first
+  [...entries].sort((a, b) => (a.date < b.date ? 1 : -1)).forEach((e) => {
+    const entry = document.createElement("div");
+    entry.className = `changelog-entry status-${e.status}`;
+
+    const head = document.createElement("div");
+    head.className = "changelog-head";
+    const date = document.createElement("span");
+    date.className = "changelog-date";
+    date.textContent = e.date;
+    const title = document.createElement("span");
+    title.className = "changelog-title";
+    title.textContent = e.title;
+    const status = document.createElement("span");
+    status.className = "changelog-status";
+    status.textContent = STATUS_LABEL[e.status] || e.status;
+    head.append(date, title, status);
+    entry.appendChild(head);
+
+    [["Problem", e.problem], ["Change", e.change], ["Result", e.result]].forEach(([label, text]) => {
+      const row = document.createElement("p");
+      row.className = "changelog-row";
+      const strong = document.createElement("strong");
+      strong.textContent = label;
+      row.appendChild(strong);
+      row.appendChild(document.createTextNode(text));
+      entry.appendChild(row);
+    });
+
+    list.appendChild(entry);
+  });
+
+  viewport.appendChild(list);
+}
+
 // ---------- generic table renderer (used for the "view as table" fallback) ----------
 
 function renderSimpleTable(containerId, headers, rows) {
@@ -778,7 +962,10 @@ fetch(`data.json?v=${Date.now()}`)
     renderExitBreakdown(data.exit_breakdown);
     renderDteBreakdown(data.dte_breakdown);
     renderTodBreakdown(data.tod_breakdown);
+    renderBudgetTrend(data.budget_trend, data.daily_budget_usd);
+    renderBlockedCandidates(data.blocked_breakdown || []);
     renderScannerCaseStudy(data.daily_performance, data.scanner_events);
+    renderChangelog(data.changelog || []);
     renderTradeLog(data.trades);
   })
   .catch((err) => {
