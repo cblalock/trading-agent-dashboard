@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-08-13T22:13:30.531883+00:00",
+  "generated_at": "2026-08-14T23:02:36.758699+00:00",
   "kpis": {
-    "total_pnl": -932.7650000000001,
-    "win_rate": 0.4015748031496063,
-    "total_trades": 127,
-    "current_capital": 4067.2349999999997,
+    "total_pnl": -1137.7650000000003,
+    "win_rate": 0.38636363636363635,
+    "total_trades": 132,
+    "current_capital": 3862.2349999999997,
     "starting_capital": 5000.0,
     "wins": 51,
-    "losses": 76
+    "losses": 81
   },
   "equity_curve": [
     {
@@ -1025,6 +1025,46 @@
       "pnl": -56.5,
       "cumulative_pnl": -932.765,
       "capital_after": 4067.235
+    },
+    {
+      "trade_number": 128,
+      "exit_time": "2026-08-14T14:33:29.886",
+      "ticker": "NVDA",
+      "pnl": -77.0,
+      "cumulative_pnl": -1009.765,
+      "capital_after": 3990.235
+    },
+    {
+      "trade_number": 129,
+      "exit_time": "2026-08-14T14:33:36.222",
+      "ticker": "SPY",
+      "pnl": -57.5,
+      "cumulative_pnl": -1067.265,
+      "capital_after": 3932.735
+    },
+    {
+      "trade_number": 130,
+      "exit_time": "2026-08-14T14:49:59.994",
+      "ticker": "XOM",
+      "pnl": -5.0,
+      "cumulative_pnl": -1072.265,
+      "capital_after": 3927.735
+    },
+    {
+      "trade_number": 131,
+      "exit_time": "2026-08-14T16:43:34.814",
+      "ticker": "NVDA",
+      "pnl": -18.0,
+      "cumulative_pnl": -1090.265,
+      "capital_after": 3909.735
+    },
+    {
+      "trade_number": 132,
+      "exit_time": "2026-08-14T18:49:04.020",
+      "ticker": "XOM",
+      "pnl": -47.5,
+      "cumulative_pnl": -1137.765,
+      "capital_after": 3862.235
     }
   ],
   "exit_breakdown": [
@@ -1033,63 +1073,63 @@
       "total_pnl": 7770.5,
       "avg_pnl": 222.0142857143,
       "count": 35,
-      "pct_of_exits": 27.6
+      "pct_of_exits": 26.5
     },
     {
       "exit_category": "Hard Stop",
       "total_pnl": -4274.5,
       "avg_pnl": -224.9736842105,
       "count": 19,
-      "pct_of_exits": 15.0
+      "pct_of_exits": 14.4
     },
     {
       "exit_category": "Striker Stop",
       "total_pnl": -2364.5,
       "avg_pnl": -131.3611111111,
       "count": 18,
-      "pct_of_exits": 14.2
+      "pct_of_exits": 13.6
     },
     {
       "exit_category": "EOD Close",
       "total_pnl": 265.0,
       "avg_pnl": 29.4444444444,
       "count": 9,
-      "pct_of_exits": 7.1
+      "pct_of_exits": 6.8
     },
     {
       "exit_category": "Contra-Signal (15m RSI)",
-      "total_pnl": -421.0,
-      "avg_pnl": -23.3888888889,
-      "count": 18,
-      "pct_of_exits": 14.2
+      "total_pnl": -621.0,
+      "avg_pnl": -28.2272727273,
+      "count": 22,
+      "pct_of_exits": 16.7
     },
     {
       "exit_category": "Contra-Signal (Other)",
-      "total_pnl": -583.5,
-      "avg_pnl": -48.625,
-      "count": 12,
-      "pct_of_exits": 9.4
+      "total_pnl": -588.5,
+      "avg_pnl": -45.2692307692,
+      "count": 13,
+      "pct_of_exits": 9.8
     },
     {
       "exit_category": "Theta Risk",
       "total_pnl": -256.0,
       "avg_pnl": -128.0,
       "count": 2,
-      "pct_of_exits": 1.6
+      "pct_of_exits": 1.5
     },
     {
       "exit_category": "Preemptive Exit",
       "total_pnl": -1051.0,
       "avg_pnl": -116.7777777778,
       "count": 9,
-      "pct_of_exits": 7.1
+      "pct_of_exits": 6.8
     },
     {
       "exit_category": "Liquidation",
       "total_pnl": -17.765,
       "avg_pnl": -3.553,
       "count": 5,
-      "pct_of_exits": 3.9
+      "pct_of_exits": 3.8
     }
   ],
   "dte_breakdown": [
@@ -1102,17 +1142,17 @@
     },
     {
       "dte_bucket": "4-7 DTE",
-      "count": 44,
-      "avg_pnl": 18.3636363636,
-      "total_pnl": 808.0,
-      "win_rate": 0.4545454545
+      "count": 48,
+      "avg_pnl": 14.1666666667,
+      "total_pnl": 680.0,
+      "win_rate": 0.4166666667
     },
     {
       "dte_bucket": "8-14 DTE",
-      "count": 20,
-      "avg_pnl": -22.3,
-      "total_pnl": -446.0,
-      "win_rate": 0.2
+      "count": 21,
+      "avg_pnl": -24.9047619048,
+      "total_pnl": -523.0,
+      "win_rate": 0.1904761905
     },
     {
       "dte_bucket": "Equity",
@@ -1132,24 +1172,24 @@
     },
     {
       "tod_bucket": "Morning (10-11ET)",
-      "count": 41,
-      "avg_pnl": 48.4268292683,
-      "total_pnl": 1985.5,
-      "win_rate": 0.5609756098
+      "count": 43,
+      "avg_pnl": 44.7209302326,
+      "total_pnl": 1923.0,
+      "win_rate": 0.5348837209
     },
     {
       "tod_bucket": "Midday (11-1ET)",
-      "count": 29,
-      "avg_pnl": -33.3448275862,
-      "total_pnl": -967.0,
-      "win_rate": 0.3448275862
+      "count": 30,
+      "avg_pnl": -32.8333333333,
+      "total_pnl": -985.0,
+      "win_rate": 0.3333333333
     },
     {
       "tod_bucket": "Afternoon (1-3ET)",
-      "count": 8,
-      "avg_pnl": -17.125,
-      "total_pnl": -137.0,
-      "win_rate": 0.25
+      "count": 10,
+      "avg_pnl": -26.15,
+      "total_pnl": -261.5,
+      "win_rate": 0.2
     },
     {
       "tod_bucket": "Close (3-4ET)",
@@ -1379,10 +1419,17 @@
     },
     {
       "entry_date": "2026-08-13",
+      "count": 5,
+      "total_pnl": 17.0,
+      "avg_pnl": 3.4,
+      "win_rate": 0.2
+    },
+    {
+      "entry_date": "2026-08-14",
       "count": 4,
-      "total_pnl": 94.0,
-      "avg_pnl": 23.5,
-      "win_rate": 0.25
+      "total_pnl": -128.0,
+      "avg_pnl": -32.0,
+      "win_rate": 0.0
     }
   ],
   "budget_trend": [
@@ -1607,6 +1654,13 @@
       "date": "2026-08-13",
       "cost_usd": 1.95501915,
       "api_calls": 67,
+      "cap_time": "13:19",
+      "cap_minutes_after_open": 229.0
+    },
+    {
+      "date": "2026-08-14",
+      "cost_usd": 1.6962369,
+      "api_calls": 56,
       "cap_time": null,
       "cap_minutes_after_open": null
     }
@@ -1737,6 +1791,118 @@
   ],
   "trades": [
     {
+      "id": 132,
+      "ticker": "XOM",
+      "side": "call",
+      "trade_type": "option",
+      "option_type": "call",
+      "strike_price": 160.0,
+      "expiration_date": "2026-08-21",
+      "entry_time": "2026-08-14T17:05:59.329",
+      "exit_time": "2026-08-14T18:49:04.020",
+      "entry_price": 2.45,
+      "exit_price": 1.975,
+      "qty": 1.0,
+      "pnl": -47.5,
+      "win": false,
+      "status": "closed",
+      "exit_category": "Contra-Signal (15m RSI)",
+      "dte_at_entry": 7.0,
+      "dte_bucket": "4-7 DTE",
+      "hold_type": "Same Day",
+      "tod_bucket": "Afternoon (1-3ET)",
+      "signal_strength": 4,
+      "signal_timeframe": "1-Hour (Swing)",
+      "indicators_triggered_readable": "1h: Full Bull EMA Stack \u2705; 1d: Full Bull EMA Stack \u2705; 15m: Full Bull EMA Stack \u2705 (confirmation); 4h: Bull EMA Stack (9>21>50) (confirmation)",
+      "entry_reason": "XOM 1h + 1d Full Bull EMA Stack \u2014 the ONLY clean signal this cycle: zero contradictions, triple TF bullish alignment (15m Full Bull EMA Stack \u2705, 4h Bull EMA Stack \u2705, 1h + 1d stacked). No opposing signals whatsoever. Strike $160 slightly ITM for delta cushion, Aug 21 expiry (7 DTE). TP1 ~$162.81 (1h ATR target), hard stop at -50% premium (~$1.23).",
+      "exit_reason": "Contra-signal exit \u2014 XOM now shows 1h RSI Bearish Divergence (non-15m) + 15m RSI Bearish Divergence, both contradicting the bullish call thesis. contradicts_confirmation: true on all XOM signals this cycle.",
+      "claude_reasoning": "XOM call entered on 1h + 1d Full Bull EMA Stack. This cycle's XOM signals all carry contradicts_confirmation: true \u2014 the 1h RSI Bearish Divergence (a non-15m opposing signal) corroborates the 15m RSI Bearish Divergence, making this a mandatory contra-signal close rather than discretionary. Position is -23.6% and the opposing signals are getting stronger, not weaker. Hard stop is -50%, but waiting would risk hitting it \u2014 better to exit now with capital preserved while above the stop level."
+    },
+    {
+      "id": 131,
+      "ticker": "NVDA",
+      "side": "call",
+      "trade_type": "option",
+      "option_type": "call",
+      "strike_price": 225.0,
+      "expiration_date": "2026-08-19",
+      "entry_time": "2026-08-14T16:04:56.860",
+      "exit_time": "2026-08-14T16:43:34.814",
+      "entry_price": 3.16,
+      "exit_price": 2.98,
+      "qty": 1.0,
+      "pnl": -18.0,
+      "win": false,
+      "status": "closed",
+      "exit_category": "Contra-Signal (15m RSI)",
+      "dte_at_entry": 5.0,
+      "dte_bucket": "4-7 DTE",
+      "hold_type": "Same Day",
+      "tod_bucket": "Midday (11-1ET)",
+      "signal_strength": 4,
+      "signal_timeframe": "1-Hour (Swing)",
+      "indicators_triggered_readable": "1h: Full Bull EMA Stack \u2705; 1d: Full Bull EMA Stack \u2705; 4h: Bull EMA Stack (9>21>50) (confirmation); 4h: ADX Strong Bull Trend (39.2) (confirmation)",
+      "entry_reason": "NVDA 1h + 1d Full Bull EMA Stack (str 4) \u2014 the ONLY clean signal this cycle: zero contradictions, 2 aligned bullish confirmations: 4h Bull EMA Stack + 4h ADX Strong Bull Trend (39.2). The RSI Bearish Divergence that triggered prior NVDA exits is completely absent this cycle, making this a materially different thesis. Dual-timeframe (1h + 1d) bull stack confirmation. ATM 225 call, Aug 19 (Wed) expiry passes Friday barbell rule. Sizing conservatively to 1 contract given NVDA's poor ticker history (-$54.86 avg over 7 trades), but signal cleanliness justifies the entry.",
+      "exit_reason": "Contra-signal exit \u2014 1h RSI Bearish Divergence now present on NVDA, opposing the bullish call thesis. Non-15m timeframe opposing signal = mandatory close per rules.",
+      "claude_reasoning": "NVDA 1h signal now shows RSI Bearish Divergence (non-15m) in the confirmations list, and contradicts_confirmation is true on both the 1h and 1d NVDA signals this cycle. The 1h RSI Bearish Divergence is not a lone 15m reading \u2014 it's a higher-timeframe contra-signal that mandates closure. Position is only -6.9% so closing here is clean, well above the hard stop. NVDA also has a terrible track record (-$54.86 avg over 7 trades) making holding through uncertainty especially poor risk/reward."
+    },
+    {
+      "id": 130,
+      "ticker": "XOM",
+      "side": "call",
+      "trade_type": "option",
+      "option_type": "call",
+      "strike_price": 160.0,
+      "expiration_date": "2026-08-21",
+      "entry_time": "2026-08-14T14:16:28.485",
+      "exit_time": "2026-08-14T14:49:59.994",
+      "entry_price": 2.21,
+      "exit_price": 2.16,
+      "qty": 1.0,
+      "pnl": -5.0,
+      "win": false,
+      "status": "closed",
+      "exit_category": "Contra-Signal (Other)",
+      "dte_at_entry": 7.0,
+      "dte_bucket": "4-7 DTE",
+      "hold_type": "Same Day",
+      "tod_bucket": "Morning (10-11ET)",
+      "signal_strength": 4,
+      "signal_timeframe": "1-Hour (Swing)",
+      "indicators_triggered_readable": "1h: Full Bull EMA Stack \u2705; 1d: Full Bull EMA Stack \u2705; 15m: Full Bull EMA Stack \u2705 (confirmation); 15m: BB Breakout \u2191 + Volume Surge (confirmation); 15m: RSI Bullish Divergence \u2705 (confirmation); 15m: Resistance Breakout \u2191 (confirmation); 4h: Bull EMA Stack (9>21>50) (confirmation)",
+      "entry_reason": "XOM 1h + 1d Full Bull EMA Stack (str 4) \u2014 the cleanest setup this cycle: FIVE aligned bullish confirmations (15m Full Bull EMA Stack, 15m BB Breakout + Volume Surge, 15m RSI Bullish Divergence, 15m Resistance Breakout, 4h Bull EMA Stack), zero contradictions. Exceptional confirmation depth. ATM $160 strike with massive OI (7,618), 6.3% spread acceptable. 7 DTE Aug 21, safe per Friday barbell rule.",
+      "exit_reason": "Contra-signal exit \u2014 1h Shooting Star (non-RSI) on XOM corroborates 15m RSI Bearish Divergence + 15m RSI Overbought Rejection, all pointing against bullish call thesis. Per rules, non-15m indicator opposing = mandatory close.",
+      "claude_reasoning": "XOM 1h signal now shows Shooting Star (bearish candlestick on the 1h TF), plus 15m RSI Overbought Rejection and 15m RSI Bearish Divergence \u2014 three contra-signals, two of which are 15m RSI. The 1h Shooting Star is a non-RSI indicator on the same timeframe as my bullish thesis and directly corroborates the 15m RSI readings. Under the rules: \"if a non-15m timeframe also opposes, treat the 15m RSI reading as corroborated and close immediately.\" Position is only -4.6% \u2014 much better to cut now than risk a larger drawdown into the weekend. The position hasn't moved toward the TP target and now faces clear reversal signals."
+    },
+    {
+      "id": 129,
+      "ticker": "SPY",
+      "side": "call",
+      "trade_type": "option",
+      "option_type": "call",
+      "strike_price": 780.0,
+      "expiration_date": "2026-08-20",
+      "entry_time": "2026-08-14T14:16:22.248",
+      "exit_time": "2026-08-14T14:33:36.222",
+      "entry_price": 2.675,
+      "exit_price": 2.1,
+      "qty": 1.0,
+      "pnl": -57.5,
+      "win": false,
+      "status": "closed",
+      "exit_category": "Contra-Signal (15m RSI)",
+      "dte_at_entry": 6.0,
+      "dte_bucket": "4-7 DTE",
+      "hold_type": "Same Day",
+      "tod_bucket": "Morning (10-11ET)",
+      "signal_strength": 4,
+      "signal_timeframe": "1-Hour (Swing)",
+      "indicators_triggered_readable": "1h: Full Bull EMA Stack \u2705; 1d: Full Bull EMA Stack \u2705; 15m: Full Bull EMA Stack \u2705 (confirmation); 4h: Bull EMA Stack (9>21>50) (confirmation); 4h: ADX Strong Bull Trend (43.7) (confirmation)",
+      "entry_reason": "SPY 1h + 1d Full Bull EMA Stack (str 4) \u2014 zero contradictions, triple TF confirmation: 15m Full Bull EMA Stack, 4h Bull EMA Stack + ADX Strong Bull Trend (43.7). Best historical ticker in the book (60% WR, +$111.8 avg). Slight OTM $780 strike (TP1 781.13) with best OI (956) and 0.4% spread. Aug 20 expiry (6 DTE) \u2014 safe per Friday barbell rule.",
+      "exit_reason": "Contra-signal exit \u2014 SPY 1h + 15m RSI Bearish Divergence both present, contradicts_confirmation true. 1h divergence corroborates 15m reading, mandatory close under contra-signal rules.",
+      "claude_reasoning": "SPY currently -18.6% ($-49). The current signal scan shows contradicts_confirmation: true for SPY with RSI Bearish Divergence on both 15m and 1h timeframes opposing the bullish call thesis. The 1h RSI Bearish Divergence is a non-15m opposing signal that corroborates the 15m divergence \u2014 this makes the close mandatory (not discretionary). Additionally, 4h ADX Strong Bull Trend (43.1) is still bullish in confirmations, so this isn't a slam dunk, but the multi-TF RSI divergence combination is exactly what the contra-signal rule is designed to catch. Closing to preserve remaining premium."
+    },
+    {
       "id": 128,
       "ticker": "QQQ",
       "side": "call",
@@ -1773,24 +1939,24 @@
       "strike_price": 227.5,
       "expiration_date": "2026-08-21",
       "entry_time": "2026-08-13T17:13:06.983",
-      "exit_time": null,
+      "exit_time": "2026-08-14T14:33:29.886",
       "entry_price": 3.595,
-      "exit_price": null,
+      "exit_price": 2.825,
       "qty": 1.0,
-      "pnl": null,
-      "win": null,
-      "status": "open",
-      "exit_category": "Open",
+      "pnl": -77.0,
+      "win": false,
+      "status": "closed",
+      "exit_category": "Contra-Signal (15m RSI)",
       "dte_at_entry": 8.0,
       "dte_bucket": "8-14 DTE",
-      "hold_type": null,
+      "hold_type": "Overnight",
       "tod_bucket": "Afternoon (1-3ET)",
       "signal_strength": 4,
       "signal_timeframe": "1-Hour (Swing)",
       "indicators_triggered_readable": "1h: Full Bull EMA Stack \u2705; 1d: Full Bull EMA Stack \u2705; 15m: Full Bull EMA Stack \u2705 (confirmation); 4h: Bull EMA Stack (9>21>50) (confirmation); 4h: ADX Strong Bull Trend (37.6) (confirmation)",
       "entry_reason": "NVDA 1h + 1d Full Bull EMA Stack (str 4) \u2014 zero contradictions, clean multi-TF confirmation: 15m Full Bull EMA Stack, 4h Bull EMA Stack, 4h ADX Strong Bull Trend (37.6). Prior bearish divergence that triggered the 120min-ago exit has fully cleared. OTM $227.5 strike targets 1h TP at 229.05 and 1d TP at 243.42 with 8 DTE runway. Tight 1.4% spread, excellent OI (7,315).",
-      "exit_reason": null,
-      "claude_reasoning": null
+      "exit_reason": "Contra-signal exit \u2014 NVDA 1h + 15m RSI Bearish Divergence both present, contradicts_confirmation true on current signal. Same pattern that triggered prior NVDA exit. 1h divergence corroborates 15m, mandatory close.",
+      "claude_reasoning": "NVDA currently -21.7% ($-78). The current signal scan shows contradicts_confirmation: true with RSI Bearish Divergence on both 15m AND 1h timeframes opposing the bullish call thesis. Under the contra-signal rules, when a non-15m timeframe (the 1h) also opposes, the 15m RSI reading is corroborated and closure is mandatory. This is the identical pattern that caused the prior NVDA exit \u2014 multi-timeframe RSI divergence against a bullish position. Closing now before it deteriorates further toward the -50% hard stop."
     },
     {
       "id": 126,
