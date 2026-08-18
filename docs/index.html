@@ -127,19 +127,23 @@
     <section class="section" id="blocked">
       <div class="section-heading">
         <span class="section-index">06</span>
-        <h2>Guardrails at work</h2>
+        <h2>Guardrails at work <span class="retired-tag">(retired 2026-08-17)</span></h2>
       </div>
       <p class="section-sub">
-        The trade log above only shows what got traded. Just as much of the system is the
-        candidates that <em>didn't</em> — every cycle, signals get screened against a hard
+        From 2026-07-24 to 2026-08-17, every cycle screened candidates against a hard
         confirmation-gate rule, a same-direction concentration cap, and a proven-negative
-        timeframe block before Claude ever gets to place an order. This tracks how often
-        each rule actually fires.
+        timeframe block before Claude ever got to place an order. This section tracked how
+        often each rule actually fired. The honest result: in over three weeks live, it was
+        zero — Claude appears to have self-filtered away from flagged candidates in its own
+        reasoning before ever calling the trade tool, so the code path this section measures
+        never triggered even once. All of it was removed 2026-08-17 in favor of an
+        unconstrained-autonomy experiment (see the changelog below) — kept here as a closed,
+        honest record rather than deleted.
       </p>
       <div class="chart-card" id="blocked-card">
         <button class="table-toggle" data-target="blocked-table-wrap">View as table</button>
         <h3>Candidates blocked, by rule</h3>
-        <p class="chart-caption" id="blocked-caption">Tracking started 2026-08-13 — no reliable structured data before this rebuild.</p>
+        <p class="chart-caption" id="blocked-caption">Tracking window: 2026-07-24 through removal on 2026-08-17.</p>
         <div class="chart-viewport" id="blocked-viewport"></div>
         <div class="data-table-wrap" id="blocked-table-wrap"></div>
       </div>

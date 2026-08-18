@@ -124,6 +124,13 @@ CHANGELOG = [
         "change": "New structured logging every time a hard rule blocks an attempted trade, plus a daily spend-vs-cap chart built from existing usage records and parsed cap-out timestamps.",
         "result": "Just shipped. Budget trend has full history back to 6/30; blocked-candidate tracking starts fresh from here — no reliable data exists before this build.",
     },
+    {
+        "date": "2026-08-17", "status": "shipped",
+        "title": "All trading guardrails removed",
+        "problem": "By 8/17 the pattern from item 15 (contra-signal exits dominating the loss column) had held for 5 of the last 6 trading days regardless of which guardrail was live — the agent looks structurally weak in choppy conditions, guardrails or not. Decision: stop optimizing for real-money viability and run this as an open question instead — what does the agent actually do with zero constraints?",
+        "change": "Removed the confirmation-signal gate, concentration guard, 15-minute timeframe block, mandatory hard stop-loss/take-profit, Friday short-fuse close, striker TP/stop ceiling, and per-trade/portfolio sizing caps. The $2/day API budget stayed (a cost control, not a trading guardrail) — but with every signal now a full candidate, cycles blew through it in about an hour, so the strength≥4 scanner filter was put back same-day, explicitly as a cost control rather than a re-added guardrail.",
+        "result": "The only remaining limit is the account's own paper capital (~$3,817 at the time). Awaiting the first live day post-restart.",
+    },
 ]
 
 # One unique color per entry (not per-status) so a tick on the scanner chart

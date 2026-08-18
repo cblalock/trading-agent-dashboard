@@ -110,6 +110,13 @@ a { color: var(--series-1-blue); }
   max-width: 760px;
 }
 
+.retired-tag {
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: var(--text-secondary);
+  letter-spacing: 0.01em;
+}
+
 /* ---------- header ---------- */
 
 .site-header {

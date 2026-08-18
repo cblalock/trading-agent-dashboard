@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-17T23:49:47.007359+00:00",
+  "generated_at": "2026-08-18T00:25:22.083389+00:00",
   "kpis": {
     "total_pnl": -1182.7650000000006,
     "win_rate": 0.381294964028777,
@@ -1731,8 +1731,8 @@
       "date": "2026-08-17",
       "cost_usd": 1.9945662,
       "api_calls": 71,
-      "cap_time": null,
-      "cap_minutes_after_open": null
+      "cap_time": "13:07",
+      "cap_minutes_after_open": 217.0
     }
   ],
   "daily_budget_usd": 2.0,
@@ -1857,6 +1857,16 @@
       "result": "Just shipped. Budget trend has full history back to 6/30; blocked-candidate tracking starts fresh from here \u2014 no reliable data exists before this build.",
       "color": "#6f9330",
       "number": 12
+    },
+    {
+      "date": "2026-08-17",
+      "status": "shipped",
+      "title": "All trading guardrails removed",
+      "problem": "By 8/17 the pattern from item 15 (contra-signal exits dominating the loss column) had held for 5 of the last 6 trading days regardless of which guardrail was live \u2014 the agent looks structurally weak in choppy conditions, guardrails or not. Decision: stop optimizing for real-money viability and run this as an open question instead \u2014 what does the agent actually do with zero constraints?",
+      "change": "Removed the confirmation-signal gate, concentration guard, 15-minute timeframe block, mandatory hard stop-loss/take-profit, Friday short-fuse close, striker TP/stop ceiling, and per-trade/portfolio sizing caps. The $2/day API budget stayed (a cost control, not a trading guardrail) \u2014 but with every signal now a full candidate, cycles blew through it in about an hour, so the strength\u22654 scanner filter was put back same-day, explicitly as a cost control rather than a re-added guardrail.",
+      "result": "The only remaining limit is the account's own paper capital (~$3,817 at the time). Awaiting the first live day post-restart.",
+      "color": "#3987e5",
+      "number": 13
     }
   ],
   "trades": [

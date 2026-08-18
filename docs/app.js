@@ -703,7 +703,7 @@ function renderBlockedCandidates(rows) {
   const caption = document.getElementById("blocked-caption");
   viewport.innerHTML = "";
   if (!rows.length) {
-    viewport.innerHTML = '<p class="empty-state">No blocked attempts logged yet — tracking started 2026-08-13.</p>';
+    viewport.innerHTML = '<p class="empty-state">Zero blocked attempts, the whole time these guardrails were live.</p>';
     return;
   }
   if (caption) caption.textContent = "Count of place_option_trade attempts a hard rule actually stopped, by rule.";
