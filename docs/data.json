@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-08-18T00:25:22.083389+00:00",
+  "generated_at": "2026-08-18T21:40:58.812090+00:00",
   "kpis": {
-    "total_pnl": -1182.7650000000006,
-    "win_rate": 0.381294964028777,
-    "total_trades": 139,
-    "current_capital": 3817.2349999999997,
+    "total_pnl": -1370.7650000000006,
+    "win_rate": 0.37857142857142856,
+    "total_trades": 140,
+    "current_capital": 3629.2349999999997,
     "starting_capital": 5000.0,
     "wins": 53,
-    "losses": 86
+    "losses": 87
   },
   "equity_curve": [
     {
@@ -1121,6 +1121,14 @@
       "pnl": -11.0,
       "cumulative_pnl": -1182.765,
       "capital_after": 3817.235
+    },
+    {
+      "trade_number": 140,
+      "exit_time": "2026-08-18T14:56:40.095",
+      "ticker": "GOOGL",
+      "pnl": -188.0,
+      "cumulative_pnl": -1370.765,
+      "capital_after": 3629.235
     }
   ],
   "exit_breakdown": [
@@ -1129,14 +1137,14 @@
       "total_pnl": 7770.5,
       "avg_pnl": 222.0142857143,
       "count": 35,
-      "pct_of_exits": 25.2
+      "pct_of_exits": 25.0
     },
     {
       "exit_category": "Hard Stop",
       "total_pnl": -4274.5,
       "avg_pnl": -224.9736842105,
       "count": 19,
-      "pct_of_exits": 13.7
+      "pct_of_exits": 13.6
     },
     {
       "exit_category": "Striker Stop",
@@ -1150,21 +1158,21 @@
       "total_pnl": 265.0,
       "avg_pnl": 29.4444444444,
       "count": 9,
-      "pct_of_exits": 6.5
+      "pct_of_exits": 6.4
     },
     {
       "exit_category": "Contra-Signal (15m RSI)",
       "total_pnl": -655.0,
       "avg_pnl": -23.3928571429,
       "count": 28,
-      "pct_of_exits": 20.1
+      "pct_of_exits": 20.0
     },
     {
       "exit_category": "Contra-Signal (Other)",
       "total_pnl": -599.5,
       "avg_pnl": -42.8214285714,
       "count": 14,
-      "pct_of_exits": 10.1
+      "pct_of_exits": 10.0
     },
     {
       "exit_category": "Theta Risk",
@@ -1175,10 +1183,10 @@
     },
     {
       "exit_category": "Preemptive Exit",
-      "total_pnl": -1051.0,
-      "avg_pnl": -116.7777777778,
-      "count": 9,
-      "pct_of_exits": 6.5
+      "total_pnl": -1239.0,
+      "avg_pnl": -123.9,
+      "count": 10,
+      "pct_of_exits": 7.1
     },
     {
       "exit_category": "Liquidation",
@@ -1191,10 +1199,10 @@
   "dte_breakdown": [
     {
       "dte_bucket": "0-3 DTE",
-      "count": 59,
-      "avg_pnl": -21.8559322034,
-      "total_pnl": -1289.5,
-      "win_rate": 0.406779661
+      "count": 60,
+      "avg_pnl": -24.625,
+      "total_pnl": -1477.5,
+      "win_rate": 0.4
     },
     {
       "dte_bucket": "4-7 DTE",
@@ -1221,10 +1229,10 @@
   "tod_breakdown": [
     {
       "tod_bucket": "Open (9:30-10ET)",
-      "count": 49,
-      "avg_pnl": -33.6890816327,
-      "total_pnl": -1650.765,
-      "win_rate": 0.3265306122
+      "count": 50,
+      "avg_pnl": -36.7753,
+      "total_pnl": -1838.765,
+      "win_rate": 0.32
     },
     {
       "tod_bucket": "Morning (10-11ET)",
@@ -1493,6 +1501,13 @@
       "total_pnl": -45.0,
       "avg_pnl": -6.4285714286,
       "win_rate": 0.2857142857
+    },
+    {
+      "entry_date": "2026-08-18",
+      "count": 1,
+      "total_pnl": -188.0,
+      "avg_pnl": -188.0,
+      "win_rate": 0.0
     }
   ],
   "budget_trend": [
@@ -1733,6 +1748,13 @@
       "api_calls": 71,
       "cap_time": "13:07",
       "cap_minutes_after_open": 217.0
+    },
+    {
+      "date": "2026-08-18",
+      "cost_usd": 1.9469496,
+      "api_calls": 86,
+      "cap_time": null,
+      "cap_minutes_after_open": null
     }
   ],
   "daily_budget_usd": 2.0,
@@ -1870,6 +1892,90 @@
     }
   ],
   "trades": [
+    {
+      "id": 142,
+      "ticker": "TSLA",
+      "side": "put",
+      "trade_type": "option",
+      "option_type": "put",
+      "strike_price": 340.0,
+      "expiration_date": "2026-09-18",
+      "entry_time": "2026-08-18T13:49:38.595",
+      "exit_time": null,
+      "entry_price": 15.715,
+      "exit_price": null,
+      "qty": 1.0,
+      "pnl": null,
+      "win": null,
+      "status": "open",
+      "exit_category": "Open",
+      "dte_at_entry": 31.0,
+      "dte_bucket": "15+ DTE",
+      "hold_type": null,
+      "tod_bucket": "Open (9:30-10ET)",
+      "signal_strength": 4,
+      "signal_timeframe": "Daily (Swing/Position)",
+      "indicators_triggered_readable": "1d: Full Bear EMA Stack \u274c",
+      "entry_reason": "TSLA 1d Full Bear EMA Stack (str 4) \u2014 EMA9<21<50 + below EMA200, strong structural downtrend. Target $305.29 from $338.50 = $33 expected move. New ticker (clean slate, no negative history). ATM $340 strike with Sep 18 expiry (31 DTE) aligns perfectly with 1d signal DTE requirement. OI 17,986 = exceptional liquidity, 0.3% spread = near-zero slippage. Stop $357.52. 1 contract at $1,571.50 fits within remaining capital budget.",
+      "exit_reason": null,
+      "claude_reasoning": null
+    },
+    {
+      "id": 141,
+      "ticker": "GOOGL",
+      "side": "put",
+      "trade_type": "option",
+      "option_type": "put",
+      "strike_price": 340.0,
+      "expiration_date": "2026-08-21",
+      "entry_time": "2026-08-18T13:32:59.710",
+      "exit_time": "2026-08-18T14:56:40.095",
+      "entry_price": 3.39,
+      "exit_price": 2.45,
+      "qty": 2.0,
+      "pnl": -188.0,
+      "win": false,
+      "status": "closed",
+      "exit_category": "Preemptive Exit",
+      "dte_at_entry": 3.0,
+      "dte_bucket": "0-3 DTE",
+      "hold_type": "Same Day",
+      "tod_bucket": "Open (9:30-10ET)",
+      "signal_strength": 4,
+      "signal_timeframe": "1-Hour (Swing)",
+      "indicators_triggered_readable": "1h: Full Bear EMA Stack \u274c",
+      "entry_reason": "GOOGL 1h Full Bear EMA Stack (str 4) \u2014 EMA9<21<50 + below EMA200, strong downtrend. Best ticker track record in history (50% WR, +$4.13 avg, n=4). Target $338.49, stop $344.28. ATM strike at 340. 3 DTE (Aug 21 = Friday) is appropriate for 1h signal and avoids weekend gap since it expires Friday. OI 9,332 = excellent. 2 contracts at $339 each = $678 total.",
+      "exit_reason": "GOOGL put moving against us at $343.89, above $340 strike with 2 DTE remaining. -29% loss, theta decay accelerating, price needs $4+ drop to reach strike by Friday.",
+      "claude_reasoning": "GOOGL is at $343.89 vs our $340 put strike \u2014 we're OTM and moving away from target ($338.49). The 1h Bear EMA Stack signal is still present, but with only ~2 DTE (expires Friday Aug 21), theta decay is crushing this position. Entry was $3.39, now $2.35 = -29%. The underlying needs to fall ~$4 just to get to the strike and ~$5.5 to reach the target, with only 2 trading days. Even if the signal is right, there's not enough time for this specific contract to recover. Cutting the loss here to preserve capital."
+    },
+    {
+      "id": 140,
+      "ticker": "MSFT",
+      "side": "call",
+      "trade_type": "option",
+      "option_type": "call",
+      "strike_price": 480.0,
+      "expiration_date": "2026-09-18",
+      "entry_time": "2026-08-18T13:32:53.471",
+      "exit_time": null,
+      "entry_price": 14.695,
+      "exit_price": null,
+      "qty": 1.0,
+      "pnl": null,
+      "win": null,
+      "status": "open",
+      "exit_category": "Open",
+      "dte_at_entry": 31.0,
+      "dte_bucket": "15+ DTE",
+      "hold_type": null,
+      "tod_bucket": "Open (9:30-10ET)",
+      "signal_strength": 5,
+      "signal_timeframe": "Daily (Swing/Position)",
+      "indicators_triggered_readable": "1d: Golden Cross \u2b50 (EMA50/200); 1d: Full Bull EMA Stack \u2705",
+      "entry_reason": "MSFT 1d Golden Cross \u2b50 (str 5) \u2014 EMA50 crossed above EMA200, major structural bullish shift. New ticker with no trade history (clean slate). Target $513.64, stop $461.59. ATM strike with 31 DTE aligns with 1d signal DTE requirement. OI 17,815 = exceptional liquidity. 5.6% spread acceptable. 1 contract to manage overnight risk while capturing the highest-conviction signal of the cycle.",
+      "exit_reason": null,
+      "claude_reasoning": null
+    },
     {
       "id": 139,
       "ticker": "XOM",
