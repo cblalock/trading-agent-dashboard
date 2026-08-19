@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-08-18T21:40:58.812090+00:00",
+  "generated_at": "2026-08-19T22:33:16.455095+00:00",
   "kpis": {
-    "total_pnl": -1370.7650000000006,
-    "win_rate": 0.37857142857142856,
-    "total_trades": 140,
-    "current_capital": 3629.2349999999997,
+    "total_pnl": -1677.2650000000006,
+    "win_rate": 0.3819444444444444,
+    "total_trades": 144,
+    "current_capital": 3322.7349999999997,
     "starting_capital": 5000.0,
-    "wins": 53,
-    "losses": 87
+    "wins": 55,
+    "losses": 89
   },
   "equity_curve": [
     {
@@ -1129,14 +1129,46 @@
       "pnl": -188.0,
       "cumulative_pnl": -1370.765,
       "capital_after": 3629.235
+    },
+    {
+      "trade_number": 141,
+      "exit_time": "2026-08-19T13:54:16.492",
+      "ticker": "XOM",
+      "pnl": 55.0,
+      "cumulative_pnl": -1315.765,
+      "capital_after": 3684.235
+    },
+    {
+      "trade_number": 142,
+      "exit_time": "2026-08-19T14:39:38.029",
+      "ticker": "TSLA",
+      "pnl": -243.0,
+      "cumulative_pnl": -1558.765,
+      "capital_after": 3441.235
+    },
+    {
+      "trade_number": 143,
+      "exit_time": "2026-08-19T14:52:29.068",
+      "ticker": "XOM",
+      "pnl": -127.5,
+      "cumulative_pnl": -1686.265,
+      "capital_after": 3313.735
+    },
+    {
+      "trade_number": 144,
+      "exit_time": "2026-08-19T15:13:13.962",
+      "ticker": "SPY",
+      "pnl": 9.0,
+      "cumulative_pnl": -1677.265,
+      "capital_after": 3322.735
     }
   ],
   "exit_breakdown": [
     {
       "exit_category": "Take Profit",
-      "total_pnl": 7770.5,
-      "avg_pnl": 222.0142857143,
-      "count": 35,
+      "total_pnl": 7825.5,
+      "avg_pnl": 217.375,
+      "count": 36,
       "pct_of_exits": 25.0
     },
     {
@@ -1144,65 +1176,65 @@
       "total_pnl": -4274.5,
       "avg_pnl": -224.9736842105,
       "count": 19,
-      "pct_of_exits": 13.6
+      "pct_of_exits": 13.2
     },
     {
       "exit_category": "Striker Stop",
-      "total_pnl": -2364.5,
-      "avg_pnl": -131.3611111111,
-      "count": 18,
-      "pct_of_exits": 12.9
+      "total_pnl": -2492.0,
+      "avg_pnl": -131.1578947368,
+      "count": 19,
+      "pct_of_exits": 13.2
     },
     {
       "exit_category": "EOD Close",
       "total_pnl": 265.0,
       "avg_pnl": 29.4444444444,
       "count": 9,
-      "pct_of_exits": 6.4
+      "pct_of_exits": 6.2
     },
     {
       "exit_category": "Contra-Signal (15m RSI)",
       "total_pnl": -655.0,
       "avg_pnl": -23.3928571429,
       "count": 28,
-      "pct_of_exits": 20.0
+      "pct_of_exits": 19.4
     },
     {
       "exit_category": "Contra-Signal (Other)",
-      "total_pnl": -599.5,
-      "avg_pnl": -42.8214285714,
-      "count": 14,
-      "pct_of_exits": 10.0
+      "total_pnl": -842.5,
+      "avg_pnl": -56.1666666667,
+      "count": 15,
+      "pct_of_exits": 10.4
     },
     {
       "exit_category": "Theta Risk",
-      "total_pnl": -256.0,
-      "avg_pnl": -128.0,
-      "count": 2,
-      "pct_of_exits": 1.4
+      "total_pnl": -247.0,
+      "avg_pnl": -82.3333333333,
+      "count": 3,
+      "pct_of_exits": 2.1
     },
     {
       "exit_category": "Preemptive Exit",
       "total_pnl": -1239.0,
       "avg_pnl": -123.9,
       "count": 10,
-      "pct_of_exits": 7.1
+      "pct_of_exits": 6.9
     },
     {
       "exit_category": "Liquidation",
       "total_pnl": -17.765,
       "avg_pnl": -3.553,
       "count": 5,
-      "pct_of_exits": 3.6
+      "pct_of_exits": 3.5
     }
   ],
   "dte_breakdown": [
     {
       "dte_bucket": "0-3 DTE",
-      "count": 60,
-      "avg_pnl": -24.625,
-      "total_pnl": -1477.5,
-      "win_rate": 0.4
+      "count": 63,
+      "avg_pnl": -24.4603174603,
+      "total_pnl": -1541.0,
+      "win_rate": 0.4126984127
     },
     {
       "dte_bucket": "4-7 DTE",
@@ -1219,6 +1251,13 @@
       "win_rate": 0.2173913043
     },
     {
+      "dte_bucket": "15+ DTE",
+      "count": 1,
+      "avg_pnl": -243.0,
+      "total_pnl": -243.0,
+      "win_rate": 0.0
+    },
+    {
       "dte_bucket": "Equity",
       "count": 5,
       "avg_pnl": -3.553,
@@ -1229,17 +1268,17 @@
   "tod_breakdown": [
     {
       "tod_bucket": "Open (9:30-10ET)",
-      "count": 50,
-      "avg_pnl": -36.7753,
-      "total_pnl": -1838.765,
-      "win_rate": 0.32
+      "count": 52,
+      "avg_pnl": -38.97625,
+      "total_pnl": -2026.765,
+      "win_rate": 0.3269230769
     },
     {
       "tod_bucket": "Morning (10-11ET)",
-      "count": 45,
-      "avg_pnl": 43.0222222222,
-      "total_pnl": 1936.0,
-      "win_rate": 0.5333333333
+      "count": 47,
+      "avg_pnl": 38.670212766,
+      "total_pnl": 1817.5,
+      "win_rate": 0.5319148936
     },
     {
       "tod_bucket": "Midday (11-1ET)",
@@ -1504,10 +1543,17 @@
     },
     {
       "entry_date": "2026-08-18",
-      "count": 1,
-      "total_pnl": -188.0,
-      "avg_pnl": -188.0,
+      "count": 2,
+      "total_pnl": -431.0,
+      "avg_pnl": -215.5,
       "win_rate": 0.0
+    },
+    {
+      "entry_date": "2026-08-19",
+      "count": 3,
+      "total_pnl": -63.5,
+      "avg_pnl": -21.1666666667,
+      "win_rate": 0.6666666667
     }
   ],
   "budget_trend": [
@@ -1753,6 +1799,13 @@
       "date": "2026-08-18",
       "cost_usd": 1.9469496,
       "api_calls": 86,
+      "cap_time": "13:20",
+      "cap_minutes_after_open": 230.0
+    },
+    {
+      "date": "2026-08-19",
+      "cost_usd": 1.9855044,
+      "api_calls": 77,
       "cap_time": null,
       "cap_minutes_after_open": null
     }
@@ -1893,6 +1946,174 @@
   ],
   "trades": [
     {
+      "id": 148,
+      "ticker": "SPY",
+      "side": "call",
+      "trade_type": "option",
+      "option_type": "call",
+      "strike_price": 771.0,
+      "expiration_date": "2026-09-04",
+      "entry_time": "2026-08-19T16:03:06.140",
+      "exit_time": null,
+      "entry_price": 8.23,
+      "exit_price": null,
+      "qty": 1.0,
+      "pnl": null,
+      "win": null,
+      "status": "open",
+      "exit_category": "Open",
+      "dte_at_entry": 16.0,
+      "dte_bucket": "15+ DTE",
+      "hold_type": null,
+      "tod_bucket": "Midday (11-1ET)",
+      "signal_strength": 4,
+      "signal_timeframe": "Daily (Swing/Position)",
+      "indicators_triggered_readable": "1d: Full Bull EMA Stack \u2705",
+      "entry_reason": "SPY 1d Full Bull EMA Stack (str 4) \u2014 EMA9>21>50 + above EMA200, broad market uptrend confirmed. Best historical ticker (67% WR, +$57.5 avg). Target $788.47 from $770.94 = +2.3% expected move. ATM $771 strike, 16 DTE aligns with 1d signal. Exceptional 0.5% spread. 1 contract at $8.23 = $823, fits remaining effective capital after MSFT/AMZN/PLTR positions.",
+      "exit_reason": null,
+      "claude_reasoning": null
+    },
+    {
+      "id": 147,
+      "ticker": "PLTR",
+      "side": "call",
+      "trade_type": "option",
+      "option_type": "call",
+      "strike_price": 175.0,
+      "expiration_date": "2026-09-18",
+      "entry_time": "2026-08-19T15:13:48.117",
+      "exit_time": null,
+      "entry_price": 8.16,
+      "exit_price": null,
+      "qty": 1.0,
+      "pnl": null,
+      "win": null,
+      "status": "open",
+      "exit_category": "Open",
+      "dte_at_entry": 30.0,
+      "dte_bucket": "15+ DTE",
+      "hold_type": null,
+      "tod_bucket": "Midday (11-1ET)",
+      "signal_strength": 4,
+      "signal_timeframe": "Daily (Swing/Position)",
+      "indicators_triggered_readable": "1d: Full Bull EMA Stack \u2705",
+      "entry_reason": "PLTR 1d Full Bull EMA Stack (str 4) \u2014 EMA9>21>50 + above EMA200, strong structural uptrend. New ticker (clean slate, no negative history). Target $192.00 from $173.06 = $18.94 expected move (+10.9%). Slightly OTM $175 strike with 30 DTE aligns perfectly with 1d signal. Exceptional OI 6,815, 1.7% spread = near-zero slippage. No contradictions from other timeframes this cycle. 1 contract at $8.16 = $816, keeping total deployment within effective capital.",
+      "exit_reason": null,
+      "claude_reasoning": null
+    },
+    {
+      "id": 146,
+      "ticker": "SPY",
+      "side": "call",
+      "trade_type": "option",
+      "option_type": "call",
+      "strike_price": 772.0,
+      "expiration_date": "2026-08-20",
+      "entry_time": "2026-08-19T14:57:03.018",
+      "exit_time": "2026-08-19T15:13:13.962",
+      "entry_price": 1.78,
+      "exit_price": 1.81,
+      "qty": 3.0,
+      "pnl": 9.0,
+      "win": true,
+      "status": "closed",
+      "exit_category": "Theta Risk",
+      "dte_at_entry": 1.0,
+      "dte_bucket": "0-3 DTE",
+      "hold_type": "Same Day",
+      "tod_bucket": "Morning (10-11ET)",
+      "signal_strength": 4,
+      "signal_timeframe": "Daily (Swing/Position)",
+      "indicators_triggered_readable": "1d: Full Bull EMA Stack \u2705",
+      "entry_reason": "SPY 1d Full Bull EMA Stack (str 4) \u2014 broad market uptrend confirmed EMA9>21>50 + above EMA200. Best historical ticker: +$40.33 avg PnL (only profitable ticker in our history, n=3). Target $788.77 (+2.2%), strong 1d momentum. 1 DTE keeps premium cheap and avoids DTE decay on 1d signal. Overnight hold risk acknowledged but market broadly bullish across all major tickers this cycle. 3 contracts at $1.78 = $534 total.",
+      "exit_reason": "SPY 260820C expires today \u2014 expiry day risk, strike $772 vs current ~$771.59, minimal gain of +$12 with significant theta risk as we approach close. QQQ 15m bearish signal adds caution. Taking the small profit rather than risking expiry worthless.",
+      "claude_reasoning": "SPY call expires today (Aug 20). We're at $772 strike with SPY at ~$771.59 \u2014 barely ITM with the position up only $12 on 3 contracts. The 1d target of $789 is far away, and there's no realistic path to reach it today with expiry approaching. The QQQ 15m Full Bear EMA Stack is a mild headwind. Theta is crushing 0-DTE options rapidly. Taking the $12 gain is the right call vs risking $534 capital going to zero at expiry."
+    },
+    {
+      "id": 145,
+      "ticker": "AMZN",
+      "side": "call",
+      "trade_type": "option",
+      "option_type": "call",
+      "strike_price": 260.0,
+      "expiration_date": "2026-09-18",
+      "entry_time": "2026-08-19T14:40:15.113",
+      "exit_time": null,
+      "entry_price": 10.05,
+      "exit_price": null,
+      "qty": 1.0,
+      "pnl": null,
+      "win": null,
+      "status": "open",
+      "exit_category": "Open",
+      "dte_at_entry": 30.0,
+      "dte_bucket": "15+ DTE",
+      "hold_type": null,
+      "tod_bucket": "Morning (10-11ET)",
+      "signal_strength": 4,
+      "signal_timeframe": "Daily (Swing/Position)",
+      "indicators_triggered_readable": "1d: Full Bull EMA Stack \u2705",
+      "entry_reason": "AMZN 1d Full Bull EMA Stack (str 4) \u2014 EMA9>21>50 + above EMA200, strong structural uptrend. New ticker (clean slate, no negative history). Target $280.54 from $261.71 = $18.83 expected move (~7.2%). ATM $260 strike with 30 DTE aligns perfectly with 1d signal DTE requirement. Exceptional OI 20,706, 1.0% spread = near-zero slippage. Mirrors the MSFT 1d bull setup that's currently +$90. 1 contract at $10.05 = $1,005.",
+      "exit_reason": null,
+      "claude_reasoning": null
+    },
+    {
+      "id": 144,
+      "ticker": "XOM",
+      "side": "call",
+      "trade_type": "option",
+      "option_type": "call",
+      "strike_price": 167.5,
+      "expiration_date": "2026-08-21",
+      "entry_time": "2026-08-19T14:23:24.339",
+      "exit_time": "2026-08-19T14:52:29.068",
+      "entry_price": 2.045,
+      "exit_price": 1.62,
+      "qty": 3.0,
+      "pnl": -127.5,
+      "win": false,
+      "status": "closed",
+      "exit_category": "Striker Stop",
+      "dte_at_entry": 2.0,
+      "dte_bucket": "0-3 DTE",
+      "hold_type": "Same Day",
+      "tod_bucket": "Morning (10-11ET)",
+      "signal_strength": 4,
+      "signal_timeframe": "1-Hour (Swing)",
+      "indicators_triggered_readable": "1h: Full Bull EMA Stack \u2705; 1d: Full Bull EMA Stack \u2705",
+      "entry_reason": "XOM 1h + 1d dual Full Bull EMA Stack (str 4+4) \u2014 both timeframes aligned bullish. Just had a striker TP at $167.50 28min ago; price has continued higher to $167.84, confirming momentum. Target $169.92 (1h) is $2.08 above entry \u2014 excellent risk/reward for a short-duration scalp. OI 2,855 adequate. 2 DTE means tight theta but striker exits mechanically before decay matters. Best ticker in our history (n=7, 43% WR, +$5 avg PnL). 3 contracts at $2.045 = $613.50.",
+      "exit_reason": "striker_stop",
+      "claude_reasoning": "Automatic striker exit (-21% on premium: entry $2.04 -> current $1.62), per the thresholds set at entry."
+    },
+    {
+      "id": 143,
+      "ticker": "XOM",
+      "side": "call",
+      "trade_type": "option",
+      "option_type": "call",
+      "strike_price": 167.5,
+      "expiration_date": "2026-08-21",
+      "entry_time": "2026-08-19T13:49:34.273",
+      "exit_time": "2026-08-19T13:54:16.492",
+      "entry_price": 1.675,
+      "exit_price": 1.95,
+      "qty": 2.0,
+      "pnl": 55.0,
+      "win": true,
+      "status": "closed",
+      "exit_category": "Take Profit",
+      "dte_at_entry": 2.0,
+      "dte_bucket": "0-3 DTE",
+      "hold_type": "Same Day",
+      "tod_bucket": "Open (9:30-10ET)",
+      "signal_strength": 4,
+      "signal_timeframe": "1-Hour (Swing)",
+      "indicators_triggered_readable": "1h: Full Bull EMA Stack \u2705; 1d: Full Bull EMA Stack \u2705",
+      "entry_reason": "XOM 1h + 1d dual Full Bull EMA Stack (str 4+4) \u2014 both timeframes aligned bullish, EMA9>21>50 + above EMA200. Price already moving up from $167.12 signal to $168.43. 1d target $175.79 = +4.4% move. XOM ticker history: 33% WR / -$3.33 avg (best non-SPY in book). 2 DTE (Aug 21) chosen for 1h signal timeframe with low theta cost. Striker mode: +15% TP / -12% stop for fast mechanical exit given short DTE. 2 contracts = $335 risk, fits within ~$499 remaining effective capital.",
+      "exit_reason": "striker_take_profit",
+      "claude_reasoning": "Automatic striker exit (+16% on premium: entry $1.68 -> current $1.95), per the thresholds set at entry."
+    },
+    {
       "id": 142,
       "ticker": "TSLA",
       "side": "put",
@@ -1901,24 +2122,24 @@
       "strike_price": 340.0,
       "expiration_date": "2026-09-18",
       "entry_time": "2026-08-18T13:49:38.595",
-      "exit_time": null,
+      "exit_time": "2026-08-19T14:39:38.029",
       "entry_price": 15.715,
-      "exit_price": null,
+      "exit_price": 13.285,
       "qty": 1.0,
-      "pnl": null,
-      "win": null,
-      "status": "open",
-      "exit_category": "Open",
+      "pnl": -243.0,
+      "win": false,
+      "status": "closed",
+      "exit_category": "Contra-Signal (Other)",
       "dte_at_entry": 31.0,
       "dte_bucket": "15+ DTE",
-      "hold_type": null,
+      "hold_type": "Overnight",
       "tod_bucket": "Open (9:30-10ET)",
       "signal_strength": 4,
       "signal_timeframe": "Daily (Swing/Position)",
       "indicators_triggered_readable": "1d: Full Bear EMA Stack \u274c",
       "entry_reason": "TSLA 1d Full Bear EMA Stack (str 4) \u2014 EMA9<21<50 + below EMA200, strong structural downtrend. Target $305.29 from $338.50 = $33 expected move. New ticker (clean slate, no negative history). ATM $340 strike with Sep 18 expiry (31 DTE) aligns perfectly with 1d signal DTE requirement. OI 17,986 = exceptional liquidity, 0.3% spread = near-zero slippage. Stop $357.52. 1 contract at $1,571.50 fits within remaining capital budget.",
-      "exit_reason": null,
-      "claude_reasoning": null
+      "exit_reason": "TSLA 1h now shows Full Bull EMA Stack (str 4) directly opposing bearish put thesis. Price at $343.77 moving away from $340 strike. -19% loss approaching hard stop territory, contra-signal confirms exit.",
+      "claude_reasoning": "We hold a TSLA put (bearish, strike $340) but the current 1h signal shows a Full Bull EMA Stack bullish signal targeting $351.88 \u2014 a direct contra-signal. Price is at $343.77 and moving higher, making our put increasingly OTM. While the 1d signal still shows bearish alignment, the short-term momentum is clearly bullish. At -19% loss with a contradicting 1h signal, this is the right time to exit rather than hope for a reversal. The -$305 loss is significant but holding further risks deepening the loss if the 1h momentum carries through."
     },
     {
       "id": 141,
